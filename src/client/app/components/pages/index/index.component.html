@@ -1,0 +1,9 @@
+<div class="p-3">
+    <h1 class="mb-3">QRCODE: <strong *ngIf="code">{{ code }}</strong></h1>
+    <div class="mb-3"><video id="video" class="bg-black" src="" autoplay muted playsinline></video></div>
+    <div class="d-none"><canvas id="canvas"></canvas></div>
+    <div>
+        <button *ngIf="stream === null" type="button" class="btn btn-primary" (click)="start()">start</button>
+        <button *ngIf="stream !== null" type="button" class="btn btn-danger" (click)="stop()">stop</button>
+    </div>
+</div>

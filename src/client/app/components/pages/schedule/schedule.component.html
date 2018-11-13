@@ -1,0 +1,28 @@
+<div class="p-3">
+    <p class="mb-3">スケジュールを選択してください</p>
+    <div class="condition">
+        <div class="mb-3">
+            <select class="p-2" [(ngModel)]="theaterCode" (change)="getScreeningEvents()">
+                <option *ngFor="let movieTheater of (movieTheaters | async)" [value]="movieTheater.location.branchCode">{{
+                    movieTheater.name.ja }}</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <select class="p-2" [(ngModel)]="date" (change)="getScreeningEvents()">
+                <option *ngFor="let date of dates" [value]="date">{{ moment(date).format('YYYY/MM/DD (ddd)') }}</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="screeningEvents">
+        <p *ngIf="(screeningEvents | async).length === 0">スケジュールがありません。</p>
+        <ul *ngIf="(screeningEvents | async).length > 0">
+            <li *ngFor="let screeningEvent of (screeningEvents | async)" class="bg-primary text-white mb-2 px-3 py-2" (click)="select(screeningEvent)">
+                <p>{{ screeningEvent.name.ja }}</p>
+                <p class="small-text">{{ screeningEvent.location.name.ja }}</p>
+                <p class="small-text">開場時間 {{ moment(screeningEvent.doorTime).format('MM/DD HH:mm') }}</p>
+                <p class="small-text">上映時間 {{ moment(screeningEvent.startDate).format('HH:mm') }} - {{ moment(screeningEvent.endDate).format('HH:mm') }}</p>
+            </li>
+        </ul>
+    </div>
+</div>
