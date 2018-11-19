@@ -8,6 +8,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SwiperModule } from 'ngx-swiper-wrapper';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './components/app/app.component';
 import { AdmissionComponent } from './components/pages/admission/admission.component';
@@ -62,7 +63,8 @@ import { CoreStoreModule } from './store/core/store';
         FormsModule,
         StoreModule,
         CoreStoreModule,
-        NgbModule
+        NgbModule,
+        SwiperModule
     ],
     providers: [],
     bootstrap: [AppComponent]

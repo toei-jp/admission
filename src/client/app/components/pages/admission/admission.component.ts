@@ -1,9 +1,9 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { factory } from '@cinerino/api-javascript-client';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Actions, ofType } from '@ngrx/effects';
 import { select, Store } from '@ngrx/store';
-import { factory } from '@toei-jp/cinerino-api-javascript-client';
 import jsqr from 'jsqr';
 import * as moment from 'moment';
 import { Observable, race } from 'rxjs';
@@ -24,7 +24,8 @@ import { AlertModalComponent } from '../../parts/alert-modal/alert-modal.compone
     styleUrls: ['./admission.component.scss']
 })
 export class AdmissionComponent implements OnInit, OnDestroy {
-    public screeningEventReservations: Observable<factory.chevre.reservation.IReservation[]>;
+    public screeningEventReservations:
+        Observable<factory.chevre.reservation.event.IReservation<factory.chevre.event.screeningEvent.IEvent>[]>;
     public screeningEvent: Observable<factory.chevre.event.screeningEvent.IEvent | undefined>;
     public qrcodeToken: Observable<{
         token?: string;

@@ -2,26 +2,44 @@
     <p class="mb-3">スケジュールを選択してください</p>
     <div class="condition">
         <div class="mb-3">
-            <select class="p-2" [(ngModel)]="theaterCode" (change)="getScreeningEvents()">
+            <select class="p-2" [(ngModel)]="theaterCode" (change)="getScreeningEvents(selectedDate)">
                 <option *ngFor="let movieTheater of (movieTheaters | async)" [value]="movieTheater.location.branchCode">{{
                     movieTheater.name.ja }}</option>
             </select>
         </div>
         <div class="mb-3">
-            <select class="p-2" [(ngModel)]="date" (change)="getScreeningEvents()">
+            <div class="swiper-cover position-relative">
+                <div class="swiper-container mb-3" #swiper [swiper]="swiperConfig" (resize)="resize()">
+                    <div class="swiper-wrapper">
+                        <div *ngFor="let date of dates" class="swiper-slide">
+                            <div class="py-4 text-center pointer" [ngClass]="{'bg-primary text-white': date === selectedDate}"
+                                (click)="getScreeningEvents(date)">{{ moment(date).format('MM/DD (ddd)') }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+            <!-- <select class="p-2" [(ngModel)]="date" (change)="getScreeningEvents()">
                 <option *ngFor="let date of dates" [value]="date">{{ moment(date).format('YYYY/MM/DD (ddd)') }}</option>
-            </select>
+            </select> -->
         </div>
     </div>
 
     <div class="screeningEvents">
         <p *ngIf="(screeningEvents | async).length === 0">スケジュールがありません。</p>
         <ul *ngIf="(screeningEvents | async).length > 0">
-            <li *ngFor="let screeningEvent of (screeningEvents | async)" class="bg-primary text-white mb-2 px-3 py-2" (click)="select(screeningEvent)">
+            <li *ngFor="let screeningEvent of (screeningEvents | async)" class="mb-2 px-3 py-2"
+            [ngClass]="{ 
+            'bg-primary text-white': !(moment(screeningEvent.endDate).unix() < moment().unix()), 
+            'bg-dark text-light': moment(screeningEvent.endDate).unix() < moment().unix()
+            }"
+            (click)="select(screeningEvent)">
                 <p>{{ screeningEvent.name.ja }}</p>
                 <p class="small-text">{{ screeningEvent.location.name.ja }}</p>
                 <p class="small-text">開場時間 {{ moment(screeningEvent.doorTime).format('MM/DD HH:mm') }}</p>
-                <p class="small-text">上映時間 {{ moment(screeningEvent.startDate).format('HH:mm') }} - {{ moment(screeningEvent.endDate).format('HH:mm') }}</p>
+                <p class="small-text">上映時間 {{ moment(screeningEvent.startDate).format('HH:mm') }} - {{
+                    moment(screeningEvent.endDate).format('HH:mm') }}</p>
             </li>
         </ul>
     </div>

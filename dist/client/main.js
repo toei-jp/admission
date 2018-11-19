@@ -390,26 +390,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "../../node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/platform-browser */ "../../node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 /* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "../../node_modules/@ng-bootstrap/ng-bootstrap/fesm5/ng-bootstrap.js");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app-routing.module */ "./app/app-routing.module.ts");
-/* harmony import */ var _components_app_app_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/app/app.component */ "./app/components/app/app.component.ts");
-/* harmony import */ var _components_pages_admission_admission_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/pages/admission/admission.component */ "./app/components/pages/admission/admission.component.ts");
-/* harmony import */ var _components_pages_auth_auth_index_auth_index_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/pages/auth/auth-index/auth-index.component */ "./app/components/pages/auth/auth-index/auth-index.component.ts");
-/* harmony import */ var _components_pages_auth_auth_signin_auth_signin_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/pages/auth/auth-signin/auth-signin.component */ "./app/components/pages/auth/auth-signin/auth-signin.component.ts");
-/* harmony import */ var _components_pages_auth_auth_signout_auth_signout_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/pages/auth/auth-signout/auth-signout.component */ "./app/components/pages/auth/auth-signout/auth-signout.component.ts");
-/* harmony import */ var _components_pages_base_base_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/pages/base/base.component */ "./app/components/pages/base/base.component.ts");
-/* harmony import */ var _components_pages_error_error_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/pages/error/error.component */ "./app/components/pages/error/error.component.ts");
-/* harmony import */ var _components_pages_index_index_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/pages/index/index.component */ "./app/components/pages/index/index.component.ts");
-/* harmony import */ var _components_pages_notfound_notfound_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/pages/notfound/notfound.component */ "./app/components/pages/notfound/notfound.component.ts");
-/* harmony import */ var _components_pages_schedule_schedule_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/pages/schedule/schedule.component */ "./app/components/pages/schedule/schedule.component.ts");
-/* harmony import */ var _components_parts_alert_modal_alert_modal_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/parts/alert-modal/alert-modal.component */ "./app/components/parts/alert-modal/alert-modal.component.ts");
-/* harmony import */ var _components_parts_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/parts/confirm-modal/confirm-modal.component */ "./app/components/parts/confirm-modal/confirm-modal.component.ts");
-/* harmony import */ var _components_parts_contents_contents_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/parts/contents/contents.component */ "./app/components/parts/contents/contents.component.ts");
-/* harmony import */ var _components_parts_footer_footer_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/parts/footer/footer.component */ "./app/components/parts/footer/footer.component.ts");
-/* harmony import */ var _components_parts_header_menu_header_menu_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/parts/header-menu/header-menu.component */ "./app/components/parts/header-menu/header-menu.component.ts");
-/* harmony import */ var _components_parts_header_header_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/parts/header/header.component */ "./app/components/parts/header/header.component.ts");
-/* harmony import */ var _components_parts_loading_loading_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/parts/loading/loading.component */ "./app/components/parts/loading/loading.component.ts");
-/* harmony import */ var _store_module__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./store.module */ "./app/store.module.ts");
-/* harmony import */ var _store_core_store__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./store/core/store */ "./app/store/core/store/index.ts");
+/* harmony import */ var ngx_swiper_wrapper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-swiper-wrapper */ "../../node_modules/ngx-swiper-wrapper/dist/ngx-swiper-wrapper.es5.js");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app-routing.module */ "./app/app-routing.module.ts");
+/* harmony import */ var _components_app_app_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/app/app.component */ "./app/components/app/app.component.ts");
+/* harmony import */ var _components_pages_admission_admission_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/pages/admission/admission.component */ "./app/components/pages/admission/admission.component.ts");
+/* harmony import */ var _components_pages_auth_auth_index_auth_index_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/pages/auth/auth-index/auth-index.component */ "./app/components/pages/auth/auth-index/auth-index.component.ts");
+/* harmony import */ var _components_pages_auth_auth_signin_auth_signin_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/pages/auth/auth-signin/auth-signin.component */ "./app/components/pages/auth/auth-signin/auth-signin.component.ts");
+/* harmony import */ var _components_pages_auth_auth_signout_auth_signout_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/pages/auth/auth-signout/auth-signout.component */ "./app/components/pages/auth/auth-signout/auth-signout.component.ts");
+/* harmony import */ var _components_pages_base_base_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/pages/base/base.component */ "./app/components/pages/base/base.component.ts");
+/* harmony import */ var _components_pages_error_error_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/pages/error/error.component */ "./app/components/pages/error/error.component.ts");
+/* harmony import */ var _components_pages_index_index_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/pages/index/index.component */ "./app/components/pages/index/index.component.ts");
+/* harmony import */ var _components_pages_notfound_notfound_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/pages/notfound/notfound.component */ "./app/components/pages/notfound/notfound.component.ts");
+/* harmony import */ var _components_pages_schedule_schedule_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/pages/schedule/schedule.component */ "./app/components/pages/schedule/schedule.component.ts");
+/* harmony import */ var _components_parts_alert_modal_alert_modal_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/parts/alert-modal/alert-modal.component */ "./app/components/parts/alert-modal/alert-modal.component.ts");
+/* harmony import */ var _components_parts_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/parts/confirm-modal/confirm-modal.component */ "./app/components/parts/confirm-modal/confirm-modal.component.ts");
+/* harmony import */ var _components_parts_contents_contents_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/parts/contents/contents.component */ "./app/components/parts/contents/contents.component.ts");
+/* harmony import */ var _components_parts_footer_footer_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/parts/footer/footer.component */ "./app/components/parts/footer/footer.component.ts");
+/* harmony import */ var _components_parts_header_menu_header_menu_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/parts/header-menu/header-menu.component */ "./app/components/parts/header-menu/header-menu.component.ts");
+/* harmony import */ var _components_parts_header_header_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/parts/header/header.component */ "./app/components/parts/header/header.component.ts");
+/* harmony import */ var _components_parts_loading_loading_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/parts/loading/loading.component */ "./app/components/parts/loading/loading.component.ts");
+/* harmony import */ var _store_module__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./store.module */ "./app/store.module.ts");
+/* harmony import */ var _store_core_store__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./store/core/store */ "./app/store/core/store/index.ts");
 /**
  * NgModule
  */
@@ -445,6 +446,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 // tslint:disable-next-line:no-stateless-class
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -452,40 +454,41 @@ var AppModule = /** @class */ (function () {
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
-                _components_app_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"],
-                _components_pages_notfound_notfound_component__WEBPACK_IMPORTED_MODULE_14__["NotfoundComponent"],
-                _components_parts_contents_contents_component__WEBPACK_IMPORTED_MODULE_18__["ContentsComponent"],
-                _components_parts_header_header_component__WEBPACK_IMPORTED_MODULE_21__["HeaderComponent"],
-                _components_parts_header_menu_header_menu_component__WEBPACK_IMPORTED_MODULE_20__["HeaderMenuComponent"],
-                _components_parts_footer_footer_component__WEBPACK_IMPORTED_MODULE_19__["FooterComponent"],
-                _components_parts_alert_modal_alert_modal_component__WEBPACK_IMPORTED_MODULE_16__["AlertModalComponent"],
-                _components_parts_loading_loading_component__WEBPACK_IMPORTED_MODULE_22__["LoadingComponent"],
-                _components_pages_error_error_component__WEBPACK_IMPORTED_MODULE_12__["ErrorComponent"],
-                _components_pages_base_base_component__WEBPACK_IMPORTED_MODULE_11__["BaseComponent"],
-                _components_parts_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_17__["ConfirmModalComponent"],
-                _components_pages_index_index_component__WEBPACK_IMPORTED_MODULE_13__["IndexComponent"],
-                _components_pages_schedule_schedule_component__WEBPACK_IMPORTED_MODULE_15__["ScheduleComponent"],
-                _components_pages_admission_admission_component__WEBPACK_IMPORTED_MODULE_7__["AdmissionComponent"],
-                _components_pages_auth_auth_signin_auth_signin_component__WEBPACK_IMPORTED_MODULE_9__["AuthSigninComponent"],
-                _components_pages_auth_auth_signout_auth_signout_component__WEBPACK_IMPORTED_MODULE_10__["AuthSignoutComponent"],
-                _components_pages_auth_auth_index_auth_index_component__WEBPACK_IMPORTED_MODULE_8__["AuthIndexComponent"],
+                _components_app_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"],
+                _components_pages_notfound_notfound_component__WEBPACK_IMPORTED_MODULE_15__["NotfoundComponent"],
+                _components_parts_contents_contents_component__WEBPACK_IMPORTED_MODULE_19__["ContentsComponent"],
+                _components_parts_header_header_component__WEBPACK_IMPORTED_MODULE_22__["HeaderComponent"],
+                _components_parts_header_menu_header_menu_component__WEBPACK_IMPORTED_MODULE_21__["HeaderMenuComponent"],
+                _components_parts_footer_footer_component__WEBPACK_IMPORTED_MODULE_20__["FooterComponent"],
+                _components_parts_alert_modal_alert_modal_component__WEBPACK_IMPORTED_MODULE_17__["AlertModalComponent"],
+                _components_parts_loading_loading_component__WEBPACK_IMPORTED_MODULE_23__["LoadingComponent"],
+                _components_pages_error_error_component__WEBPACK_IMPORTED_MODULE_13__["ErrorComponent"],
+                _components_pages_base_base_component__WEBPACK_IMPORTED_MODULE_12__["BaseComponent"],
+                _components_parts_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_18__["ConfirmModalComponent"],
+                _components_pages_index_index_component__WEBPACK_IMPORTED_MODULE_14__["IndexComponent"],
+                _components_pages_schedule_schedule_component__WEBPACK_IMPORTED_MODULE_16__["ScheduleComponent"],
+                _components_pages_admission_admission_component__WEBPACK_IMPORTED_MODULE_8__["AdmissionComponent"],
+                _components_pages_auth_auth_signin_auth_signin_component__WEBPACK_IMPORTED_MODULE_10__["AuthSigninComponent"],
+                _components_pages_auth_auth_signout_auth_signout_component__WEBPACK_IMPORTED_MODULE_11__["AuthSignoutComponent"],
+                _components_pages_auth_auth_index_auth_index_component__WEBPACK_IMPORTED_MODULE_9__["AuthIndexComponent"],
             ],
             entryComponents: [
-                _components_parts_alert_modal_alert_modal_component__WEBPACK_IMPORTED_MODULE_16__["AlertModalComponent"],
-                _components_parts_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_17__["ConfirmModalComponent"]
+                _components_parts_alert_modal_alert_modal_component__WEBPACK_IMPORTED_MODULE_17__["AlertModalComponent"],
+                _components_parts_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_18__["ConfirmModalComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["BrowserModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpClientModule"],
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_5__["AppRoutingModule"],
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_6__["AppRoutingModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
-                _store_module__WEBPACK_IMPORTED_MODULE_23__["StoreModule"],
-                _store_core_store__WEBPACK_IMPORTED_MODULE_24__["CoreStoreModule"],
-                _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_4__["NgbModule"]
+                _store_module__WEBPACK_IMPORTED_MODULE_24__["StoreModule"],
+                _store_core_store__WEBPACK_IMPORTED_MODULE_25__["CoreStoreModule"],
+                _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_4__["NgbModule"],
+                ngx_swiper_wrapper__WEBPACK_IMPORTED_MODULE_5__["SwiperModule"]
             ],
             providers: [],
-            bootstrap: [_components_app_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
+            bootstrap: [_components_app_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -507,7 +510,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthGuardService", function() { return AuthGuardService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "../../node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _services_cinerino_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/cinerino.service */ "./app/services/cinerino.service.ts");
+/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services */ "./app/services/index.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -594,7 +597,7 @@ var AuthGuardService = /** @class */ (function () {
             providedIn: 'root'
         }),
         __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
-            _services_cinerino_service__WEBPACK_IMPORTED_MODULE_2__["CinerinoService"]])
+            _services__WEBPACK_IMPORTED_MODULE_2__["CinerinoService"]])
     ], AuthGuardService);
     return AuthGuardService;
 }());
@@ -702,7 +705,7 @@ var AppComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div [class.d-block]=\"isShowVideo\" [class.d-none]=\"!isShowVideo\">\n    <div class=\"d-flex align-items-center video-area\"><video id=\"video\" class=\"bg-black\" src=\"\" autoplay muted playsinline></video></div>\n    <div class=\"d-none\"><canvas id=\"canvas\"></canvas></div>\n</div>\n<div class=\"p-3\">\n    <div class=\"w-50 mx-auto mb-3\">\n        <button *ngIf=\"stream === null\" type=\"button\" class=\"btn btn-primary btn-block\" (click)=\"start()\">カメラで読込</button>\n        <button *ngIf=\"stream !== null\" type=\"button\" class=\"btn btn-danger btn-block\" (click)=\"stop()\">カメラを停止</button>\n    </div>\n    <div *ngIf=\"!(isLoading | async)\" class=\"mb-3\">\n        <div *ngIf=\"qrcodeToken | async\">\n            <div *ngIf=\"(qrcodeToken | async).isAvailable\" class=\"p-4 bg-success text-white text-center\">\n                <div class=\"flash-text large-x-text font-weight-bold mb-2\">OK</div>\n                <p>座席: {{ (qrcodeToken | async).availableReservation.reservedTicket.ticketedSeat.seatNumber }}</p>\n                <p>入場回数: {{ (qrcodeToken | async).checkTokenActions.length }}</p>\n            </div>\n            <div *ngIf=\"!(qrcodeToken | async).isAvailable\" class=\"p-4 bg-warning text-white text-center\">\n                <div class=\"flash-text large-x-text font-weight-bold mb-2\">NG</div>\n                <p *ngIf=\"(qrcodeToken | async).statusCode === 200\">上映会をご確認ください</p>\n                <p *ngIf=\"(qrcodeToken | async).statusCode !== 200\">QRコードをご確認ください<br>ステータスコード: {{ (qrcodeToken |\n                    async).statusCode }}</p>\n            </div>\n        </div>\n        <div *ngIf=\"!(qrcodeToken | async)\" class=\"p-4 bg-dark text-white text-center\">\n            <div class=\"large-x-text font-weight-bold mb-2\">Waiting</div>\n            <p>QRコードを読み取ってください</p>\n        </div>\n    </div>\n    <div class=\"border p-3 mb-3\">\n        <p>{{ (screeningEvent | async).name.ja }}</p>\n        <p>{{ (screeningEvent | async).location.name.ja }}</p>\n        <p>開場時間 {{ moment((screeningEvent | async).doorTime).format('MM/DD HH:mm') }}</p>\n        <p>上映時間 {{ moment((screeningEvent | async).startDate).format('HH:mm') }} - {{\n            moment((screeningEvent | async).endDate).format('HH:mm') }}</p>\n    </div>\n    <div class=\"border p-3\">\n        <p>未送信件数: {{ (qrcodeTokenList | async).length }}</p>\n        <p class=\"small-text\">※1分に1回送信されます</p>\n    </div>\n</div>"
+module.exports = "<div [class.d-block]=\"isShowVideo\" [class.d-none]=\"!isShowVideo\">\n    <div class=\"d-flex align-items-center video-area\"><video id=\"video\" class=\"bg-black\" src=\"\" autoplay muted playsinline></video></div>\n    <div class=\"d-none\"><canvas id=\"canvas\"></canvas></div>\n</div>\n<div class=\"p-3\">\n    <div class=\"w-50 mx-auto mb-3\">\n        <button *ngIf=\"stream === null\" type=\"button\" class=\"btn btn-primary btn-block\" (click)=\"start()\">カメラで読込</button>\n        <button *ngIf=\"stream !== null\" type=\"button\" class=\"btn btn-danger btn-block\" (click)=\"stop()\">カメラを停止</button>\n    </div>\n    <div *ngIf=\"!(isLoading | async)\" class=\"mb-3\">\n        <div *ngIf=\"qrcodeToken | async\">\n            <div *ngIf=\"(qrcodeToken | async).isAvailable\" class=\"p-4 bg-success text-white text-center\">\n                <div class=\"flash-text large-x-text font-weight-bold mb-2\">OK</div>\n                <p>座席: {{ (qrcodeToken | async).availableReservation.reservedTicket.ticketedSeat.seatNumber }}</p>\n                <p>入場回数: {{ (qrcodeToken | async).checkTokenActions.length }}</p>\n            </div>\n            <div *ngIf=\"!(qrcodeToken | async).isAvailable\" class=\"p-4 bg-warning text-white text-center\">\n                <div class=\"flash-text large-x-text font-weight-bold mb-2\">NG</div>\n                <p *ngIf=\"(qrcodeToken | async).statusCode === 200\">上映会をご確認ください</p>\n                <p *ngIf=\"(qrcodeToken | async).statusCode !== 200\">QRコードをご確認ください<br>ステータスコード: {{ (qrcodeToken |\n                    async).statusCode }}</p>\n            </div>\n        </div>\n        <div *ngIf=\"!(qrcodeToken | async)\" class=\"p-4 bg-dark text-white text-center\">\n            <div class=\"large-x-text font-weight-bold mb-2\">Waiting</div>\n            <p>QRコードを読み取ってください</p>\n        </div>\n    </div>\n    <div class=\"border p-3 mb-3\">\n        <p>{{ (screeningEvent | async).name.ja }}</p>\n        <p>{{ (screeningEvent | async).location.name.ja }}</p>\n        <p>開場時間 {{ moment((screeningEvent | async).doorTime).format('MM/DD HH:mm') }}</p>\n        <p>上映時間 {{ moment((screeningEvent | async).startDate).format('HH:mm') }} - {{\n            moment((screeningEvent | async).endDate).format('HH:mm') }}</p>\n    </div>\n    <div class=\"border p-3 mb-4\">\n        <p>未送信件数: {{ (qrcodeTokenList | async).length }}</p>\n        <p class=\"small-text\">※1分に1回送信されます</p>\n    </div>\n\n    <div class=\"text-center\">\n        <p class=\"d-inline-block pointer\" routerLink=\"/schedule\"><i class=\"fas fa-chevron-circle-left mr-2\"></i>スケジュールへ戻る</p>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -729,11 +732,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdmissionComponent", function() { return AdmissionComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "../../node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "../../node_modules/@ng-bootstrap/ng-bootstrap/fesm5/ng-bootstrap.js");
-/* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngrx/effects */ "../../node_modules/@ngrx/effects/fesm5/effects.js");
-/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ngrx/store */ "../../node_modules/@ngrx/store/fesm5/store.js");
-/* harmony import */ var _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @toei-jp/cinerino-api-javascript-client */ "../../node_modules/@toei-jp/cinerino-api-javascript-client/lib/index.js");
-/* harmony import */ var _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @cinerino/api-javascript-client */ "../../node_modules/@cinerino/api-javascript-client/lib/index.js");
+/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "../../node_modules/@ng-bootstrap/ng-bootstrap/fesm5/ng-bootstrap.js");
+/* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ngrx/effects */ "../../node_modules/@ngrx/effects/fesm5/effects.js");
+/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ngrx/store */ "../../node_modules/@ngrx/store/fesm5/store.js");
 /* harmony import */ var jsqr__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! jsqr */ "../../node_modules/jsqr/dist/jsQR.js");
 /* harmony import */ var jsqr__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(jsqr__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment */ "../../node_modules/moment/moment.js");
@@ -813,11 +816,11 @@ var AdmissionComponent = /** @class */ (function () {
         this.stream = null;
         this.video = document.getElementById('video');
         this.video.width = window.innerWidth;
-        this.isLoading = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_4__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_11__["getLoading"]));
-        this.screeningEventReservations = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_4__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_11__["getScreeningEventReservations"]));
-        this.screeningEvent = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_4__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_11__["getScreeningEvent"]));
-        this.qrcodeToken = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_4__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_11__["getQrcodeToken"]));
-        this.qrcodeTokenList = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_4__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_11__["getQrcodeTokenList"]));
+        this.isLoading = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_11__["getLoading"]));
+        this.screeningEventReservations = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_11__["getScreeningEventReservations"]));
+        this.screeningEvent = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_11__["getScreeningEvent"]));
+        this.qrcodeToken = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_11__["getQrcodeToken"]));
+        this.qrcodeTokenList = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_11__["getQrcodeTokenList"]));
         this.getScreeningEventReservations();
         this.admission();
     };
@@ -917,26 +920,26 @@ var AdmissionComponent = /** @class */ (function () {
             }
             _this.store.dispatch(new _store_actions__WEBPACK_IMPORTED_MODULE_10__["GetScreeningEventReservations"]({
                 params: {
-                    sort: { reservationNumber: _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_5__["factory"].chevre.sortType.Ascending },
+                    sort: { reservationNumber: _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].chevre.sortType.Ascending },
                     reservationStatuses: [
-                        _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_5__["factory"].chevre.reservationStatusType.ReservationConfirmed,
-                        _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_5__["factory"].chevre.reservationStatusType.ReservationCancelled,
-                        _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_5__["factory"].chevre.reservationStatusType.ReservationHold,
-                        _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_5__["factory"].chevre.reservationStatusType.ReservationPending
+                        _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].chevre.reservationStatusType.ReservationConfirmed,
+                        _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].chevre.reservationStatusType.ReservationCancelled,
+                        _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].chevre.reservationStatusType.ReservationHold,
+                        _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].chevre.reservationStatusType.ReservationPending
                     ],
                     reservationFor: {
-                        typeOf: _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_5__["factory"].chevre.eventType.ScreeningEvent,
+                        typeOf: _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].chevre.eventType.ScreeningEvent,
                         id: screeningEvent.id
                     }
                 }
             }));
         }).unsubscribe();
-        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_store_actions__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].GetScreeningEventReservationsSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["tap"])(function () {
-            _this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_4__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_11__["getScreeningEventReservations"])).subscribe(function (screeningEventReservation) {
+        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["ofType"])(_store_actions__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].GetScreeningEventReservationsSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["tap"])(function () {
+            _this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_11__["getScreeningEventReservations"])).subscribe(function (screeningEventReservation) {
                 console.log(screeningEventReservation);
             }).unsubscribe();
         }));
-        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_store_actions__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].GetScreeningEventReservationsFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["tap"])(function () {
+        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["ofType"])(_store_actions__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].GetScreeningEventReservationsFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["tap"])(function () {
             _this.router.navigate(['/error']);
         }));
         Object(rxjs__WEBPACK_IMPORTED_MODULE_8__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["take"])(1)).subscribe();
@@ -946,12 +949,12 @@ var AdmissionComponent = /** @class */ (function () {
         this.screeningEventReservations.subscribe(function (screeningEventReservations) {
             _this.store.dispatch(new _store_actions__WEBPACK_IMPORTED_MODULE_10__["ConvertQrcodeToToken"]({ params: { code: code, screeningEventReservations: screeningEventReservations } }));
         }).unsubscribe();
-        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_store_actions__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].ConvertQrcodeToTokenSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["tap"])(function () {
-            _this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_4__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_11__["getQrcodeToken"])).subscribe(function (qrcodeToken) {
+        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["ofType"])(_store_actions__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].ConvertQrcodeToTokenSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["tap"])(function () {
+            _this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_11__["getQrcodeToken"])).subscribe(function (qrcodeToken) {
                 console.log(qrcodeToken);
             }).unsubscribe();
         }));
-        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_store_actions__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].ConvertQrcodeToTokenFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["tap"])(function () {
+        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["ofType"])(_store_actions__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].ConvertQrcodeToTokenFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["tap"])(function () {
             _this.openAlert({
                 title: 'エラー',
                 body: '読み込みに失敗しました。'
@@ -969,8 +972,8 @@ var AdmissionComponent = /** @class */ (function () {
                 });
             }).unsubscribe();
         }, admissionLoopTime);
-        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_store_actions__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].AdmissionSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["tap"])(function () { }));
-        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_store_actions__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].GetTheatersFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["tap"])(function () { }));
+        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["ofType"])(_store_actions__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].AdmissionSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["tap"])(function () { }));
+        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["ofType"])(_store_actions__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].GetTheatersFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["tap"])(function () { }));
         Object(rxjs__WEBPACK_IMPORTED_MODULE_8__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["take"])(1)).subscribe();
     };
     AdmissionComponent.prototype.openAlert = function (args) {
@@ -992,10 +995,10 @@ var AdmissionComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./admission.component.html */ "./app/components/pages/admission/admission.component.html"),
             styles: [__webpack_require__(/*! ./admission.component.scss */ "./app/components/pages/admission/admission.component.scss")]
         }),
-        __metadata("design:paramtypes", [_ngrx_store__WEBPACK_IMPORTED_MODULE_4__["Store"],
-            _ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["Actions"],
+        __metadata("design:paramtypes", [_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["Store"],
+            _ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["Actions"],
             _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
-            _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NgbModal"]])
+            _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__["NgbModal"]])
     ], AdmissionComponent);
     return AdmissionComponent;
 }());
@@ -1037,7 +1040,7 @@ module.exports = ""
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthIndexComponent", function() { return AuthIndexComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_cinerino_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../services/cinerino.service */ "./app/services/cinerino.service.ts");
+/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../services */ "./app/services/index.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1106,7 +1109,7 @@ var AuthIndexComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./auth-index.component.html */ "./app/components/pages/auth/auth-index/auth-index.component.html"),
             styles: [__webpack_require__(/*! ./auth-index.component.scss */ "./app/components/pages/auth/auth-index/auth-index.component.scss")]
         }),
-        __metadata("design:paramtypes", [_services_cinerino_service__WEBPACK_IMPORTED_MODULE_1__["CinerinoService"]])
+        __metadata("design:paramtypes", [_services__WEBPACK_IMPORTED_MODULE_1__["CinerinoService"]])
     ], AuthIndexComponent);
     return AuthIndexComponent;
 }());
@@ -1633,7 +1636,7 @@ var NotfoundComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"p-3\">\n    <p class=\"mb-3\">スケジュールを選択してください</p>\n    <div class=\"condition\">\n        <div class=\"mb-3\">\n            <select class=\"p-2\" [(ngModel)]=\"theaterCode\" (change)=\"getScreeningEvents()\">\n                <option *ngFor=\"let movieTheater of (movieTheaters | async)\" [value]=\"movieTheater.location.branchCode\">{{\n                    movieTheater.name.ja }}</option>\n            </select>\n        </div>\n        <div class=\"mb-3\">\n            <select class=\"p-2\" [(ngModel)]=\"date\" (change)=\"getScreeningEvents()\">\n                <option *ngFor=\"let date of dates\" [value]=\"date\">{{ moment(date).format('YYYY/MM/DD (ddd)') }}</option>\n            </select>\n        </div>\n    </div>\n\n    <div class=\"screeningEvents\">\n        <p *ngIf=\"(screeningEvents | async).length === 0\">スケジュールがありません。</p>\n        <ul *ngIf=\"(screeningEvents | async).length > 0\">\n            <li *ngFor=\"let screeningEvent of (screeningEvents | async)\" class=\"bg-primary text-white mb-2 px-3 py-2\" (click)=\"select(screeningEvent)\">\n                <p>{{ screeningEvent.name.ja }}</p>\n                <p class=\"small-text\">{{ screeningEvent.location.name.ja }}</p>\n                <p class=\"small-text\">開場時間 {{ moment(screeningEvent.doorTime).format('MM/DD HH:mm') }}</p>\n                <p class=\"small-text\">上映時間 {{ moment(screeningEvent.startDate).format('HH:mm') }} - {{ moment(screeningEvent.endDate).format('HH:mm') }}</p>\n            </li>\n        </ul>\n    </div>\n</div>"
+module.exports = "<div class=\"p-3\">\n    <p class=\"mb-3\">スケジュールを選択してください</p>\n    <div class=\"condition\">\n        <div class=\"mb-3\">\n            <select class=\"p-2\" [(ngModel)]=\"theaterCode\" (change)=\"getScreeningEvents()\">\n                <option *ngFor=\"let movieTheater of (movieTheaters | async)\" [value]=\"movieTheater.location.branchCode\">{{\n                    movieTheater.name.ja }}</option>\n            </select>\n        </div>\n        <div class=\"mb-3\">\n            <div class=\"swiper-cover position-relative\">\n                <div class=\"swiper-container mb-3\" #swiper [swiper]=\"swiperConfig\" (resize)=\"resize()\">\n                    <div class=\"swiper-wrapper\">\n                        <div *ngFor=\"let date of dates\" class=\"swiper-slide\">\n                            <div class=\"py-4 text-center pointer\" [ngClass]=\"{'bg-primary text-white': date === selectedDate}\"\n                                (click)=\"getScreeningEvents(date)\">{{ moment(date).format('MM/DD (ddd)') }}</div>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"swiper-button-prev\"></div>\n                <div class=\"swiper-button-next\"></div>\n            </div>\n            <!-- <select class=\"p-2\" [(ngModel)]=\"date\" (change)=\"getScreeningEvents()\">\n                <option *ngFor=\"let date of dates\" [value]=\"date\">{{ moment(date).format('YYYY/MM/DD (ddd)') }}</option>\n            </select> -->\n        </div>\n    </div>\n\n    <div class=\"screeningEvents\">\n        <p *ngIf=\"(screeningEvents | async).length === 0\">スケジュールがありません。</p>\n        <ul *ngIf=\"(screeningEvents | async).length > 0\">\n            <li *ngFor=\"let screeningEvent of (screeningEvents | async)\" class=\"mb-2 px-3 py-2\"\n            [ngClass]=\"{ \n            'bg-primary text-white': !(moment(screeningEvent.endDate).unix() < moment().unix()), \n            'bg-dark text-light': moment(screeningEvent.endDate).unix() < moment().unix()\n            }\"\n            (click)=\"select(screeningEvent)\">\n                <p>{{ screeningEvent.name.ja }}</p>\n                <p class=\"small-text\">{{ screeningEvent.location.name.ja }}</p>\n                <p class=\"small-text\">開場時間 {{ moment(screeningEvent.doorTime).format('MM/DD HH:mm') }}</p>\n                <p class=\"small-text\">上映時間 {{ moment(screeningEvent.startDate).format('HH:mm') }} - {{\n                    moment(screeningEvent.endDate).format('HH:mm') }}</p>\n            </li>\n        </ul>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -1644,7 +1647,7 @@ module.exports = "<div class=\"p-3\">\n    <p class=\"mb-3\">スケジュール�
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".condition select {\n  width: 100%; }\n"
+module.exports = ".condition select {\n  width: 100%; }\n\n.swiper-cover {\n  padding: 0 50px; }\n"
 
 /***/ }),
 
@@ -1660,16 +1663,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ScheduleComponent", function() { return ScheduleComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "../../node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ngrx/effects */ "../../node_modules/@ngrx/effects/fesm5/effects.js");
-/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngrx/store */ "../../node_modules/@ngrx/store/fesm5/store.js");
-/* harmony import */ var _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @toei-jp/cinerino-api-javascript-client */ "../../node_modules/@toei-jp/cinerino-api-javascript-client/lib/index.js");
-/* harmony import */ var _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @cinerino/api-javascript-client */ "../../node_modules/@cinerino/api-javascript-client/lib/index.js");
+/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngrx/effects */ "../../node_modules/@ngrx/effects/fesm5/effects.js");
+/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ngrx/store */ "../../node_modules/@ngrx/store/fesm5/store.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment */ "../../node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ "../../node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/operators */ "../../node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _store_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../store/actions */ "./app/store/actions/index.ts");
-/* harmony import */ var _store_reducers__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../store/reducers */ "./app/store/reducers/index.ts");
+/* harmony import */ var ngx_swiper_wrapper__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-swiper-wrapper */ "../../node_modules/ngx-swiper-wrapper/dist/ngx-swiper-wrapper.es5.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs */ "../../node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs/operators */ "../../node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _store_actions__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../store/actions */ "./app/store/actions/index.ts");
+/* harmony import */ var _store_reducers__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../store/reducers */ "./app/store/reducers/index.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1689,6 +1693,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var ScheduleComponent = /** @class */ (function () {
     function ScheduleComponent(store, actions, router) {
         this.store = store;
@@ -1697,65 +1702,93 @@ var ScheduleComponent = /** @class */ (function () {
         this.moment = moment__WEBPACK_IMPORTED_MODULE_5__;
     }
     ScheduleComponent.prototype.ngOnInit = function () {
-        this.screeningEvents = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_3__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_9__["getScreeningEvents"]));
-        this.movieTheaters = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_3__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_9__["getMovieTheaters"]));
+        this.screeningEvents = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_4__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_10__["getScreeningEvents"]));
+        this.movieTheaters = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_4__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_10__["getMovieTheaters"]));
         this.dates = [];
         for (var i = 0; i < 7; i++) {
             this.dates.push(moment__WEBPACK_IMPORTED_MODULE_5__().add(i, 'days').format('YYYYMMDD'));
         }
-        this.date = this.dates[0];
+        this.swiperConfig = {
+            spaceBetween: 10,
+            slidesPerView: 7,
+            breakpoints: {
+                320: { slidesPerView: 2 },
+                767: { slidesPerView: 3 },
+                1024: { slidesPerView: 5 }
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            }
+        };
+        this.selectedDate = this.dates[0];
         this.getTheaters();
+    };
+    /**
+     * resize
+     */
+    ScheduleComponent.prototype.resize = function () {
+        this.directiveRef.update();
+        this.directiveRef.setIndex(0, 0, false);
     };
     ScheduleComponent.prototype.getTheaters = function () {
         var _this = this;
-        this.store.dispatch(new _store_actions__WEBPACK_IMPORTED_MODULE_8__["GetTheaters"]({ params: {} }));
-        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_store_actions__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].GetTheatersSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["tap"])(function () {
-            _this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_3__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_9__["getMovieTheaters"])).subscribe(function (movieTheaters) {
+        this.store.dispatch(new _store_actions__WEBPACK_IMPORTED_MODULE_9__["GetTheaters"]({ params: {} }));
+        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_store_actions__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].GetTheatersSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["tap"])(function () {
+            _this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_4__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_10__["getMovieTheaters"])).subscribe(function (movieTheaters) {
                 _this.theaterCode = movieTheaters[0].location.branchCode;
-                _this.getScreeningEvents();
             }).unsubscribe();
+            _this.getScreeningEvents(_this.selectedDate);
         }));
-        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_store_actions__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].GetTheatersFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["tap"])(function () {
+        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_store_actions__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].GetTheatersFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["tap"])(function () {
             _this.router.navigate(['/error']);
         }));
-        Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["take"])(1)).subscribe();
+        Object(rxjs__WEBPACK_IMPORTED_MODULE_7__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["take"])(1)).subscribe();
     };
-    ScheduleComponent.prototype.getScreeningEvents = function () {
+    ScheduleComponent.prototype.getScreeningEvents = function (date) {
         var _this = this;
-        this.store.dispatch(new _store_actions__WEBPACK_IMPORTED_MODULE_8__["GetScreeningEvents"]({
+        this.selectedDate = date;
+        this.store.dispatch(new _store_actions__WEBPACK_IMPORTED_MODULE_9__["GetScreeningEvents"]({
             params: {
-                endFrom: (this.date === moment__WEBPACK_IMPORTED_MODULE_5__().format('YYYYMMDD'))
-                    ? moment__WEBPACK_IMPORTED_MODULE_5__().toDate()
-                    : moment__WEBPACK_IMPORTED_MODULE_5__(this.date).toDate(),
-                endThrough: moment__WEBPACK_IMPORTED_MODULE_5__(this.date).add(1, 'days').toDate(),
+                eventStatuses: [_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].chevre.eventStatusType.EventScheduled],
+                startFrom: moment__WEBPACK_IMPORTED_MODULE_5__(this.selectedDate).toDate(),
+                startThrough: moment__WEBPACK_IMPORTED_MODULE_5__(this.selectedDate).add(1, 'days').toDate(),
                 superEvent: {
                     locationBranchCodes: [this.theaterCode]
                 },
                 sort: {
-                    doorTime: _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_4__["factory"].sortType.Ascending
+                    doorTime: _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].sortType.Ascending
                 }
             }
         }));
-        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_store_actions__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].GetScreeningEventsSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["tap"])(function () { }));
-        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_store_actions__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].GetScreeningEventsFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["tap"])(function () {
+        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_store_actions__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].GetScreeningEventsSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["tap"])(function () { }));
+        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_store_actions__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].GetScreeningEventsFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["tap"])(function () {
             _this.router.navigate(['/error']);
         }));
-        Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["take"])(1)).subscribe();
+        Object(rxjs__WEBPACK_IMPORTED_MODULE_7__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["take"])(1)).subscribe();
     };
     ScheduleComponent.prototype.select = function (screeningEvent) {
-        this.store.dispatch(new _store_actions__WEBPACK_IMPORTED_MODULE_8__["SelectScreeningEvent"]({ screeningEvent: screeningEvent }));
-        this.store.dispatch(new _store_actions__WEBPACK_IMPORTED_MODULE_8__["InitializeQrcodeToken"]());
-        this.store.dispatch(new _store_actions__WEBPACK_IMPORTED_MODULE_8__["InitializeQrcodeTokenList"]());
+        this.store.dispatch(new _store_actions__WEBPACK_IMPORTED_MODULE_9__["SelectScreeningEvent"]({ screeningEvent: screeningEvent }));
+        this.store.dispatch(new _store_actions__WEBPACK_IMPORTED_MODULE_9__["InitializeQrcodeToken"]());
+        this.store.dispatch(new _store_actions__WEBPACK_IMPORTED_MODULE_9__["InitializeQrcodeTokenList"]());
         this.router.navigate(['/admission']);
     };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(ngx_swiper_wrapper__WEBPACK_IMPORTED_MODULE_6__["SwiperComponent"]),
+        __metadata("design:type", ngx_swiper_wrapper__WEBPACK_IMPORTED_MODULE_6__["SwiperComponent"])
+    ], ScheduleComponent.prototype, "componentRef", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(ngx_swiper_wrapper__WEBPACK_IMPORTED_MODULE_6__["SwiperDirective"]),
+        __metadata("design:type", ngx_swiper_wrapper__WEBPACK_IMPORTED_MODULE_6__["SwiperDirective"])
+    ], ScheduleComponent.prototype, "directiveRef", void 0);
     ScheduleComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-schedule',
             template: __webpack_require__(/*! ./schedule.component.html */ "./app/components/pages/schedule/schedule.component.html"),
             styles: [__webpack_require__(/*! ./schedule.component.scss */ "./app/components/pages/schedule/schedule.component.scss")]
         }),
-        __metadata("design:paramtypes", [_ngrx_store__WEBPACK_IMPORTED_MODULE_3__["Store"],
-            _ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["Actions"],
+        __metadata("design:paramtypes", [_ngrx_store__WEBPACK_IMPORTED_MODULE_4__["Store"],
+            _ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["Actions"],
             _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
     ], ScheduleComponent);
     return ScheduleComponent;
@@ -2421,8 +2454,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CinerinoService", function() { return CinerinoService; });
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common/http */ "../../node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @toei-jp/cinerino-api-javascript-client */ "../../node_modules/@toei-jp/cinerino-api-javascript-client/lib/index.js");
-/* harmony import */ var _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @cinerino/api-javascript-client */ "../../node_modules/@cinerino/api-javascript-client/lib/index.js");
+/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../environments/environment */ "./environments/environment.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2489,19 +2522,19 @@ var CinerinoService = /** @class */ (function () {
                         return [4 /*yield*/, this.createOption()];
                     case 1:
                         option = _a.sent();
-                        this.event = new _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].Event(option);
-                        this.order = new _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].Order(option);
-                        this.organization = new _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].Organization(option);
-                        this.person = new _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].Person(option);
-                        this.ownershipInfo = new _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].person.OwnershipInfo(option);
-                        this.reservation = new _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].Reservation(option);
-                        this.task = new _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].Task(option);
+                        this.event = new _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].Event(option);
+                        this.order = new _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].Order(option);
+                        this.organization = new _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].Organization(option);
+                        this.person = new _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].Person(option);
+                        this.ownershipInfo = new _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].person.OwnershipInfo(option);
+                        this.reservation = new _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].Reservation(option);
+                        this.task = new _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].Task(option);
                         this.transaction = {
-                            placeOrder: new _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].transaction.PlaceOrder(option),
-                            returnOrder: new _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].transaction.ReturnOrder(option)
+                            placeOrder: new _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].transaction.PlaceOrder(option),
+                            returnOrder: new _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].transaction.ReturnOrder(option)
                         };
                         this.admin = {
-                            ownershipInfo: new _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].OwnershipInfo(option)
+                            ownershipInfo: new _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].OwnershipInfo(option)
                         };
                         return [3 /*break*/, 3];
                     case 2:
@@ -2559,7 +2592,7 @@ var CinerinoService = /** @class */ (function () {
                             nonce: null,
                             tokenIssuer: ''
                         };
-                        this.auth = _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["createAuthInstance"](option);
+                        this.auth = _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["createAuthInstance"](option);
                         this.auth.setCredentials(credentials);
                         return [2 /*return*/];
                 }
@@ -2613,6 +2646,110 @@ var CinerinoService = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpClient"]])
     ], CinerinoService);
     return CinerinoService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./app/services/index.ts":
+/*!*******************************!*\
+  !*** ./app/services/index.ts ***!
+  \*******************************/
+/*! exports provided: CinerinoService, UtilService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _cinerino_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cinerino.service */ "./app/services/cinerino.service.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CinerinoService", function() { return _cinerino_service__WEBPACK_IMPORTED_MODULE_0__["CinerinoService"]; });
+
+/* harmony import */ var _util_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./util.service */ "./app/services/util.service.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UtilService", function() { return _util_service__WEBPACK_IMPORTED_MODULE_1__["UtilService"]; });
+
+
+
+
+
+/***/ }),
+
+/***/ "./app/services/util.service.ts":
+/*!**************************************!*\
+  !*** ./app/services/util.service.ts ***!
+  \**************************************/
+/*! exports provided: UtilService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UtilService", function() { return UtilService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+var UtilService = /** @class */ (function () {
+    function UtilService() {
+    }
+    UtilService.prototype.sleep = function (time) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2 /*return*/, new Promise(function (resolve) {
+                        setTimeout(function () {
+                            resolve();
+                        }, time);
+                    })];
+            });
+        });
+    };
+    UtilService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [])
+    ], UtilService);
+    return UtilService;
 }());
 
 
@@ -3102,15 +3239,15 @@ var metaReducers = [main];
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Effects", function() { return Effects; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ngrx/effects */ "../../node_modules/@ngrx/effects/fesm5/effects.js");
-/* harmony import */ var _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @toei-jp/cinerino-api-javascript-client */ "../../node_modules/@toei-jp/cinerino-api-javascript-client/lib/index.js");
-/* harmony import */ var _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @cinerino/api-javascript-client */ "../../node_modules/@cinerino/api-javascript-client/lib/index.js");
+/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ngrx/effects */ "../../node_modules/@ngrx/effects/fesm5/effects.js");
 /* harmony import */ var http_status__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! http-status */ "../../node_modules/http-status/lib/index.js");
 /* harmony import */ var http_status__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(http_status__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var jwt_decode__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! jwt-decode */ "../../node_modules/jwt-decode/lib/index.js");
 /* harmony import */ var jwt_decode__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(jwt_decode__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "../../node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _services_cinerino_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/cinerino.service */ "./app/services/cinerino.service.ts");
+/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services */ "./app/services/index.ts");
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../actions */ "./app/store/actions/index.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3175,7 +3312,7 @@ var Effects = /** @class */ (function () {
         /**
          * getTheaters
          */
-        this.getTheaters = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_actions__WEBPACK_IMPORTED_MODULE_7__["ActionTypes"].GetTheaters), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.getTheaters = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions__WEBPACK_IMPORTED_MODULE_7__["ActionTypes"].GetTheaters), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var movieTheatersResult, movieTheaters, error_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -3199,7 +3336,7 @@ var Effects = /** @class */ (function () {
         /**
          * getScreeningEvents
          */
-        this.getScreeningEvents = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_actions__WEBPACK_IMPORTED_MODULE_7__["ActionTypes"].GetScreeningEvents), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.getScreeningEvents = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions__WEBPACK_IMPORTED_MODULE_7__["ActionTypes"].GetScreeningEvents), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var screeningEventsResult, screeningEvents, error_2;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -3223,7 +3360,7 @@ var Effects = /** @class */ (function () {
         /**
          * getScreeningEventReservations
          */
-        this.getScreeningEventReservations = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_actions__WEBPACK_IMPORTED_MODULE_7__["ActionTypes"].GetScreeningEventReservations), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.getScreeningEventReservations = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions__WEBPACK_IMPORTED_MODULE_7__["ActionTypes"].GetScreeningEventReservations), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var screeningEventReservationsResult, screeningEventReservations, error_3;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -3247,7 +3384,7 @@ var Effects = /** @class */ (function () {
         /**
          * convertQrcodeToToken
          */
-        this.convertQrcodeToToken = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_actions__WEBPACK_IMPORTED_MODULE_7__["ActionTypes"].ConvertQrcodeToToken), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.convertQrcodeToToken = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions__WEBPACK_IMPORTED_MODULE_7__["ActionTypes"].ConvertQrcodeToToken), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var error_4, code, screeningEventReservations, token, getTokenResult, error_5, checkTokenActions, isAvailable, statusCode, decodeResult_1, checkTokenActionsResult, checkTokenActions, availableReservation, isAvailable, statusCode, error_6;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -3286,9 +3423,9 @@ var Effects = /** @class */ (function () {
                         checkTokenActions = checkTokenActionsResult.data;
                         // 利用可能判定
                         console.log(screeningEventReservations
-                            .filter(function (r) { return r.reservationStatus === _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].chevre.reservationStatusType.ReservationConfirmed; }));
+                            .filter(function (r) { return r.reservationStatus === _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__["factory"].chevre.reservationStatusType.ReservationConfirmed; }));
                         availableReservation = screeningEventReservations
-                            .filter(function (r) { return r.reservationStatus === _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].chevre.reservationStatusType.ReservationConfirmed; })
+                            .filter(function (r) { return r.reservationStatus === _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__["factory"].chevre.reservationStatusType.ReservationConfirmed; })
                             .find(function (r) { return r.id === decodeResult_1.typeOfGood.id; });
                         isAvailable = availableReservation !== undefined;
                         statusCode = http_status__WEBPACK_IMPORTED_MODULE_3__["OK"];
@@ -3305,7 +3442,7 @@ var Effects = /** @class */ (function () {
         /**
          * Admission
          */
-        this.Admission = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_actions__WEBPACK_IMPORTED_MODULE_7__["ActionTypes"].Admission), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.Admission = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions__WEBPACK_IMPORTED_MODULE_7__["ActionTypes"].Admission), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var error_7;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -3325,29 +3462,29 @@ var Effects = /** @class */ (function () {
         }); }));
     }
     __decorate([
-        Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Effect"])(),
+        Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["Effect"])(),
         __metadata("design:type", Object)
     ], Effects.prototype, "getTheaters", void 0);
     __decorate([
-        Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Effect"])(),
+        Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["Effect"])(),
         __metadata("design:type", Object)
     ], Effects.prototype, "getScreeningEvents", void 0);
     __decorate([
-        Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Effect"])(),
+        Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["Effect"])(),
         __metadata("design:type", Object)
     ], Effects.prototype, "getScreeningEventReservations", void 0);
     __decorate([
-        Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Effect"])(),
+        Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["Effect"])(),
         __metadata("design:type", Object)
     ], Effects.prototype, "convertQrcodeToToken", void 0);
     __decorate([
-        Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Effect"])(),
+        Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["Effect"])(),
         __metadata("design:type", Object)
     ], Effects.prototype, "Admission", void 0);
     Effects = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
-        __metadata("design:paramtypes", [_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Actions"],
-            _services_cinerino_service__WEBPACK_IMPORTED_MODULE_6__["CinerinoService"]])
+        __metadata("design:paramtypes", [_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["Actions"],
+            _services__WEBPACK_IMPORTED_MODULE_6__["CinerinoService"]])
     ], Effects);
     return Effects;
 }());

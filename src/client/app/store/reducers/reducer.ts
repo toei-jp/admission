@@ -1,4 +1,4 @@
-import { factory } from '@toei-jp/cinerino-api-javascript-client';
+import { factory } from '@cinerino/api-javascript-client';
 import { IDecodeResult } from '../../model';
 import { Actions, ActionTypes } from '../actions';
 
@@ -13,7 +13,7 @@ export interface IState {
     movieTheater?: factory.organization.movieTheater.IOrganization;
     screeningEvents: factory.chevre.event.screeningEvent.IEvent[];
     screeningEvent?: factory.chevre.event.screeningEvent.IEvent;
-    screeningEventReservations: factory.chevre.reservation.IReservation[];
+    screeningEventReservations: factory.chevre.reservation.event.IReservation<factory.chevre.event.screeningEvent.IEvent>[];
     qrcodeToken?: {
         token?: string;
         decodeResult?: IDecodeResult;

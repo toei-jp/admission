@@ -1,6 +1,6 @@
 
+import { factory } from '@cinerino/api-javascript-client';
 import { Action } from '@ngrx/store';
-import { factory } from '@toei-jp/cinerino-api-javascript-client';
 import { IDecodeResult } from '../../model';
 
 /**
@@ -115,7 +115,7 @@ export class GetScreeningEventReservations implements Action {
 export class GetScreeningEventReservationsSuccess implements Action {
     public readonly type = ActionTypes.GetScreeningEventReservationsSuccess;
     constructor(public payload: {
-        screeningEventReservations: factory.chevre.reservation.IReservation[]
+        screeningEventReservations: factory.chevre.reservation.event.IReservation<factory.chevre.event.screeningEvent.IEvent>[]
     }) { }
 }
 
@@ -151,7 +151,7 @@ export class ConvertQrcodeToToken implements Action {
     constructor(public payload: {
         params: {
             code: string;
-            screeningEventReservations: factory.chevre.reservation.IReservation[];
+            screeningEventReservations: factory.chevre.reservation.event.IReservation<factory.chevre.event.screeningEvent.IEvent>[];
         }
     }) { }
 }

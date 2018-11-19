@@ -33,8 +33,12 @@
         <p>上映時間 {{ moment((screeningEvent | async).startDate).format('HH:mm') }} - {{
             moment((screeningEvent | async).endDate).format('HH:mm') }}</p>
     </div>
-    <div class="border p-3">
+    <div class="border p-3 mb-4">
         <p>未送信件数: {{ (qrcodeTokenList | async).length }}</p>
         <p class="small-text">※1分に1回送信されます</p>
+    </div>
+
+    <div class="text-center">
+        <p class="d-inline-block pointer" routerLink="/schedule"><i class="fas fa-chevron-circle-left mr-2"></i>スケジュールへ戻る</p>
     </div>
 </div>

@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
+import { factory } from '@cinerino/api-javascript-client';
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import { factory } from '@toei-jp/cinerino-api-javascript-client';
 import { OK } from 'http-status';
 import * as decode from 'jwt-decode';
 import { map, mergeMap } from 'rxjs/operators';
 import { IDecodeResult } from '../../model';
-import { CinerinoService } from '../../services/cinerino.service';
+import { CinerinoService } from '../../services';
 import {
     ActionTypes,
     Admission,

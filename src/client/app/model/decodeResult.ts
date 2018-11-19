@@ -1,5 +1,7 @@
-import { factory } from '@toei-jp/cinerino-api-javascript-client';
+import { factory } from '@cinerino/api-javascript-client';
 
-export interface IDecodeResult extends factory.ownershipInfo.IOwnershipInfo<factory.chevre.reservation.IReservation> {
+type IReservation = factory.chevre.reservation.event.IReservation<factory.chevre.event.screeningEvent.IEvent>;
+
+export interface IDecodeResult extends factory.ownershipInfo.IOwnershipInfo<IReservation> {
     iat: number;
 }
