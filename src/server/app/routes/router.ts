@@ -18,6 +18,7 @@ export default (app: express.Application) => {
     app.get('/signIn', authorize.signOutRedirect);
 
     app.get('*', (_req, res, _next) => {
-        res.sendFile(path.resolve(`${__dirname}/../../../client/index.html`));
+        const fileName = (process.env.NODE_ENV === 'production') ? 'production.html' : 'index.html';
+        res.sendFile(path.resolve(`${__dirname}/../../../client/${process.env.NODE_ENV}/${fileName}`));
     });
 };
