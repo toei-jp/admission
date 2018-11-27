@@ -77,6 +77,17 @@ export function reducer(
             const movieTheater = action.payload.movieTheater;
             return { ...state, loading: false, error: null, movieTheater };
         }
+        case ActionTypes.GetScreeningEvent: {
+            return { ...state };
+        }
+        case ActionTypes.GetScreeningEventSuccess: {
+            const screeningEvent = action.payload.screeningEvent;
+            return { ...state, error: null, screeningEvent };
+        }
+        case ActionTypes.GetScreeningEventFail: {
+            const error = action.payload.error;
+            return { ...state, error: JSON.stringify(error) };
+        }
         case ActionTypes.GetScreeningEvents: {
             return { ...state, loading: true };
         }

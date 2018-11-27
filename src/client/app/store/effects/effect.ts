@@ -14,12 +14,15 @@ import {
     ConvertQrcodeToToken,
     ConvertQrcodeToTokenFail,
     ConvertQrcodeToTokenSuccess,
+    GetScreeningEvent,
+    GetScreeningEventFail,
     GetScreeningEventReservations,
     GetScreeningEventReservationsFail,
     GetScreeningEventReservationsSuccess,
     GetScreeningEvents,
     GetScreeningEventsFail,
     GetScreeningEventsSuccess,
+    GetScreeningEventSuccess,
     GetTheaters,
     GetTheatersFail,
     GetTheatersSuccess
@@ -52,6 +55,25 @@ export class Effects {
                 return new GetTheatersSuccess({ movieTheaters });
             } catch (error) {
                 return new GetTheatersFail({ error: error });
+            }
+        })
+    );
+
+    /**
+     * getScreeningEvent
+     */
+    @Effect()
+    public getScreeningEvent = this.actions.pipe(
+        ofType<GetScreeningEvent>(ActionTypes.GetScreeningEvent),
+        map(action => action.payload),
+        mergeMap(async (payload) => {
+            // console.log(payload);
+            try {
+                await this.cinerino.getServices();
+                const screeningEvent = await this.cinerino.event.findScreeningEventById(payload.params);
+                return new GetScreeningEventSuccess({ screeningEvent });
+            } catch (error) {
+                return new GetScreeningEventFail({ error: error });
             }
         })
     );

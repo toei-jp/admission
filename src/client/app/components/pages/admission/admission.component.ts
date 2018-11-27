@@ -13,6 +13,7 @@ import {
     ActionTypes,
     Admission,
     ConvertQrcodeToToken,
+    GetScreeningEvent,
     GetScreeningEventReservations
 } from '../../../store/actions';
 import * as reducers from '../../../store/reducers';
@@ -44,7 +45,7 @@ export class AdmissionComponent implements OnInit, OnDestroy {
     public isShowVideo: boolean;
     public video: HTMLVideoElement;
     public scanLoop: any;
-    public admissionLoop: any;
+    public updateLoop: any;
     public moment: typeof moment = moment;
     public inputCode: string;
 
@@ -66,12 +67,12 @@ export class AdmissionComponent implements OnInit, OnDestroy {
         this.qrcodeToken = this.store.pipe(select(reducers.getQrcodeToken));
         this.qrcodeTokenList = this.store.pipe(select(reducers.getQrcodeTokenList));
         this.getScreeningEventReservations();
-        this.admission();
+        this.update();
     }
 
     public ngOnDestroy() {
         clearInterval(this.scanLoop);
-        clearInterval(this.admissionLoop);
+        clearInterval(this.updateLoop);
     }
 
     @HostListener('document:keypress', ['$event'])
@@ -200,10 +201,8 @@ export class AdmissionComponent implements OnInit, OnDestroy {
         const success = this.actions.pipe(
             ofType(ActionTypes.ConvertQrcodeToTokenSuccess),
             tap(() => {
-                this.store.pipe(select(reducers.getQrcodeToken)).subscribe((qrcodeToken) => {
-                    console.log(qrcodeToken);
-                    this.admission();
-                }).unsubscribe();
+                this.admission();
+                this.update();
             })
         );
 
@@ -219,21 +218,43 @@ export class AdmissionComponent implements OnInit, OnDestroy {
         race(success, fail).pipe(take(1)).subscribe();
     }
 
+    public update() {
+        const loopTime = 60000; // 1分に一回
+        clearInterval(this.updateLoop);
+        this.updateLoop = setInterval(() => {
+            this.admission();
+            this.getScreeningEvent();
+        }, loopTime);
+    }
+
+    public getScreeningEvent() {
+        this.screeningEvent.subscribe((screeningEvent) => {
+            if (screeningEvent === undefined) {
+                this.router.navigate(['/error']);
+                return;
+            }
+            const id = screeningEvent.id;
+            this.store.dispatch(new GetScreeningEvent({ params: { id } }));
+        }).unsubscribe();
+
+        const success = this.actions.pipe(
+            ofType(ActionTypes.GetScreeningEventSuccess),
+            tap(() => { })
+        );
+
+        const fail = this.actions.pipe(
+            ofType(ActionTypes.GetScreeningEventFail),
+            tap(() => { })
+        );
+        race(success, fail).pipe(take(1)).subscribe();
+    }
+
     public admission() {
-        const admissionLoopTime = 60000; // 1分に一回
         this.qrcodeTokenList.subscribe((qrcodeTokenList) => {
             qrcodeTokenList.forEach((qrcodeToken) => {
                 this.store.dispatch(new Admission({ params: qrcodeToken }));
             });
         }).unsubscribe();
-        clearInterval(this.admissionLoop);
-        this.admissionLoop = setInterval(() => {
-            this.qrcodeTokenList.subscribe((qrcodeTokenList) => {
-                qrcodeTokenList.forEach((qrcodeToken) => {
-                    this.store.dispatch(new Admission({ params: qrcodeToken }));
-                });
-            }).unsubscribe();
-        }, admissionLoopTime);
 
         const success = this.actions.pipe(
             ofType(ActionTypes.AdmissionSuccess),

@@ -15,6 +15,9 @@ export enum ActionTypes {
     GetScreeningEvents = '[User] Get Screening Events',
     GetScreeningEventsSuccess = '[User] Get Screening Events Success',
     GetScreeningEventsFail = '[User] Get Screening Events Fail',
+    GetScreeningEvent = '[User] Get Screening Event',
+    GetScreeningEventSuccess = '[User] Get Screening Event Success',
+    GetScreeningEventFail = '[User] Get Screening Event Fail',
     SelectScreeningEvent = '[User] Select Screening Event',
     GetScreeningEventReservations = '[User] Get Screening Reservations',
     GetScreeningEventReservationsSuccess = '[User] Get Screening Events Reservations Success',
@@ -67,6 +70,30 @@ export class GetTheatersFail implements Action {
 export class SelectTheater implements Action {
     public readonly type = ActionTypes.SelectTheater;
     constructor(public payload: { movieTheater: factory.organization.movieTheater.IOrganization }) { }
+}
+
+/**
+ * GetScreeningEvent
+ */
+export class GetScreeningEvent implements Action {
+    public readonly type = ActionTypes.GetScreeningEvent;
+    constructor(public payload: { params: { id: string; } }) { }
+}
+
+/**
+ * GetScreeningEventSuccess
+ */
+export class GetScreeningEventSuccess implements Action {
+    public readonly type = ActionTypes.GetScreeningEventSuccess;
+    constructor(public payload: { screeningEvent: factory.chevre.event.screeningEvent.IEvent }) { }
+}
+
+/**
+ * GetScreeningEventFail
+ */
+export class GetScreeningEventFail implements Action {
+    public readonly type = ActionTypes.GetScreeningEventFail;
+    constructor(public payload: { error: Error }) { }
 }
 
 /**
@@ -213,6 +240,9 @@ export type Actions =
     | GetTheatersSuccess
     | GetTheatersFail
     | SelectTheater
+    | GetScreeningEvent
+    | GetScreeningEventSuccess
+    | GetScreeningEventFail
     | GetScreeningEvents
     | GetScreeningEventsSuccess
     | GetScreeningEventsFail

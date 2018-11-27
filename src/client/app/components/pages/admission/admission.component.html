@@ -49,6 +49,7 @@
                 moment((screeningEvent | async).endDate).format('HH:mm') }}</p>
         </div>
         <div class="d-md-flex">
+            <!-- <p class="mr-3"><strong class="mr-2">購入</strong>{{ (screeningEventReservations | async).length }}</p> -->
             <p><strong class="mr-2">入場</strong>{{ (screeningEvent | async).attendeeCount }}</p>
         </div>
     </div>
