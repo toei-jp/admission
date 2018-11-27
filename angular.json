@@ -30,7 +30,7 @@
           },
           "configurations": {
             "local": {
-              "outputPath": "./dist/client",
+              "outputPath": "./dist/client/development",
               "watch": true,
               "fileReplacements": [
                 {

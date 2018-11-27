@@ -188,6 +188,10 @@ export class AdmissionComponent implements OnInit, OnDestroy {
         race(success, fail).pipe(take(1)).subscribe();
     }
 
+    /**
+     * QRコードをトークンへ変換
+     * @param {string} code
+     */
     public convertQrcodeToToken(code: string) {
         this.screeningEventReservations.subscribe((screeningEventReservations) => {
             this.store.dispatch(new ConvertQrcodeToToken({ params: { code, screeningEventReservations } }));
@@ -198,6 +202,7 @@ export class AdmissionComponent implements OnInit, OnDestroy {
             tap(() => {
                 this.store.pipe(select(reducers.getQrcodeToken)).subscribe((qrcodeToken) => {
                     console.log(qrcodeToken);
+                    this.admission();
                 }).unsubscribe();
             })
         );
@@ -216,6 +221,12 @@ export class AdmissionComponent implements OnInit, OnDestroy {
 
     public admission() {
         const admissionLoopTime = 60000; // 1分に一回
+        this.qrcodeTokenList.subscribe((qrcodeTokenList) => {
+            qrcodeTokenList.forEach((qrcodeToken) => {
+                this.store.dispatch(new Admission({ params: qrcodeToken }));
+            });
+        }).unsubscribe();
+        clearInterval(this.admissionLoop);
         this.admissionLoop = setInterval(() => {
             this.qrcodeTokenList.subscribe((qrcodeTokenList) => {
                 qrcodeTokenList.forEach((qrcodeToken) => {

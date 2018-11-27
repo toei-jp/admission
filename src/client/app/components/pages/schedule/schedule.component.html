@@ -29,17 +29,30 @@
     <div class="screeningEvents">
         <p *ngIf="(screeningEvents | async).length === 0">スケジュールがありません。</p>
         <ul *ngIf="(screeningEvents | async).length > 0">
-            <li *ngFor="let screeningEvent of (screeningEvents | async)" class="mb-2 px-3 py-2"
-            [ngClass]="{ 
+            <li *ngFor="let screeningEvent of (screeningEvents | async)" class="mb-2 px-3 py-2" [ngClass]="{ 
             'bg-primary text-white': !(moment(screeningEvent.endDate).unix() < moment().unix()), 
             'bg-dark text-light': moment(screeningEvent.endDate).unix() < moment().unix()
             }"
-            (click)="select(screeningEvent)">
-                <p>{{ screeningEvent.name.ja }}</p>
-                <p class="small-text">{{ screeningEvent.location.name.ja }}</p>
-                <p class="small-text">開場時間 {{ moment(screeningEvent.doorTime).format('MM/DD HH:mm') }}</p>
-                <p class="small-text">上映時間 {{ moment(screeningEvent.startDate).format('HH:mm') }} - {{
-                    moment(screeningEvent.endDate).format('HH:mm') }}</p>
+                (click)="select(screeningEvent)">
+                <div class="mb-2">
+                    <p><strong>{{ screeningEvent.name.ja }}</strong></p>
+                    <p *ngIf="screeningEvent.workPerformed.headline" class="small-text">{{ screeningEvent.workPerformed.headline }}</p>
+                </div>
+                <div class="d-flex align-items-center mb-2">
+                    <div *ngIf="screeningEvent.workPerformed.contentRating" class="small-text text-dark bg-white py-1 px-3 mr-2">{{ screeningEvent.workPerformed.contentRating }}</div>
+                    <div *ngIf="screeningEvent.superEvent.dubLanguage" class="small-text text-dark bg-white py-1 px-3 mr-2">吹替版</div>
+                    <div *ngIf="screeningEvent.superEvent.subtitleLanguage" class="small-text text-dark bg-white py-1 px-3 mr-2">字幕版</div>
+                    <div *ngIf="screeningEvent.workPerformed.duration !== null" class="small-text mr-2">{{ moment.duration(screeningEvent.workPerformed.duration).asMinutes() }}分</div>
+                </div>
+                <p>{{ screeningEvent.location.address.en }} {{ screeningEvent.location.name.ja }}</p>
+                <div class="d-md-flex mb-2">
+                    <p class="mr-3"><strong class="mr-2">開場</strong>{{ moment(screeningEvent.doorTime).format('MM/DD (ddd) HH:mm') }}</p>
+                    <p><strong class="mr-2">上映</strong>{{ moment(screeningEvent.startDate).format('HH:mm') }} - {{
+                        moment(screeningEvent.endDate).format('HH:mm') }}</p>
+                </div>
+                <div class="d-md-flex">
+                    <p><strong class="mr-2">入場</strong>{{ screeningEvent.attendeeCount }}</p>
+                </div>
             </li>
         </ul>
     </div>

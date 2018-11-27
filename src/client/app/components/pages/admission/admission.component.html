@@ -1,5 +1,6 @@
 <div [class.d-block]="isShowVideo" [class.d-none]="!isShowVideo">
-    <div class="d-flex align-items-center video-area"><video id="video" class="bg-black" src="" autoplay muted playsinline></video></div>
+    <div class="d-flex align-items-center video-area"><video id="video" class="bg-black" src="" autoplay muted
+            playsinline></video></div>
     <div class="d-none"><canvas id="canvas"></canvas></div>
 </div>
 <div class="p-3">
@@ -10,32 +11,50 @@
     <div *ngIf="!(isLoading | async)" class="mb-3">
         <div *ngIf="qrcodeToken | async">
             <div *ngIf="(qrcodeToken | async).isAvailable" class="p-4 bg-success text-white text-center">
-                <div class="flash-text large-x-text font-weight-bold mb-2">OK</div>
+                <div class="flash-text large-xx-text font-weight-bold mb-2">OK</div>
                 <p>座席: {{ (qrcodeToken | async).availableReservation.reservedTicket.ticketedSeat.seatNumber }}</p>
                 <p>入場回数: {{ (qrcodeToken | async).checkTokenActions.length }}</p>
             </div>
             <div *ngIf="!(qrcodeToken | async).isAvailable" class="p-4 bg-warning text-white text-center">
-                <div class="flash-text large-x-text font-weight-bold mb-2">NG</div>
+                <div class="flash-text large-xx-text font-weight-bold mb-2">NG</div>
                 <p *ngIf="(qrcodeToken | async).statusCode === 200">上映会をご確認ください</p>
                 <p *ngIf="(qrcodeToken | async).statusCode !== 200">QRコードをご確認ください<br>ステータスコード: {{ (qrcodeToken |
                     async).statusCode }}</p>
             </div>
         </div>
         <div *ngIf="!(qrcodeToken | async)" class="p-4 bg-dark text-white text-center">
-            <div class="large-x-text font-weight-bold mb-2">Waiting</div>
+            <div class="large-xx-text font-weight-bold mb-2">Waiting</div>
             <p>QRコードを読み取ってください</p>
         </div>
     </div>
     <div class="border p-3 mb-3">
-        <p>{{ (screeningEvent | async).name.ja }}</p>
-        <p>{{ (screeningEvent | async).location.name.ja }}</p>
-        <p>開場時間 {{ moment((screeningEvent | async).doorTime).format('MM/DD HH:mm') }}</p>
-        <p>上映時間 {{ moment((screeningEvent | async).startDate).format('HH:mm') }} - {{
-            moment((screeningEvent | async).endDate).format('HH:mm') }}</p>
+        <div class="mb-2">
+            <p><strong>{{ (screeningEvent | async).name.ja }}</strong></p>
+            <p *ngIf="(screeningEvent | async).workPerformed.headline" class="small-text">{{ (screeningEvent |
+                async).workPerformed.headline }}</p>
+        </div>
+        <div class="d-flex align-items-center mb-2">
+            <div *ngIf="(screeningEvent | async).workPerformed.contentRating" class="small-text text-white bg-dark py-1 px-3 mr-2">{{
+                (screeningEvent | async).workPerformed.contentRating }}</div>
+            <div *ngIf="(screeningEvent | async).superEvent.dubLanguage" class="small-text text-white bg-dark py-1 px-3 mr-2">吹替版</div>
+            <div *ngIf="(screeningEvent | async).superEvent.subtitleLanguage" class="small-text text-white bg-dark py-1 px-3 mr-2">字幕版</div>
+            <div *ngIf="(screeningEvent | async).workPerformed.duration !== null" class="small-text mr-2">{{
+                moment.duration((screeningEvent | async).workPerformed.duration).asMinutes() }}分</div>
+        </div>
+        <p>{{ (screeningEvent | async).location.address.en }} {{ (screeningEvent | async).location.name.ja }}</p>
+        <div class="d-md-flex mb-2">
+            <p class="mr-3"><strong class="mr-2">開場</strong>{{ moment((screeningEvent | async).doorTime).format('MM/DD
+                (ddd) HH:mm') }}</p>
+            <p><strong class="mr-2">上映</strong>{{ moment((screeningEvent | async).startDate).format('HH:mm') }} - {{
+                moment((screeningEvent | async).endDate).format('HH:mm') }}</p>
+        </div>
+        <div class="d-md-flex">
+            <p><strong class="mr-2">入場</strong>{{ (screeningEvent | async).attendeeCount }}</p>
+        </div>
     </div>
     <div class="border p-3 mb-4">
-        <p>未送信件数: {{ (qrcodeTokenList | async).length }}</p>
-        <p class="small-text">※1分に1回送信されます</p>
+        <p><strong class="mr-2">未送信件数</strong> {{ (qrcodeTokenList | async).length }}</p>
+        <p>※1分に1回送信されます</p>
     </div>
 
     <div class="text-center">
