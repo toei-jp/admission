@@ -30,7 +30,7 @@ body {
     background-attachment: fixed;
     color: #333;
     font-family: $font-family;
-    font-size: 18px;
+    font-size: 20px;
     @include media-breakpoint-down(sm) {
         font-size: 16px;
     }

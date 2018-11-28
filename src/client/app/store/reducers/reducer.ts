@@ -22,7 +22,7 @@ export interface IState {
         isAvailable: boolean;
         statusCode: number;
     };
-    qrcodeTokenList: {
+    usentList: {
         token: string;
         decodeResult: IDecodeResult;
     }[];
@@ -37,7 +37,7 @@ export const initialState: IState = {
     movieTheaters: [],
     screeningEvents: [],
     screeningEventReservations: [],
-    qrcodeTokenList: []
+    usentList: []
 };
 
 function getInitialState(): IState {
@@ -104,22 +104,22 @@ export function reducer(
             return { ...state, loading: false, error: null, screeningEvent };
         }
         case ActionTypes.GetScreeningEventReservations: {
-            return { ...state, loading: true };
+            return { ...state };
         }
         case ActionTypes.GetScreeningEventReservationsSuccess: {
             state.screeningEventReservations = action.payload.screeningEventReservations;
-            return { ...state, loading: false, error: null };
+            return { ...state, error: null };
         }
         case ActionTypes.GetScreeningEventReservationsFail: {
             const error = action.payload.error;
-            return { ...state, loading: false, error: JSON.stringify(error) };
+            return { ...state, error: JSON.stringify(error) };
         }
         case ActionTypes.InitializeQrcodeToken: {
             const qrcodeToken = undefined;
             return { ...state, qrcodeToken };
         }
-        case ActionTypes.InitializeQrcodeTokenList: {
-            state.qrcodeTokenList = [];
+        case ActionTypes.InitializeUsentList: {
+            state.usentList = [];
             return { ...state };
         }
         case ActionTypes.ConvertQrcodeToToken: {
@@ -127,16 +127,8 @@ export function reducer(
         }
         case ActionTypes.ConvertQrcodeToTokenSuccess: {
             const qrcodeToken = action.payload;
-            const qrcodeTokenList = state.qrcodeTokenList;
-            if (qrcodeToken.isAvailable
-                && qrcodeToken.token !== undefined
-                && qrcodeToken.decodeResult !== undefined) {
-                qrcodeTokenList.push({
-                    token: qrcodeToken.token,
-                    decodeResult: qrcodeToken.decodeResult
-                });
-            }
-            return { ...state, loading: false, error: null, qrcodeToken, qrcodeTokenList };
+
+            return { ...state, loading: false, error: null, qrcodeToken };
         }
         case ActionTypes.ConvertQrcodeToTokenFail: {
             const error = action.payload.error;
@@ -146,15 +138,20 @@ export function reducer(
             return { ...state, error: null };
         }
         case ActionTypes.AdmissionSuccess: {
-            const token = action.payload.token;
             const decodeResult = action.payload.decodeResult;
-            const qrcodeTokenList = state.qrcodeTokenList.filter((qrcode) => {
-                return qrcode.token !== token && qrcode.decodeResult.iat !== decodeResult.iat;
-            });
-            return { ...state, error: null, qrcodeTokenList };
+            const usentList = state.usentList.filter(usent => usent.decodeResult.id !== decodeResult.id);
+            state.usentList = usentList;
+            return { ...state, error: null };
         }
         case ActionTypes.AdmissionFail: {
             const error = action.payload.error;
+            const token = action.payload.token;
+            const decodeResult = action.payload.decodeResult;
+            const findResult = state.usentList.find(usent => usent.decodeResult.id === decodeResult.id);
+            if (findResult === undefined) {
+                state.usentList.push({ token, decodeResult });
+            }
+
             return { ...state, error: JSON.stringify(error) };
         }
         default: {
@@ -174,4 +171,4 @@ export const getScreeningEvents = (state: IState) => state.screeningEvents;
 export const getScreeningEvent = (state: IState) => state.screeningEvent;
 export const getScreeningEventReservations = (state: IState) => state.screeningEventReservations;
 export const getQrcodeToken = (state: IState) => state.qrcodeToken;
-export const getQrcodeTokenList = (state: IState) => state.qrcodeTokenList;
+export const getUsentList = (state: IState) => state.usentList;

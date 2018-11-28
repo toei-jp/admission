@@ -705,7 +705,7 @@ var AppComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div [class.d-block]=\"isShowVideo\" [class.d-none]=\"!isShowVideo\">\n    <div class=\"d-flex align-items-center video-area\"><video id=\"video\" class=\"bg-black\" src=\"\" autoplay muted\n            playsinline></video></div>\n    <div class=\"d-none\"><canvas id=\"canvas\"></canvas></div>\n</div>\n<div class=\"p-3\">\n    <div class=\"w-50 mx-auto mb-3\">\n        <button *ngIf=\"stream === null\" type=\"button\" class=\"btn btn-primary btn-block\" (click)=\"start()\">カメラで読込</button>\n        <button *ngIf=\"stream !== null\" type=\"button\" class=\"btn btn-danger btn-block\" (click)=\"stop()\">カメラを停止</button>\n    </div>\n    <div *ngIf=\"!(isLoading | async)\" class=\"mb-3\">\n        <div *ngIf=\"qrcodeToken | async\">\n            <div *ngIf=\"(qrcodeToken | async).isAvailable\" class=\"p-4 bg-success text-white text-center\">\n                <div class=\"flash-text large-xx-text font-weight-bold mb-2\">OK</div>\n                <p>座席: {{ (qrcodeToken | async).availableReservation.reservedTicket.ticketedSeat.seatNumber }}</p>\n                <p>入場回数: {{ (qrcodeToken | async).checkTokenActions.length }}</p>\n            </div>\n            <div *ngIf=\"!(qrcodeToken | async).isAvailable\" class=\"p-4 bg-warning text-white text-center\">\n                <div class=\"flash-text large-xx-text font-weight-bold mb-2\">NG</div>\n                <p *ngIf=\"(qrcodeToken | async).statusCode === 200\">上映会をご確認ください</p>\n                <p *ngIf=\"(qrcodeToken | async).statusCode !== 200\">QRコードをご確認ください<br>ステータスコード: {{ (qrcodeToken |\n                    async).statusCode }}</p>\n            </div>\n        </div>\n        <div *ngIf=\"!(qrcodeToken | async)\" class=\"p-4 bg-dark text-white text-center\">\n            <div class=\"large-xx-text font-weight-bold mb-2\">Waiting</div>\n            <p>QRコードを読み取ってください</p>\n        </div>\n    </div>\n    <div class=\"border p-3 mb-3\">\n        <div class=\"mb-2\">\n            <p><strong>{{ (screeningEvent | async).name.ja }}</strong></p>\n            <p *ngIf=\"(screeningEvent | async).workPerformed.headline\" class=\"small-text\">{{ (screeningEvent |\n                async).workPerformed.headline }}</p>\n        </div>\n        <div class=\"d-flex align-items-center mb-2\">\n            <div *ngIf=\"(screeningEvent | async).workPerformed.contentRating\" class=\"small-text text-white bg-dark py-1 px-3 mr-2\">{{\n                (screeningEvent | async).workPerformed.contentRating }}</div>\n            <div *ngIf=\"(screeningEvent | async).superEvent.dubLanguage\" class=\"small-text text-white bg-dark py-1 px-3 mr-2\">吹替版</div>\n            <div *ngIf=\"(screeningEvent | async).superEvent.subtitleLanguage\" class=\"small-text text-white bg-dark py-1 px-3 mr-2\">字幕版</div>\n            <div *ngIf=\"(screeningEvent | async).workPerformed.duration !== null\" class=\"small-text mr-2\">{{\n                moment.duration((screeningEvent | async).workPerformed.duration).asMinutes() }}分</div>\n        </div>\n        <p>{{ (screeningEvent | async).location.address.en }} {{ (screeningEvent | async).location.name.ja }}</p>\n        <div class=\"d-md-flex mb-2\">\n            <p class=\"mr-3\"><strong class=\"mr-2\">開場</strong>{{ moment((screeningEvent | async).doorTime).format('MM/DD\n                (ddd) HH:mm') }}</p>\n            <p><strong class=\"mr-2\">上映</strong>{{ moment((screeningEvent | async).startDate).format('HH:mm') }} - {{\n                moment((screeningEvent | async).endDate).format('HH:mm') }}</p>\n        </div>\n        <div class=\"d-md-flex\">\n            <!-- <p class=\"mr-3\"><strong class=\"mr-2\">購入</strong>{{ (screeningEventReservations | async).length }}</p> -->\n            <p><strong class=\"mr-2\">入場</strong>{{ (screeningEvent | async).attendeeCount }}</p>\n        </div>\n    </div>\n    <div class=\"border p-3 mb-4\">\n        <p><strong class=\"mr-2\">未送信件数</strong> {{ (qrcodeTokenList | async).length }}</p>\n        <p>※1分に1回送信されます</p>\n    </div>\n\n    <div class=\"text-center\">\n        <p class=\"d-inline-block pointer\" routerLink=\"/schedule\"><i class=\"fas fa-chevron-circle-left mr-2\"></i>スケジュールへ戻る</p>\n    </div>\n</div>"
+module.exports = "<div [class.d-block]=\"isShowVideo\" [class.d-none]=\"!isShowVideo\">\n    <div class=\"d-flex align-items-center video-area\"><video id=\"video\" class=\"bg-black\" src=\"\" autoplay muted\n            playsinline></video></div>\n    <div class=\"d-none\"><canvas id=\"canvas\"></canvas></div>\n</div>\n<div class=\"p-3\">\n    <div class=\"w-50 mx-auto mb-3\">\n        <button *ngIf=\"stream === null\" type=\"button\" class=\"btn btn-dark btn-block\" (click)=\"start()\">カメラで読込</button>\n        <button *ngIf=\"stream !== null\" type=\"button\" class=\"btn btn-danger btn-block\" (click)=\"stop()\">カメラを停止</button>\n    </div>\n    <div *ngIf=\"!(isLoading | async)\" class=\"mb-3\">\n        <div *ngIf=\"qrcodeToken | async\">\n            <div *ngIf=\"(qrcodeToken | async).isAvailable\" class=\"p-4 bg-success text-white text-center\">\n                <div *ngIf=\"(qrcodeToken | async).checkTokenActions.length === 0\" class=\"flash-text large-xx-text font-weight-bold mb-2\">入場OK</div>\n                <div *ngIf=\"(qrcodeToken | async).checkTokenActions.length > 0\" class=\"flash-text large-xx-text font-weight-bold mb-2\">再入場</div>\n                <p><strong class=\"mr-2\">座席</strong>{{ (qrcodeToken | async).availableReservation.reservedTicket.ticketedSeat.seatNumber }}</p>\n                <p><strong class=\"mr-2\">券種</strong>{{ (qrcodeToken | async).availableReservation.reservedTicket.ticketType.name.ja }}</p>\n                <p><strong class=\"mr-2\">入場回数</strong>{{ (qrcodeToken | async).checkTokenActions.length }}</p>\n            </div>\n            <div *ngIf=\"!(qrcodeToken | async).isAvailable\" class=\"p-4 bg-warning text-white text-center\">\n                <div class=\"flash-text large-xx-text font-weight-bold mb-2\">入場NG</div>\n                <p *ngIf=\"(qrcodeToken | async).statusCode === 200\">上映会をご確認ください</p>\n                <p *ngIf=\"(qrcodeToken | async).statusCode !== 200\">QRコードをご確認ください<br><strong class=\"mr-2\">ステータスコード</strong>{{ (qrcodeToken |\n                    async).statusCode }}</p>\n            </div>\n        </div>\n        <div *ngIf=\"!(qrcodeToken | async)\" class=\"p-4 bg-dark text-white text-center\">\n            <div class=\"large-xx-text font-weight-bold mb-2\">Waiting</div>\n            <p>QRコードを読み取ってください</p>\n        </div>\n    </div>\n    <div class=\"border p-3 mb-3\">\n        <div class=\"mb-2\">\n            <p><strong>{{ (screeningEvent | async).name.ja }}</strong></p>\n            <p *ngIf=\"(screeningEvent | async).workPerformed.headline\" class=\"small-text\">{{ (screeningEvent |\n                async).workPerformed.headline }}</p>\n        </div>\n        <div class=\"d-flex align-items-center mb-2\">\n            <div *ngIf=\"(screeningEvent | async).workPerformed.contentRating\" class=\"small-text text-white bg-dark py-1 px-3 mr-2\">{{\n                (screeningEvent | async).workPerformed.contentRating }}</div>\n            <div *ngIf=\"(screeningEvent | async).superEvent.dubLanguage\" class=\"small-text text-white bg-dark py-1 px-3 mr-2\">吹替版</div>\n            <div *ngIf=\"(screeningEvent | async).superEvent.subtitleLanguage\" class=\"small-text text-white bg-dark py-1 px-3 mr-2\">字幕版</div>\n            <div *ngIf=\"(screeningEvent | async).workPerformed.duration !== null\" class=\"small-text mr-2\">{{\n                moment.duration((screeningEvent | async).workPerformed.duration).asMinutes() }}分</div>\n        </div>\n        <p>{{ (screeningEvent | async).location.address.en }} {{ (screeningEvent | async).location.name.ja }}</p>\n        <div class=\"d-md-flex mb-2\">\n            <p class=\"mr-3\"><strong class=\"mr-2\">開場</strong>{{ moment((screeningEvent | async).doorTime).format('MM/DD\n                (ddd) HH:mm') }}</p>\n            <p><strong class=\"mr-2\">上映</strong>{{ moment((screeningEvent | async).startDate).format('HH:mm') }} - {{\n                moment((screeningEvent | async).endDate).format('HH:mm') }}</p>\n        </div>\n        <div class=\"d-md-flex\">\n            <p class=\"mr-3\"><strong class=\"mr-2\">予約</strong>{{ (screeningEvent | async).maximumAttendeeCapacity - (screeningEvent | async).remainingAttendeeCapacity }}</p>\n            <p><strong class=\"mr-2\">入場</strong>{{ (screeningEvent | async).attendeeCount }}</p>\n        </div>\n    </div>\n    <div class=\"border p-3 mb-4\">\n        <p><strong class=\"mr-2\">未送信件数</strong> {{ (usentList | async).length }}</p>\n        <p>※1分に1回送信されます</p>\n    </div>\n\n    <div class=\"text-center\">\n        <p class=\"d-inline-block pointer\" routerLink=\"/schedule\"><i class=\"fas fa-chevron-circle-left mr-2\"></i>スケジュールへ戻る</p>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -820,7 +820,7 @@ var AdmissionComponent = /** @class */ (function () {
         this.screeningEventReservations = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_11__["getScreeningEventReservations"]));
         this.screeningEvent = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_11__["getScreeningEvent"]));
         this.qrcodeToken = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_11__["getQrcodeToken"]));
-        this.qrcodeTokenList = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_11__["getQrcodeTokenList"]));
+        this.usentList = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_11__["getUsentList"]));
         this.getScreeningEventReservations();
         this.update();
     };
@@ -833,6 +833,7 @@ var AdmissionComponent = /** @class */ (function () {
         var KEY_ESCAPE = 'Escape';
         if (event.key === KEY_ENTER && this.inputCode.length > 0) {
             // 読み取り完了
+            this.inputCode = '8ea2c7f5-4603-48b3-99fa-5eb51264aa60';
             this.convertQrcodeToToken(this.inputCode);
             this.inputCode = '';
         }
@@ -934,11 +935,7 @@ var AdmissionComponent = /** @class */ (function () {
                 }
             }));
         }).unsubscribe();
-        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["ofType"])(_store_actions__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].GetScreeningEventReservationsSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["tap"])(function () {
-            _this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_11__["getScreeningEventReservations"])).subscribe(function (screeningEventReservation) {
-                console.log(screeningEventReservation);
-            }).unsubscribe();
-        }));
+        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["ofType"])(_store_actions__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].GetScreeningEventReservationsSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["tap"])(function () { }));
         var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["ofType"])(_store_actions__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].GetScreeningEventReservationsFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["tap"])(function () {
             _this.router.navigate(['/error']);
         }));
@@ -955,7 +952,6 @@ var AdmissionComponent = /** @class */ (function () {
         }).unsubscribe();
         var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["ofType"])(_store_actions__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].ConvertQrcodeToTokenSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["tap"])(function () {
             _this.admission();
-            _this.update();
         }));
         var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["ofType"])(_store_actions__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].ConvertQrcodeToTokenFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["tap"])(function () {
             _this.openAlert({
@@ -970,7 +966,8 @@ var AdmissionComponent = /** @class */ (function () {
         var loopTime = 60000; // 1分に一回
         clearInterval(this.updateLoop);
         this.updateLoop = setInterval(function () {
-            _this.admission();
+            _this.getScreeningEventReservations();
+            _this.admissionAll();
             _this.getScreeningEvent();
         }, loopTime);
     };
@@ -990,13 +987,31 @@ var AdmissionComponent = /** @class */ (function () {
     };
     AdmissionComponent.prototype.admission = function () {
         var _this = this;
-        this.qrcodeTokenList.subscribe(function (qrcodeTokenList) {
-            qrcodeTokenList.forEach(function (qrcodeToken) {
-                _this.store.dispatch(new _store_actions__WEBPACK_IMPORTED_MODULE_10__["Admission"]({ params: qrcodeToken }));
+        this.qrcodeToken.subscribe(function (qrcodeToken) {
+            if (qrcodeToken === undefined
+                || qrcodeToken.token === undefined
+                || qrcodeToken.decodeResult === undefined) {
+                return;
+            }
+            var token = qrcodeToken.token;
+            var decodeResult = qrcodeToken.decodeResult;
+            _this.store.dispatch(new _store_actions__WEBPACK_IMPORTED_MODULE_10__["Admission"]({ token: token, decodeResult: decodeResult }));
+        }).unsubscribe();
+        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["ofType"])(_store_actions__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].AdmissionSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["tap"])(function () { }));
+        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["ofType"])(_store_actions__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].AdmissionFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["tap"])(function () { }));
+        Object(rxjs__WEBPACK_IMPORTED_MODULE_8__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["take"])(1)).subscribe();
+    };
+    AdmissionComponent.prototype.admissionAll = function () {
+        var _this = this;
+        this.usentList.subscribe(function (usentList) {
+            usentList.forEach(function (usent) {
+                var token = usent.token;
+                var decodeResult = usent.decodeResult;
+                _this.store.dispatch(new _store_actions__WEBPACK_IMPORTED_MODULE_10__["Admission"]({ token: token, decodeResult: decodeResult }));
             });
         }).unsubscribe();
         var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["ofType"])(_store_actions__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].AdmissionSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["tap"])(function () { }));
-        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["ofType"])(_store_actions__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].GetTheatersFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["tap"])(function () { }));
+        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["ofType"])(_store_actions__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].AdmissionFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["tap"])(function () { }));
         Object(rxjs__WEBPACK_IMPORTED_MODULE_8__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["take"])(1)).subscribe();
     };
     AdmissionComponent.prototype.openAlert = function (args) {
@@ -1659,7 +1674,7 @@ var NotfoundComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"p-3\">\n    <p class=\"mb-3\">スケジュールを選択してください</p>\n    <div class=\"condition\">\n        <div class=\"mb-3\">\n            <select class=\"p-2\" [(ngModel)]=\"theaterCode\" (change)=\"getScreeningEvents(selectedDate)\">\n                <option *ngFor=\"let movieTheater of (movieTheaters | async)\" [value]=\"movieTheater.location.branchCode\">{{\n                    movieTheater.name.ja }}</option>\n            </select>\n        </div>\n        <div class=\"mb-3\">\n            <div class=\"swiper-cover position-relative\">\n                <div class=\"swiper-container mb-3\" #swiper [swiper]=\"swiperConfig\" (resize)=\"resize()\">\n                    <div class=\"swiper-wrapper\">\n                        <div *ngFor=\"let date of dates\" class=\"swiper-slide\">\n                            <div class=\"py-4 text-center pointer\" [ngClass]=\"{'bg-primary text-white': date === selectedDate}\"\n                                (click)=\"getScreeningEvents(date)\">{{ moment(date).format('MM/DD (ddd)') }}</div>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"swiper-button-prev\"></div>\n                <div class=\"swiper-button-next\"></div>\n            </div>\n            <!-- <select class=\"p-2\" [(ngModel)]=\"date\" (change)=\"getScreeningEvents()\">\n                <option *ngFor=\"let date of dates\" [value]=\"date\">{{ moment(date).format('YYYY/MM/DD (ddd)') }}</option>\n            </select> -->\n        </div>\n    </div>\n\n    <div class=\"screeningEvents\">\n        <p *ngIf=\"(screeningEvents | async).length === 0\">スケジュールがありません。</p>\n        <ul *ngIf=\"(screeningEvents | async).length > 0\">\n            <li *ngFor=\"let screeningEvent of (screeningEvents | async)\" class=\"mb-2 px-3 py-2\" [ngClass]=\"{ \n            'bg-primary text-white': !(moment(screeningEvent.endDate).unix() < moment().unix()), \n            'bg-dark text-light': moment(screeningEvent.endDate).unix() < moment().unix()\n            }\"\n                (click)=\"select(screeningEvent)\">\n                <div class=\"mb-2\">\n                    <p><strong>{{ screeningEvent.name.ja }}</strong></p>\n                    <p *ngIf=\"screeningEvent.workPerformed.headline\" class=\"small-text\">{{ screeningEvent.workPerformed.headline }}</p>\n                </div>\n                <div class=\"d-flex align-items-center mb-2\">\n                    <div *ngIf=\"screeningEvent.workPerformed.contentRating\" class=\"small-text text-dark bg-white py-1 px-3 mr-2\">{{ screeningEvent.workPerformed.contentRating }}</div>\n                    <div *ngIf=\"screeningEvent.superEvent.dubLanguage\" class=\"small-text text-dark bg-white py-1 px-3 mr-2\">吹替版</div>\n                    <div *ngIf=\"screeningEvent.superEvent.subtitleLanguage\" class=\"small-text text-dark bg-white py-1 px-3 mr-2\">字幕版</div>\n                    <div *ngIf=\"screeningEvent.workPerformed.duration !== null\" class=\"small-text mr-2\">{{ moment.duration(screeningEvent.workPerformed.duration).asMinutes() }}分</div>\n                </div>\n                <p>{{ screeningEvent.location.address.en }} {{ screeningEvent.location.name.ja }}</p>\n                <div class=\"d-md-flex mb-2\">\n                    <p class=\"mr-3\"><strong class=\"mr-2\">開場</strong>{{ moment(screeningEvent.doorTime).format('MM/DD (ddd) HH:mm') }}</p>\n                    <p><strong class=\"mr-2\">上映</strong>{{ moment(screeningEvent.startDate).format('HH:mm') }} - {{\n                        moment(screeningEvent.endDate).format('HH:mm') }}</p>\n                </div>\n                <div class=\"d-md-flex\">\n                    <p><strong class=\"mr-2\">入場</strong>{{ screeningEvent.attendeeCount }}</p>\n                </div>\n            </li>\n        </ul>\n    </div>\n</div>"
+module.exports = "<div class=\"p-3\">\n    <p class=\"mb-3\">スケジュールを選択してください</p>\n    <div class=\"condition\">\n        <div class=\"mb-3\">\n            <select class=\"p-2\" [(ngModel)]=\"theaterCode\" (change)=\"getScreeningEvents(selectedDate)\">\n                <option *ngFor=\"let movieTheater of (movieTheaters | async)\" [value]=\"movieTheater.location.branchCode\">{{\n                    movieTheater.name.ja }}</option>\n            </select>\n        </div>\n        <div class=\"mb-3\">\n            <div class=\"swiper-cover position-relative\">\n                <div class=\"swiper-container mb-3\" #swiper [swiper]=\"swiperConfig\" (resize)=\"resize()\">\n                    <div class=\"swiper-wrapper\">\n                        <div *ngFor=\"let date of dates\" class=\"swiper-slide\">\n                            <div class=\"py-4 text-center pointer\" [ngClass]=\"{'bg-primary text-white': date === selectedDate}\"\n                                (click)=\"getScreeningEvents(date)\">{{ moment(date).format('MM/DD (ddd)') }}</div>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"swiper-button-prev\"></div>\n                <div class=\"swiper-button-next\"></div>\n            </div>\n            <!-- <select class=\"p-2\" [(ngModel)]=\"date\" (change)=\"getScreeningEvents()\">\n                <option *ngFor=\"let date of dates\" [value]=\"date\">{{ moment(date).format('YYYY/MM/DD (ddd)') }}</option>\n            </select> -->\n        </div>\n    </div>\n\n    <div class=\"screeningEvents\">\n        <p *ngIf=\"(screeningEvents | async).length === 0\">スケジュールがありません。</p>\n        <ul *ngIf=\"(screeningEvents | async).length > 0\">\n            <li *ngFor=\"let screeningEvent of (screeningEvents | async)\" class=\"mb-2 px-3 py-2\" [ngClass]=\"{ \n            'bg-primary text-white': !(moment(screeningEvent.endDate).unix() < moment().unix()), \n            'bg-dark text-light': moment(screeningEvent.endDate).unix() < moment().unix()\n            }\"\n                (click)=\"select(screeningEvent)\">\n                <div class=\"mb-2\">\n                    <p><strong>{{ screeningEvent.name.ja }}</strong></p>\n                    <p *ngIf=\"screeningEvent.workPerformed.headline\" class=\"small-text\">{{ screeningEvent.workPerformed.headline }}</p>\n                </div>\n                <div class=\"d-flex align-items-center mb-2\">\n                    <div *ngIf=\"screeningEvent.workPerformed.contentRating\" class=\"small-text text-dark bg-white py-1 px-3 mr-2\">{{ screeningEvent.workPerformed.contentRating }}</div>\n                    <div *ngIf=\"screeningEvent.superEvent.dubLanguage\" class=\"small-text text-dark bg-white py-1 px-3 mr-2\">吹替版</div>\n                    <div *ngIf=\"screeningEvent.superEvent.subtitleLanguage\" class=\"small-text text-dark bg-white py-1 px-3 mr-2\">字幕版</div>\n                    <div *ngIf=\"screeningEvent.workPerformed.duration !== null\" class=\"small-text mr-2\">{{ moment.duration(screeningEvent.workPerformed.duration).asMinutes() }}分</div>\n                </div>\n                <p>{{ screeningEvent.location.address.en }} {{ screeningEvent.location.name.ja }}</p>\n                <div class=\"d-md-flex mb-2\">\n                    <p class=\"mr-3\"><strong class=\"mr-2\">開場</strong>{{ moment(screeningEvent.doorTime).format('MM/DD (ddd) HH:mm') }}</p>\n                    <p><strong class=\"mr-2\">上映</strong>{{ moment(screeningEvent.startDate).format('HH:mm') }} - {{\n                        moment(screeningEvent.endDate).format('HH:mm') }}</p>\n                </div>\n                <div class=\"d-md-flex\">\n                    <p class=\"mr-3\"><strong class=\"mr-2\">予約</strong>{{ screeningEvent.maximumAttendeeCapacity - screeningEvent.remainingAttendeeCapacity }}</p>\n                    <p><strong class=\"mr-2\">入場</strong>{{ screeningEvent.attendeeCount }}</p>\n                </div>\n            </li>\n        </ul>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -1793,7 +1808,6 @@ var ScheduleComponent = /** @class */ (function () {
     ScheduleComponent.prototype.select = function (screeningEvent) {
         this.store.dispatch(new _store_actions__WEBPACK_IMPORTED_MODULE_9__["SelectScreeningEvent"]({ screeningEvent: screeningEvent }));
         this.store.dispatch(new _store_actions__WEBPACK_IMPORTED_MODULE_9__["InitializeQrcodeToken"]());
-        this.store.dispatch(new _store_actions__WEBPACK_IMPORTED_MODULE_9__["InitializeQrcodeTokenList"]());
         this.router.navigate(['/admission']);
     };
     __decorate([
@@ -2820,7 +2834,7 @@ var StoreModule = /** @class */ (function () {
 /*!************************************!*\
   !*** ./app/store/actions/index.ts ***!
   \************************************/
-/*! exports provided: ActionTypes, Delete, GetTheaters, GetTheatersSuccess, GetTheatersFail, SelectTheater, GetScreeningEvent, GetScreeningEventSuccess, GetScreeningEventFail, GetScreeningEvents, GetScreeningEventsSuccess, GetScreeningEventsFail, SelectScreeningEvent, GetScreeningEventReservations, GetScreeningEventReservationsSuccess, GetScreeningEventReservationsFail, InitializeQrcodeToken, InitializeQrcodeTokenList, ConvertQrcodeToToken, ConvertQrcodeToTokenSuccess, ConvertQrcodeToTokenFail, Admission, AdmissionSuccess, AdmissionFail */
+/*! exports provided: ActionTypes, Delete, GetTheaters, GetTheatersSuccess, GetTheatersFail, SelectTheater, GetScreeningEvent, GetScreeningEventSuccess, GetScreeningEventFail, GetScreeningEvents, GetScreeningEventsSuccess, GetScreeningEventsFail, SelectScreeningEvent, GetScreeningEventReservations, GetScreeningEventReservationsSuccess, GetScreeningEventReservationsFail, InitializeQrcodeToken, InitializeUsentList, ConvertQrcodeToToken, ConvertQrcodeToTokenSuccess, ConvertQrcodeToTokenFail, Admission, AdmissionSuccess, AdmissionFail */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2842,7 +2856,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GetScreeningEventReservationsSuccess", function() { return GetScreeningEventReservationsSuccess; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GetScreeningEventReservationsFail", function() { return GetScreeningEventReservationsFail; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InitializeQrcodeToken", function() { return InitializeQrcodeToken; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InitializeQrcodeTokenList", function() { return InitializeQrcodeTokenList; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InitializeUsentList", function() { return InitializeUsentList; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConvertQrcodeToToken", function() { return ConvertQrcodeToToken; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConvertQrcodeToTokenSuccess", function() { return ConvertQrcodeToTokenSuccess; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConvertQrcodeToTokenFail", function() { return ConvertQrcodeToTokenFail; });
@@ -2870,7 +2884,7 @@ var ActionTypes;
     ActionTypes["GetScreeningEventReservationsSuccess"] = "[User] Get Screening Events Reservations Success";
     ActionTypes["GetScreeningEventReservationsFail"] = "[User] Get Screening Events Reservations Fail";
     ActionTypes["InitializeQrcodeToken"] = "[User] Initialize Qrcode Token";
-    ActionTypes["InitializeQrcodeTokenList"] = "[User] Initialize Qrcode Token List";
+    ActionTypes["InitializeUsentList"] = "[User] Initialize Usent List";
     ActionTypes["ConvertQrcodeToToken"] = "[User] Convert Qrcode To Token";
     ActionTypes["ConvertQrcodeToTokenSuccess"] = "[User] Convert Qrcode To Token Success";
     ActionTypes["ConvertQrcodeToTokenFail"] = "[User] Convert Qrcode To Token Fail";
@@ -3055,14 +3069,14 @@ var InitializeQrcodeToken = /** @class */ (function () {
 }());
 
 /**
- * InitializeQrcodeTokenList
+ * InitializeUsentList
  */
-var InitializeQrcodeTokenList = /** @class */ (function () {
-    function InitializeQrcodeTokenList(payload) {
+var InitializeUsentList = /** @class */ (function () {
+    function InitializeUsentList(payload) {
         this.payload = payload;
-        this.type = ActionTypes.InitializeQrcodeTokenList;
+        this.type = ActionTypes.InitializeUsentList;
     }
-    return InitializeQrcodeTokenList;
+    return InitializeUsentList;
 }());
 
 /**
@@ -3506,9 +3520,6 @@ var Effects = /** @class */ (function () {
                     case 8:
                         checkTokenActionsResult = _a.sent();
                         checkTokenActions = checkTokenActionsResult.data;
-                        // 利用可能判定
-                        console.log(screeningEventReservations
-                            .filter(function (r) { return r.reservationStatus === _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__["factory"].chevre.reservationStatusType.ReservationConfirmed; }));
                         availableReservation = screeningEventReservations
                             .filter(function (r) { return r.reservationStatus === _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__["factory"].chevre.reservationStatusType.ReservationConfirmed; })
                             .find(function (r) { return r.id === decodeResult_1.typeOfGood.id; });
@@ -3528,20 +3539,26 @@ var Effects = /** @class */ (function () {
          * Admission
          */
         this.Admission = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions__WEBPACK_IMPORTED_MODULE_7__["ActionTypes"].Admission), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
-            var error_8;
+            var token, decodeResult, error_8;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.cinerino.getServices()];
+                        token = payload.token;
+                        decodeResult = payload.decodeResult;
+                        _a.label = 1;
                     case 1:
-                        _a.sent();
-                        this.cinerino.reservation.findScreeningEventReservationByToken(payload.params);
-                        return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_7__["AdmissionSuccess"](payload.params)];
+                        _a.trys.push([1, 4, , 5]);
+                        return [4 /*yield*/, this.cinerino.getServices()];
                     case 2:
+                        _a.sent();
+                        return [4 /*yield*/, this.cinerino.reservation.findScreeningEventReservationByToken({ token: token })];
+                    case 3:
+                        _a.sent();
+                        return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_7__["AdmissionSuccess"]({ token: token, decodeResult: decodeResult })];
+                    case 4:
                         error_8 = _a.sent();
-                        return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_7__["AdmissionFail"]({ error: error_8 })];
-                    case 3: return [2 /*return*/];
+                        return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_7__["AdmissionFail"]({ error: error_8, token: token, decodeResult: decodeResult })];
+                    case 5: return [2 /*return*/];
                 }
             });
         }); }));
@@ -3620,7 +3637,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!*************************************!*\
   !*** ./app/store/reducers/index.ts ***!
   \*************************************/
-/*! exports provided: reducer, getFeatureState, getLoading, getError, getMovieTheaters, getMovieTheater, getScreeningEvents, getScreeningEvent, getScreeningEventReservations, getQrcodeToken, getQrcodeTokenList */
+/*! exports provided: reducer, getFeatureState, getLoading, getError, getMovieTheaters, getMovieTheater, getScreeningEvents, getScreeningEvent, getScreeningEventReservations, getQrcodeToken, getUsentList */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3634,7 +3651,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getScreeningEvent", function() { return getScreeningEvent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getScreeningEventReservations", function() { return getScreeningEventReservations; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getQrcodeToken", function() { return getQrcodeToken; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getQrcodeTokenList", function() { return getQrcodeTokenList; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUsentList", function() { return getUsentList; });
 /* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @ngrx/store */ "../../node_modules/@ngrx/store/fesm5/store.js");
 /* harmony import */ var _reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reducer */ "./app/store/reducers/reducer.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "reducer", function() { return _reducer__WEBPACK_IMPORTED_MODULE_1__["reducer"]; });
@@ -3657,7 +3674,7 @@ var getScreeningEvents = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["create
 var getScreeningEvent = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelector"])(getFeatureState, _reducer__WEBPACK_IMPORTED_MODULE_1__["getScreeningEvent"]);
 var getScreeningEventReservations = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelector"])(getFeatureState, _reducer__WEBPACK_IMPORTED_MODULE_1__["getScreeningEventReservations"]);
 var getQrcodeToken = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelector"])(getFeatureState, _reducer__WEBPACK_IMPORTED_MODULE_1__["getQrcodeToken"]);
-var getQrcodeTokenList = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelector"])(getFeatureState, _reducer__WEBPACK_IMPORTED_MODULE_1__["getQrcodeTokenList"]);
+var getUsentList = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelector"])(getFeatureState, _reducer__WEBPACK_IMPORTED_MODULE_1__["getUsentList"]);
 
 
 /***/ }),
@@ -3666,7 +3683,7 @@ var getQrcodeTokenList = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["create
 /*!***************************************!*\
   !*** ./app/store/reducers/reducer.ts ***!
   \***************************************/
-/*! exports provided: initialState, reducer, getLoading, getError, getMovieTheaters, getMovieTheater, getScreeningEvents, getScreeningEvent, getScreeningEventReservations, getQrcodeToken, getQrcodeTokenList */
+/*! exports provided: initialState, reducer, getLoading, getError, getMovieTheaters, getMovieTheater, getScreeningEvents, getScreeningEvent, getScreeningEventReservations, getQrcodeToken, getUsentList */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3681,7 +3698,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getScreeningEvent", function() { return getScreeningEvent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getScreeningEventReservations", function() { return getScreeningEventReservations; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getQrcodeToken", function() { return getQrcodeToken; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getQrcodeTokenList", function() { return getQrcodeTokenList; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUsentList", function() { return getUsentList; });
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions */ "./app/store/actions/index.ts");
 var __assign = (undefined && undefined.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -3704,7 +3721,7 @@ var initialState = {
     movieTheaters: [],
     screeningEvents: [],
     screeningEventReservations: [],
-    qrcodeTokenList: []
+    usentList: []
 };
 function getInitialState() {
     var json = localStorage.getItem('state');
@@ -3767,22 +3784,22 @@ function reducer(state, action) {
             return __assign({}, state, { loading: false, error: null, screeningEvent: screeningEvent });
         }
         case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].GetScreeningEventReservations: {
-            return __assign({}, state, { loading: true });
+            return __assign({}, state);
         }
         case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].GetScreeningEventReservationsSuccess: {
             state.screeningEventReservations = action.payload.screeningEventReservations;
-            return __assign({}, state, { loading: false, error: null });
+            return __assign({}, state, { error: null });
         }
         case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].GetScreeningEventReservationsFail: {
             var error = action.payload.error;
-            return __assign({}, state, { loading: false, error: JSON.stringify(error) });
+            return __assign({}, state, { error: JSON.stringify(error) });
         }
         case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].InitializeQrcodeToken: {
             var qrcodeToken = undefined;
             return __assign({}, state, { qrcodeToken: qrcodeToken });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].InitializeQrcodeTokenList: {
-            state.qrcodeTokenList = [];
+        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].InitializeUsentList: {
+            state.usentList = [];
             return __assign({}, state);
         }
         case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].ConvertQrcodeToToken: {
@@ -3790,16 +3807,7 @@ function reducer(state, action) {
         }
         case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].ConvertQrcodeToTokenSuccess: {
             var qrcodeToken = action.payload;
-            var qrcodeTokenList = state.qrcodeTokenList;
-            if (qrcodeToken.isAvailable
-                && qrcodeToken.token !== undefined
-                && qrcodeToken.decodeResult !== undefined) {
-                qrcodeTokenList.push({
-                    token: qrcodeToken.token,
-                    decodeResult: qrcodeToken.decodeResult
-                });
-            }
-            return __assign({}, state, { loading: false, error: null, qrcodeToken: qrcodeToken, qrcodeTokenList: qrcodeTokenList });
+            return __assign({}, state, { loading: false, error: null, qrcodeToken: qrcodeToken });
         }
         case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].ConvertQrcodeToTokenFail: {
             var error = action.payload.error;
@@ -3809,15 +3817,19 @@ function reducer(state, action) {
             return __assign({}, state, { error: null });
         }
         case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].AdmissionSuccess: {
-            var token_1 = action.payload.token;
             var decodeResult_1 = action.payload.decodeResult;
-            var qrcodeTokenList = state.qrcodeTokenList.filter(function (qrcode) {
-                return qrcode.token !== token_1 && qrcode.decodeResult.iat !== decodeResult_1.iat;
-            });
-            return __assign({}, state, { error: null, qrcodeTokenList: qrcodeTokenList });
+            var usentList = state.usentList.filter(function (usent) { return usent.decodeResult.id !== decodeResult_1.id; });
+            state.usentList = usentList;
+            return __assign({}, state, { error: null });
         }
         case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].AdmissionFail: {
             var error = action.payload.error;
+            var token = action.payload.token;
+            var decodeResult_2 = action.payload.decodeResult;
+            var findResult = state.usentList.find(function (usent) { return usent.decodeResult.id === decodeResult_2.id; });
+            if (findResult === undefined) {
+                state.usentList.push({ token: token, decodeResult: decodeResult_2 });
+            }
             return __assign({}, state, { error: JSON.stringify(error) });
         }
         default: {
@@ -3836,7 +3848,7 @@ var getScreeningEvents = function (state) { return state.screeningEvents; };
 var getScreeningEvent = function (state) { return state.screeningEvent; };
 var getScreeningEventReservations = function (state) { return state.screeningEventReservations; };
 var getQrcodeToken = function (state) { return state.qrcodeToken; };
-var getQrcodeTokenList = function (state) { return state.qrcodeTokenList; };
+var getUsentList = function (state) { return state.usentList; };
 
 
 /***/ }),

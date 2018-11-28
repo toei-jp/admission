@@ -51,6 +51,7 @@
                         moment(screeningEvent.endDate).format('HH:mm') }}</p>
                 </div>
                 <div class="d-md-flex">
+                    <p class="mr-3"><strong class="mr-2">予約</strong>{{ screeningEvent.maximumAttendeeCapacity - screeningEvent.remainingAttendeeCapacity }}</p>
                     <p><strong class="mr-2">入場</strong>{{ screeningEvent.attendeeCount }}</p>
                 </div>
             </li>

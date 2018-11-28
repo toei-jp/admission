@@ -149,9 +149,6 @@ export class Effects {
                 const checkTokenActionsResult = await this.cinerino.admin.ownershipInfo.searchCheckTokenActions({ id: decodeResult.id });
                 const checkTokenActions = checkTokenActionsResult.data;
                 // 利用可能判定
-                console.log(screeningEventReservations
-                    .filter((r) => r.reservationStatus === factory.chevre.reservationStatusType.ReservationConfirmed));
-
                 const availableReservation = screeningEventReservations
                     .filter((r) => r.reservationStatus === factory.chevre.reservationStatusType.ReservationConfirmed)
                     .find((r) => r.id === decodeResult.typeOfGood.id);
@@ -175,12 +172,15 @@ export class Effects {
         map(action => action.payload),
         mergeMap(async (payload) => {
             // console.log(payload);
+            const token = payload.token;
+            const decodeResult = payload.decodeResult;
             try {
                 await this.cinerino.getServices();
-                this.cinerino.reservation.findScreeningEventReservationByToken(payload.params);
-                return new AdmissionSuccess(payload.params);
+                await this.cinerino.reservation.findScreeningEventReservationByToken({ token });
+
+                return new AdmissionSuccess({ token, decodeResult });
             } catch (error) {
-                return new AdmissionFail({ error: error });
+                return new AdmissionFail({ error, token, decodeResult });
             }
         })
     );

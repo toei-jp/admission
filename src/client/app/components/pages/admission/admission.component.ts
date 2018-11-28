@@ -35,10 +35,7 @@ export class AdmissionComponent implements OnInit, OnDestroy {
         isAvailable: boolean;
         statusCode: number;
     } | undefined>;
-    public qrcodeTokenList: Observable<{
-        token: string;
-        decodeResult: IDecodeResult;
-    }[]>;
+    public usentList: Observable<{ token: string; decodeResult: IDecodeResult }[]>;
     public isLoading: Observable<boolean>;
 
     public stream: MediaStream | null;
@@ -65,7 +62,7 @@ export class AdmissionComponent implements OnInit, OnDestroy {
         this.screeningEventReservations = this.store.pipe(select(reducers.getScreeningEventReservations));
         this.screeningEvent = this.store.pipe(select(reducers.getScreeningEvent));
         this.qrcodeToken = this.store.pipe(select(reducers.getQrcodeToken));
-        this.qrcodeTokenList = this.store.pipe(select(reducers.getQrcodeTokenList));
+        this.usentList = this.store.pipe(select(reducers.getUsentList));
         this.getScreeningEventReservations();
         this.update();
     }
@@ -81,6 +78,7 @@ export class AdmissionComponent implements OnInit, OnDestroy {
         const KEY_ESCAPE = 'Escape';
         if (event.key === KEY_ENTER && this.inputCode.length > 0) {
             // 読み取り完了
+            this.inputCode = '8ea2c7f5-4603-48b3-99fa-5eb51264aa60';
             this.convertQrcodeToToken(this.inputCode);
             this.inputCode = '';
         } else if (event.key !== KEY_ESCAPE) {
@@ -173,11 +171,7 @@ export class AdmissionComponent implements OnInit, OnDestroy {
 
         const success = this.actions.pipe(
             ofType(ActionTypes.GetScreeningEventReservationsSuccess),
-            tap(() => {
-                this.store.pipe(select(reducers.getScreeningEventReservations)).subscribe((screeningEventReservation) => {
-                    console.log(screeningEventReservation);
-                }).unsubscribe();
-            })
+            tap(() => { })
         );
 
         const fail = this.actions.pipe(
@@ -202,7 +196,6 @@ export class AdmissionComponent implements OnInit, OnDestroy {
             ofType(ActionTypes.ConvertQrcodeToTokenSuccess),
             tap(() => {
                 this.admission();
-                this.update();
             })
         );
 
@@ -222,7 +215,8 @@ export class AdmissionComponent implements OnInit, OnDestroy {
         const loopTime = 60000; // 1分に一回
         clearInterval(this.updateLoop);
         this.updateLoop = setInterval(() => {
-            this.admission();
+            this.getScreeningEventReservations();
+            this.admissionAll();
             this.getScreeningEvent();
         }, loopTime);
     }
@@ -250,9 +244,35 @@ export class AdmissionComponent implements OnInit, OnDestroy {
     }
 
     public admission() {
-        this.qrcodeTokenList.subscribe((qrcodeTokenList) => {
-            qrcodeTokenList.forEach((qrcodeToken) => {
-                this.store.dispatch(new Admission({ params: qrcodeToken }));
+        this.qrcodeToken.subscribe((qrcodeToken) => {
+            if (qrcodeToken === undefined
+                || qrcodeToken.token === undefined
+                || qrcodeToken.decodeResult === undefined) {
+                return;
+            }
+            const token = qrcodeToken.token;
+            const decodeResult = qrcodeToken.decodeResult;
+            this.store.dispatch(new Admission({ token, decodeResult }));
+        }).unsubscribe();
+
+        const success = this.actions.pipe(
+            ofType(ActionTypes.AdmissionSuccess),
+            tap(() => { })
+        );
+
+        const fail = this.actions.pipe(
+            ofType(ActionTypes.AdmissionFail),
+            tap(() => { })
+        );
+        race(success, fail).pipe(take(1)).subscribe();
+    }
+
+    public admissionAll() {
+        this.usentList.subscribe((usentList) => {
+            usentList.forEach((usent) => {
+                const token = usent.token;
+                const decodeResult = usent.decodeResult;
+                this.store.dispatch(new Admission({ token, decodeResult }));
             });
         }).unsubscribe();
 
@@ -262,7 +282,7 @@ export class AdmissionComponent implements OnInit, OnDestroy {
         );
 
         const fail = this.actions.pipe(
-            ofType(ActionTypes.GetTheatersFail),
+            ofType(ActionTypes.AdmissionFail),
             tap(() => { })
         );
         race(success, fail).pipe(take(1)).subscribe();

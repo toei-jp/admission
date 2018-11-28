@@ -21,4 +21,4 @@ export const getScreeningEvents = createSelector(getFeatureState, reducer.getScr
 export const getScreeningEvent = createSelector(getFeatureState, reducer.getScreeningEvent);
 export const getScreeningEventReservations = createSelector(getFeatureState, reducer.getScreeningEventReservations);
 export const getQrcodeToken = createSelector(getFeatureState, reducer.getQrcodeToken);
-export const getQrcodeTokenList = createSelector(getFeatureState, reducer.getQrcodeTokenList);
+export const getUsentList = createSelector(getFeatureState, reducer.getUsentList);

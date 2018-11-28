@@ -23,7 +23,7 @@ export enum ActionTypes {
     GetScreeningEventReservationsSuccess = '[User] Get Screening Events Reservations Success',
     GetScreeningEventReservationsFail = '[User] Get Screening Events Reservations Fail',
     InitializeQrcodeToken = '[User] Initialize Qrcode Token',
-    InitializeQrcodeTokenList = '[User] Initialize Qrcode Token List',
+    InitializeUsentList = '[User] Initialize Usent List',
     ConvertQrcodeToToken = '[User] Convert Qrcode To Token',
     ConvertQrcodeToTokenSuccess = '[User] Convert Qrcode To Token Success',
     ConvertQrcodeToTokenFail = '[User] Convert Qrcode To Token Fail',
@@ -163,10 +163,10 @@ export class InitializeQrcodeToken implements Action {
 }
 
 /**
- * InitializeQrcodeTokenList
+ * InitializeUsentList
  */
-export class InitializeQrcodeTokenList implements Action {
-    public readonly type = ActionTypes.InitializeQrcodeTokenList;
+export class InitializeUsentList implements Action {
+    public readonly type = ActionTypes.InitializeUsentList;
     constructor(public payload?: {}) { }
 }
 
@@ -212,7 +212,7 @@ export class ConvertQrcodeToTokenFail implements Action {
  */
 export class Admission implements Action {
     public readonly type = ActionTypes.Admission;
-    constructor(public payload: { params: { token: string; decodeResult: IDecodeResult; } }) { }
+    constructor(public payload: { token: string; decodeResult: IDecodeResult }) { }
 }
 
 /**
@@ -220,7 +220,7 @@ export class Admission implements Action {
  */
 export class AdmissionSuccess implements Action {
     public readonly type = ActionTypes.AdmissionSuccess;
-    constructor(public payload: { token: string; decodeResult: IDecodeResult; }) { }
+    constructor(public payload: { token: string; decodeResult: IDecodeResult }) { }
 }
 
 /**
@@ -228,7 +228,7 @@ export class AdmissionSuccess implements Action {
  */
 export class AdmissionFail implements Action {
     public readonly type = ActionTypes.AdmissionFail;
-    constructor(public payload: { error: Error }) { }
+    constructor(public payload: { error: Error, token: string; decodeResult: IDecodeResult }) { }
 }
 
 /**
@@ -251,7 +251,7 @@ export type Actions =
     | GetScreeningEventReservationsSuccess
     | GetScreeningEventReservationsFail
     | InitializeQrcodeToken
-    | InitializeQrcodeTokenList
+    | InitializeUsentList
     | ConvertQrcodeToToken
     | ConvertQrcodeToTokenSuccess
     | ConvertQrcodeToTokenFail
