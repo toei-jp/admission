@@ -3729,7 +3729,7 @@ function getInitialState() {
         return initialState;
     }
     var data = JSON.parse(json);
-    return data.App;
+    return Object.assign(initialState, data.App);
 }
 /**
  * Reducer

@@ -46,7 +46,8 @@ function getInitialState(): IState {
         return initialState;
     }
     const data: { App: IState } = JSON.parse(json);
-    return data.App;
+
+    return Object.assign(initialState, data.App);
 }
 
 /**
