@@ -78,7 +78,6 @@ export class AdmissionComponent implements OnInit, OnDestroy {
         const KEY_ESCAPE = 'Escape';
         if (event.key === KEY_ENTER && this.inputCode.length > 0) {
             // 読み取り完了
-            this.inputCode = '8ea2c7f5-4603-48b3-99fa-5eb51264aa60';
             this.convertQrcodeToToken(this.inputCode);
             this.inputCode = '';
         } else if (event.key !== KEY_ESCAPE) {
