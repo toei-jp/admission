@@ -109,8 +109,21 @@ export class Effects {
             // console.log(payload);
             try {
                 await this.cinerino.getServices();
-                const screeningEventReservationsResult = await this.cinerino.reservation.searchScreeningEventReservations(payload.params);
-                const screeningEventReservations = screeningEventReservationsResult.data;
+                const limit = 100;
+                const params = payload.params;
+                params.limit = limit;
+                const screeningEventReservationsResult = await this.cinerino.reservation.searchScreeningEventReservations(params);
+                let screeningEventReservations = screeningEventReservationsResult.data;
+                if (screeningEventReservationsResult.totalCount > limit) {
+                    const pageCount = Math.floor(screeningEventReservationsResult.totalCount / limit);
+                    for (let i = 0; i < pageCount; i++) {
+                        params.page = i + 2;
+                        const screeningEventReservationsPageResult =
+                            await this.cinerino.reservation.searchScreeningEventReservations(params);
+                        screeningEventReservations = screeningEventReservations.concat(screeningEventReservationsPageResult.data);
+                    }
+                }
+
                 return new GetScreeningEventReservationsSuccess({ screeningEventReservations });
             } catch (error) {
                 return new GetScreeningEventReservationsFail({ error: error });
