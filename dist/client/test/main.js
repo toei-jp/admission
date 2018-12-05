@@ -3459,23 +3459,41 @@ var Effects = /** @class */ (function () {
          * getScreeningEventReservations
          */
         this.getScreeningEventReservations = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions__WEBPACK_IMPORTED_MODULE_7__["ActionTypes"].GetScreeningEventReservations), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
-            var screeningEventReservationsResult, screeningEventReservations, error_4;
+            var limit, params, screeningEventReservationsResult, screeningEventReservations, pageCount, i, screeningEventReservationsPageResult, error_4;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 3, , 4]);
+                        _a.trys.push([0, 7, , 8]);
                         return [4 /*yield*/, this.cinerino.getServices()];
                     case 1:
                         _a.sent();
-                        return [4 /*yield*/, this.cinerino.reservation.searchScreeningEventReservations(payload.params)];
+                        limit = 100;
+                        params = payload.params;
+                        params.limit = limit;
+                        return [4 /*yield*/, this.cinerino.reservation.searchScreeningEventReservations(params)];
                     case 2:
                         screeningEventReservationsResult = _a.sent();
                         screeningEventReservations = screeningEventReservationsResult.data;
-                        return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_7__["GetScreeningEventReservationsSuccess"]({ screeningEventReservations: screeningEventReservations })];
+                        if (!(screeningEventReservationsResult.totalCount > limit)) return [3 /*break*/, 6];
+                        pageCount = Math.floor(screeningEventReservationsResult.totalCount / limit);
+                        i = 0;
+                        _a.label = 3;
                     case 3:
+                        if (!(i < pageCount)) return [3 /*break*/, 6];
+                        params.page = i + 2;
+                        return [4 /*yield*/, this.cinerino.reservation.searchScreeningEventReservations(params)];
+                    case 4:
+                        screeningEventReservationsPageResult = _a.sent();
+                        screeningEventReservations = screeningEventReservations.concat(screeningEventReservationsPageResult.data);
+                        _a.label = 5;
+                    case 5:
+                        i++;
+                        return [3 /*break*/, 3];
+                    case 6: return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_7__["GetScreeningEventReservationsSuccess"]({ screeningEventReservations: screeningEventReservations })];
+                    case 7:
                         error_4 = _a.sent();
                         return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_7__["GetScreeningEventReservationsFail"]({ error: error_4 })];
-                    case 4: return [2 /*return*/];
+                    case 8: return [2 /*return*/];
                 }
             });
         }); }));
