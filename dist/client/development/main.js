@@ -922,10 +922,10 @@ var AdmissionComponent = /** @class */ (function () {
                 params: {
                     sort: { reservationNumber: _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].chevre.sortType.Ascending },
                     reservationStatuses: [
-                        _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].chevre.reservationStatusType.ReservationConfirmed,
-                        _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].chevre.reservationStatusType.ReservationCancelled,
-                        _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].chevre.reservationStatusType.ReservationHold,
-                        _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].chevre.reservationStatusType.ReservationPending
+                        _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].chevre.reservationStatusType.ReservationConfirmed
+                        // factory.chevre.reservationStatusType.ReservationCancelled,
+                        // factory.chevre.reservationStatusType.ReservationHold,
+                        // factory.chevre.reservationStatusType.ReservationPending
                     ],
                     reservationFor: {
                         typeOf: _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].chevre.eventType.ScreeningEvent,

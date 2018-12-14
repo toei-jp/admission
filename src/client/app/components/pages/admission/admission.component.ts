@@ -155,10 +155,10 @@ export class AdmissionComponent implements OnInit, OnDestroy {
                 params: {
                     sort: { reservationNumber: factory.chevre.sortType.Ascending },
                     reservationStatuses: [
-                        factory.chevre.reservationStatusType.ReservationConfirmed,
-                        factory.chevre.reservationStatusType.ReservationCancelled,
-                        factory.chevre.reservationStatusType.ReservationHold,
-                        factory.chevre.reservationStatusType.ReservationPending
+                        factory.chevre.reservationStatusType.ReservationConfirmed
+                        // factory.chevre.reservationStatusType.ReservationCancelled,
+                        // factory.chevre.reservationStatusType.ReservationHold,
+                        // factory.chevre.reservationStatusType.ReservationPending
                     ],
                     reservationFor: {
                         typeOf: factory.chevre.eventType.ScreeningEvent,
