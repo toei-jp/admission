@@ -10,7 +10,7 @@
     </div>
     <div *ngIf="!(isLoading | async)" class="mb-3">
         <div *ngIf="qrcodeToken | async">
-            <div *ngIf="(qrcodeToken | async).isAvailable" class="p-4 bg-success text-white text-center">
+            <div *ngIf="(qrcodeToken | async).isAvailable" [class.bg-success]="(qrcodeToken | async).checkTokenActions.length === 0" [class.bg-info]="(qrcodeToken | async).checkTokenActions.length > 0" class="p-4 text-white text-center">
                 <div *ngIf="(qrcodeToken | async).checkTokenActions.length === 0" class="flash-text large-xx-text font-weight-bold mb-2">入場OK</div>
                 <div *ngIf="(qrcodeToken | async).checkTokenActions.length > 0" class="flash-text large-xx-text font-weight-bold mb-2">再入場</div>
                 <p><strong class="mr-2">座席</strong>{{ (qrcodeToken | async).availableReservation.reservedTicket.ticketedSeat.seatNumber }}</p>
