@@ -950,7 +950,12 @@ var AdmissionComponent = /** @class */ (function () {
             _this.store.dispatch(new _store_actions__WEBPACK_IMPORTED_MODULE_10__["ConvertQrcodeToToken"]({ params: { code: code, screeningEventReservations: screeningEventReservations } }));
         }).unsubscribe();
         var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["ofType"])(_store_actions__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].ConvertQrcodeToTokenSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["tap"])(function () {
-            _this.admission();
+            _this.qrcodeToken.subscribe(function (qrcodeToken) {
+                if (qrcodeToken === undefined || !qrcodeToken.isAvailable) {
+                    return;
+                }
+                _this.admission();
+            }).unsubscribe();
         }));
         var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["ofType"])(_store_actions__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].ConvertQrcodeToTokenFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["tap"])(function () {
             _this.openAlert({
