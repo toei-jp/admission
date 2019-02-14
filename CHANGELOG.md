@@ -12,6 +12,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## 1.0.3 - 2019-02-14
+### Changed
+- 再入場時デザイン変更
+### Fixed
+- 入場カウント不具合修正
+
 ## 1.0.2 - 2019-01-11
 ### Fixed
 - ルーティング修正

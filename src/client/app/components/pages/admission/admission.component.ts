@@ -194,7 +194,12 @@ export class AdmissionComponent implements OnInit, OnDestroy {
         const success = this.actions.pipe(
             ofType(ActionTypes.ConvertQrcodeToTokenSuccess),
             tap(() => {
-                this.admission();
+                this.qrcodeToken.subscribe((qrcodeToken) => {
+                    if (qrcodeToken === undefined || !qrcodeToken.isAvailable) {
+                        return;
+                    }
+                    this.admission();
+                }).unsubscribe();
             })
         );
 
