@@ -2497,7 +2497,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @cinerino/api-javascript-client */ "../../node_modules/@cinerino/api-javascript-client/lib/index.js");
 /* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../environments/environment */ "./environments/environment.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2542,7 +2541,6 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-
 
 
 
@@ -2598,7 +2596,7 @@ var CinerinoService = /** @class */ (function () {
                     case 1:
                         _a.sent();
                         return [2 /*return*/, {
-                                endpoint: _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].API_ENDPOINT,
+                                endpoint: this.endpoint,
                                 auth: this.auth
                             }];
                 }
@@ -2610,7 +2608,7 @@ var CinerinoService = /** @class */ (function () {
      */
     CinerinoService.prototype.authorize = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var url, body, credentials, option;
+            var url, body, result, option;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -2621,7 +2619,7 @@ var CinerinoService = /** @class */ (function () {
                         };
                         return [4 /*yield*/, this.http.post(url, body).toPromise()];
                     case 1:
-                        credentials = _a.sent();
+                        result = _a.sent();
                         option = {
                             domain: '',
                             clientId: '',
@@ -2634,7 +2632,8 @@ var CinerinoService = /** @class */ (function () {
                             tokenIssuer: ''
                         };
                         this.auth = _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["createAuthInstance"](option);
-                        this.auth.setCredentials(credentials);
+                        this.auth.setCredentials({ accessToken: result.accessToken });
+                        this.endpoint = result.endpoint;
                         return [2 /*return*/];
                 }
             });
@@ -3892,9 +3891,6 @@ __webpack_require__.r(__webpack_exports__);
 var environment = {
     production: false,
     ENV: 'development',
-    API_ENDPOINT: 'https://toei-cinerino-api-development.azurewebsites.net',
-    ENTRANCE_SERVER_URL: '',
-    WAITER_SERVER_URL: '',
     ANALYTICS_ID: ''
 };
 
