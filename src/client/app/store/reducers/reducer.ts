@@ -9,8 +9,13 @@ import { Actions, ActionTypes } from '../actions';
 export interface IState {
     loading: boolean;
     error: string | null;
-    movieTheaters: factory.organization.movieTheater.IOrganization[];
-    movieTheater?: factory.organization.movieTheater.IOrganization;
+    admissionData: IAdmissionState;
+}
+
+export interface IAdmissionState {
+    sellers: factory.seller.IOrganization<factory.seller.IAttributes<factory.organizationType>>[];
+    seller?: factory.seller.IOrganization<factory.seller.IAttributes<factory.organizationType>>;
+    date?: string;
     screeningEvents: factory.chevre.event.screeningEvent.IEvent[];
     screeningEvent?: factory.chevre.event.screeningEvent.IEvent;
     screeningEventReservations: factory.chevre.reservation.event.IReservation<factory.chevre.event.screeningEvent.IEvent>[];
@@ -34,10 +39,12 @@ export interface IState {
 export const initialState: IState = {
     loading: false,
     error: null,
-    movieTheaters: [],
-    screeningEvents: [],
-    screeningEventReservations: [],
-    usentList: []
+    admissionData: {
+        sellers: [],
+        screeningEvents: [],
+        screeningEventReservations: [],
+        usentList: []
+    }
 };
 
 function getInitialState(): IState {
@@ -46,6 +53,9 @@ function getInitialState(): IState {
         return initialState;
     }
     const data: { App: IState } = JSON.parse(json);
+    if (data.App.admissionData === undefined) {
+        return initialState;
+    }
 
     return Object.assign(initialState, data.App);
 }
@@ -63,27 +73,35 @@ export function reducer(
         case ActionTypes.Delete: {
             return { ...state };
         }
-        case ActionTypes.GetTheaters: {
+        case ActionTypes.GetSellers: {
             return { ...state, loading: true };
         }
-        case ActionTypes.GetTheatersSuccess: {
-            const movieTheaters = action.payload.movieTheaters;
-            return { ...state, loading: false, error: null, movieTheaters };
+        case ActionTypes.GetSellersSuccess: {
+            const sellers = action.payload.sellers;
+            state.admissionData.sellers = sellers;
+            return { ...state, loading: false, error: null };
         }
-        case ActionTypes.GetTheatersFail: {
+        case ActionTypes.GetSellersFail: {
             const error = action.payload.error;
             return { ...state, loading: false, error: JSON.stringify(error) };
         }
-        case ActionTypes.SelectTheater: {
-            const movieTheater = action.payload.movieTheater;
-            return { ...state, loading: false, error: null, movieTheater };
+        case ActionTypes.SelectSeller: {
+            const seller = action.payload.seller;
+            state.admissionData.seller = seller;
+            return { ...state, loading: false, error: null };
+        }
+        case ActionTypes.SelectDate: {
+            const date = action.payload.date;
+            state.admissionData.date = date;
+            return { ...state, loading: false, error: null };
         }
         case ActionTypes.GetScreeningEvent: {
             return { ...state };
         }
         case ActionTypes.GetScreeningEventSuccess: {
             const screeningEvent = action.payload.screeningEvent;
-            return { ...state, error: null, screeningEvent };
+            state.admissionData.screeningEvent = screeningEvent;
+            return { ...state, error: null };
         }
         case ActionTypes.GetScreeningEventFail: {
             const error = action.payload.error;
@@ -94,7 +112,8 @@ export function reducer(
         }
         case ActionTypes.GetScreeningEventsSuccess: {
             const screeningEvents = action.payload.screeningEvents;
-            return { ...state, loading: false, error: null, screeningEvents };
+            state.admissionData.screeningEvents = screeningEvents;
+            return { ...state, loading: false, error: null };
         }
         case ActionTypes.GetScreeningEventsFail: {
             const error = action.payload.error;
@@ -102,13 +121,15 @@ export function reducer(
         }
         case ActionTypes.SelectScreeningEvent: {
             const screeningEvent = action.payload.screeningEvent;
-            return { ...state, loading: false, error: null, screeningEvent };
+            state.admissionData.screeningEvent = screeningEvent;
+            return { ...state, loading: false, error: null };
         }
         case ActionTypes.GetScreeningEventReservations: {
             return { ...state };
         }
         case ActionTypes.GetScreeningEventReservationsSuccess: {
-            state.screeningEventReservations = action.payload.screeningEventReservations;
+            const screeningEventReservations = action.payload.screeningEventReservations;
+            state.admissionData.screeningEventReservations = screeningEventReservations;
             return { ...state, error: null };
         }
         case ActionTypes.GetScreeningEventReservationsFail: {
@@ -117,10 +138,11 @@ export function reducer(
         }
         case ActionTypes.InitializeQrcodeToken: {
             const qrcodeToken = undefined;
-            return { ...state, qrcodeToken };
+            state.admissionData.qrcodeToken = qrcodeToken;
+            return { ...state };
         }
         case ActionTypes.InitializeUsentList: {
-            state.usentList = [];
+            state.admissionData.usentList = [];
             return { ...state };
         }
         case ActionTypes.ConvertQrcodeToToken: {
@@ -128,8 +150,8 @@ export function reducer(
         }
         case ActionTypes.ConvertQrcodeToTokenSuccess: {
             const qrcodeToken = action.payload;
-
-            return { ...state, loading: false, error: null, qrcodeToken };
+            state.admissionData.qrcodeToken = qrcodeToken;
+            return { ...state, loading: false, error: null };
         }
         case ActionTypes.ConvertQrcodeToTokenFail: {
             const error = action.payload.error;
@@ -140,17 +162,17 @@ export function reducer(
         }
         case ActionTypes.AdmissionSuccess: {
             const decodeResult = action.payload.decodeResult;
-            const usentList = state.usentList.filter(usent => usent.decodeResult.id !== decodeResult.id);
-            state.usentList = usentList;
+            const usentList = state.admissionData.usentList.filter(usent => usent.decodeResult.id !== decodeResult.id);
+            state.admissionData.usentList = usentList;
             return { ...state, error: null };
         }
         case ActionTypes.AdmissionFail: {
             const error = action.payload.error;
             const token = action.payload.token;
             const decodeResult = action.payload.decodeResult;
-            const findResult = state.usentList.find(usent => usent.decodeResult.id === decodeResult.id);
+            const findResult = state.admissionData.usentList.find(usent => usent.decodeResult.id === decodeResult.id);
             if (findResult === undefined) {
-                state.usentList.push({ token, decodeResult });
+                state.admissionData.usentList.push({ token, decodeResult });
             }
 
             return { ...state, error: JSON.stringify(error) };
@@ -166,10 +188,4 @@ export function reducer(
  */
 export const getLoading = (state: IState) => state.loading;
 export const getError = (state: IState) => state.error;
-export const getMovieTheaters = (state: IState) => state.movieTheaters;
-export const getMovieTheater = (state: IState) => state.movieTheater;
-export const getScreeningEvents = (state: IState) => state.screeningEvents;
-export const getScreeningEvent = (state: IState) => state.screeningEvent;
-export const getScreeningEventReservations = (state: IState) => state.screeningEventReservations;
-export const getQrcodeToken = (state: IState) => state.qrcodeToken;
-export const getUsentList = (state: IState) => state.usentList;
+export const getAdmissionData = (state: IState) => state.admissionData;

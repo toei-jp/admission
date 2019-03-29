@@ -12,6 +12,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## 1.1.0 - 2019-03-29
+### Changed
+- 選択情報を保持するように変更
+- APIエンドポイントをenvironmentから削除
+
 ## 1.0.3 - 2019-02-14
 ### Changed
 - 再入場時デザイン変更

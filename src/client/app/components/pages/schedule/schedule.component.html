@@ -2,9 +2,9 @@
     <p class="mb-3">スケジュールを選択してください</p>
     <div class="condition">
         <div class="mb-3">
-            <select class="p-2" [(ngModel)]="theaterCode" (change)="getScreeningEvents(selectedDate)">
-                <option *ngFor="let movieTheater of (movieTheaters | async)" [value]="movieTheater.location.branchCode">{{
-                    movieTheater.name.ja }}</option>
+            <select class="p-2" [(ngModel)]="branchCode" (change)="getScreeningEvents(selectedDate)">
+                <option *ngFor="let seller of (admission | async).sellers" [value]="seller.location.branchCode">{{
+                    seller.name.ja }}</option>
             </select>
         </div>
         <div class="mb-3">
@@ -27,9 +27,9 @@
     </div>
 
     <div class="screeningEvents">
-        <p *ngIf="(screeningEvents | async).length === 0">スケジュールがありません。</p>
-        <ul *ngIf="(screeningEvents | async).length > 0">
-            <li *ngFor="let screeningEvent of (screeningEvents | async)" class="mb-2 px-3 py-2" [ngClass]="{ 
+        <p *ngIf="(admission | async).screeningEvents.length === 0">スケジュールがありません。</p>
+        <ul *ngIf="(admission | async).screeningEvents.length > 0">
+            <li *ngFor="let screeningEvent of (admission | async).screeningEvents" class="mb-2 px-3 py-2" [ngClass]="{ 
             'bg-primary text-white': !(moment(screeningEvent.endDate).unix() < moment().unix()), 
             'bg-dark text-light': moment(screeningEvent.endDate).unix() < moment().unix()
             }"
