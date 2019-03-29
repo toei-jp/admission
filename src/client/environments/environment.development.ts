@@ -7,11 +7,6 @@ export const environment = {
 
     ENV: 'development',
 
-    API_ENDPOINT: 'https://toei-cinerino-api-development.azurewebsites.net',
-
-    ENTRANCE_SERVER_URL: '',
-    WAITER_SERVER_URL: '',
-
     ANALYTICS_ID: ''
 
 };

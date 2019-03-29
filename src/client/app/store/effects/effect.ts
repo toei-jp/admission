@@ -23,9 +23,9 @@ import {
     GetScreeningEventsFail,
     GetScreeningEventsSuccess,
     GetScreeningEventSuccess,
-    GetTheaters,
-    GetTheatersFail,
-    GetTheatersSuccess
+    GetSellers,
+    GetSellersFail,
+    GetSellersSuccess
 } from '../actions';
 
 /**
@@ -40,21 +40,21 @@ export class Effects {
     ) { }
 
     /**
-     * getTheaters
+     * getSellers
      */
     @Effect()
-    public getTheaters = this.actions.pipe(
-        ofType<GetTheaters>(ActionTypes.GetTheaters),
+    public getSellers = this.actions.pipe(
+        ofType<GetSellers>(ActionTypes.GetSellers),
         map(action => action.payload),
         mergeMap(async (payload) => {
             // console.log(payload);
             try {
                 await this.cinerino.getServices();
-                const movieTheatersResult = await this.cinerino.organization.searchMovieTheaters(payload.params);
-                const movieTheaters = movieTheatersResult.data;
-                return new GetTheatersSuccess({ movieTheaters });
+                const searchResult = await this.cinerino.seller.search(payload.params);
+                const sellers = searchResult.data;
+                return new GetSellersSuccess({ sellers });
             } catch (error) {
-                return new GetTheatersFail({ error: error });
+                return new GetSellersFail({ error: error });
             }
         })
     );
@@ -89,8 +89,18 @@ export class Effects {
             // console.log(payload);
             try {
                 await this.cinerino.getServices();
-                const screeningEventsResult = await this.cinerino.event.searchScreeningEvents(payload.params);
-                const screeningEvents = screeningEventsResult.data;
+                const params = payload.params;
+                const limit = 100;
+                let page = 1;
+                let roop = true;
+                let screeningEvents: factory.chevre.event.screeningEvent.IEvent[] = [];
+                while (roop) {
+                    const screeningEventsResult = await this.cinerino.event.searchScreeningEvents(params);
+                    screeningEvents = screeningEvents.concat(screeningEventsResult.data);
+                    const lastPage = Math.ceil(screeningEventsResult.totalCount / limit);
+                    page++;
+                    roop = !(page > lastPage);
+                }
                 return new GetScreeningEventsSuccess({ screeningEvents });
             } catch (error) {
                 return new GetScreeningEventsFail({ error: error });
@@ -109,19 +119,20 @@ export class Effects {
             // console.log(payload);
             try {
                 await this.cinerino.getServices();
-                const limit = 100;
                 const params = payload.params;
-                params.limit = limit;
-                const screeningEventReservationsResult = await this.cinerino.reservation.searchScreeningEventReservations(params);
-                let screeningEventReservations = screeningEventReservationsResult.data;
-                if (screeningEventReservationsResult.totalCount > limit) {
-                    const pageCount = Math.floor(screeningEventReservationsResult.totalCount / limit);
-                    for (let i = 0; i < pageCount; i++) {
-                        params.page = i + 2;
-                        const screeningEventReservationsPageResult =
-                            await this.cinerino.reservation.searchScreeningEventReservations(params);
-                        screeningEventReservations = screeningEventReservations.concat(screeningEventReservationsPageResult.data);
-                    }
+                const limit = 100;
+                let page = 1;
+                let roop = true;
+                let screeningEventReservations:
+                    factory.chevre.reservation.event.IReservation<factory.chevre.event.screeningEvent.IEvent>[] = [];
+                while (roop) {
+                    const screeningEventReservationsResult =
+                        await this.cinerino.reservation.searchScreeningEventReservations(params);
+                    screeningEventReservations =
+                        screeningEventReservations.concat(screeningEventReservationsResult.data);
+                    const lastPage = Math.ceil(screeningEventReservationsResult.totalCount / limit);
+                    page++;
+                    roop = !(page > lastPage);
                 }
 
                 return new GetScreeningEventReservationsSuccess({ screeningEventReservations });
