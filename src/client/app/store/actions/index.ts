@@ -8,10 +8,11 @@ import { IDecodeResult } from '../../model';
  */
 export enum ActionTypes {
     Delete = '[User] User',
-    GetTheaters = '[User] Get Theaters',
-    GetTheatersSuccess = '[User] Get Theaters Success',
-    GetTheatersFail = '[User] Get Theaters Fail',
-    SelectTheater = '[User] Select Theater',
+    GetSellers = '[User] Get Sellers',
+    GetSellersSuccess = '[User] Get Sellers Success',
+    GetSellersFail = '[User] Get Sellers Fail',
+    SelectSeller = '[User] Select Seller',
+    SelectDate = '[User] Select Date',
     GetScreeningEvents = '[User] Get Screening Events',
     GetScreeningEventsSuccess = '[User] Get Screening Events Success',
     GetScreeningEventsFail = '[User] Get Screening Events Fail',
@@ -41,35 +42,43 @@ export class Delete implements Action {
 }
 
 /**
- * GetTheaters
+ * GetSellers
  */
-export class GetTheaters implements Action {
-    public readonly type = ActionTypes.GetTheaters;
-    constructor(public payload: { params: factory.organization.movieTheater.ISearchConditions }) { }
+export class GetSellers implements Action {
+    public readonly type = ActionTypes.GetSellers;
+    constructor(public payload: { params: factory.seller.ISearchConditions }) { }
 }
 
 /**
- * GetTheatersSuccess
+ * GetSellersSuccess
  */
-export class GetTheatersSuccess implements Action {
-    public readonly type = ActionTypes.GetTheatersSuccess;
-    constructor(public payload: { movieTheaters: factory.organization.movieTheater.IOrganization[] }) { }
+export class GetSellersSuccess implements Action {
+    public readonly type = ActionTypes.GetSellersSuccess;
+    constructor(public payload: { sellers: factory.seller.IOrganization<factory.seller.IAttributes<factory.organizationType>>[] }) { }
 }
 
 /**
- * GetTheatersFail
+ * GetSellersFail
  */
-export class GetTheatersFail implements Action {
-    public readonly type = ActionTypes.GetTheatersFail;
+export class GetSellersFail implements Action {
+    public readonly type = ActionTypes.GetSellersFail;
     constructor(public payload: { error: Error }) { }
 }
 
 /**
- * SelectTheater
+ * SelectSeller
  */
-export class SelectTheater implements Action {
-    public readonly type = ActionTypes.SelectTheater;
-    constructor(public payload: { movieTheater: factory.organization.movieTheater.IOrganization }) { }
+export class SelectSeller implements Action {
+    public readonly type = ActionTypes.SelectSeller;
+    constructor(public payload: { seller: factory.seller.IOrganization<factory.seller.IAttributes<factory.organizationType>> }) { }
+}
+
+/**
+ * SelectDate
+ */
+export class SelectDate implements Action {
+    public readonly type = ActionTypes.SelectDate;
+    constructor(public payload: { date: string }) { }
 }
 
 /**
@@ -236,10 +245,11 @@ export class AdmissionFail implements Action {
  */
 export type Actions =
     | Delete
-    | GetTheaters
-    | GetTheatersSuccess
-    | GetTheatersFail
-    | SelectTheater
+    | GetSellers
+    | GetSellersSuccess
+    | GetSellersFail
+    | SelectSeller
+    | SelectDate
     | GetScreeningEvent
     | GetScreeningEventSuccess
     | GetScreeningEventFail

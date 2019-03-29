@@ -9,54 +9,52 @@
         <button *ngIf="stream !== null" type="button" class="btn btn-danger btn-block" (click)="stop()">カメラを停止</button>
     </div>
     <div *ngIf="!(isLoading | async)" class="mb-3">
-        <div *ngIf="qrcodeToken | async">
-            <div *ngIf="(qrcodeToken | async).isAvailable" [class.bg-success]="(qrcodeToken | async).checkTokenActions.length === 0" [class.bg-info]="(qrcodeToken | async).checkTokenActions.length > 0" class="p-4 text-white text-center">
-                <div *ngIf="(qrcodeToken | async).checkTokenActions.length === 0" class="flash-text large-xx-text font-weight-bold mb-2">入場OK</div>
-                <div *ngIf="(qrcodeToken | async).checkTokenActions.length > 0" class="flash-text large-xx-text font-weight-bold mb-2">再入場</div>
-                <p><strong class="mr-2">座席</strong>{{ (qrcodeToken | async).availableReservation.reservedTicket.ticketedSeat.seatNumber }}</p>
-                <p><strong class="mr-2">券種</strong>{{ (qrcodeToken | async).availableReservation.reservedTicket.ticketType.name.ja }}</p>
-                <p><strong class="mr-2">入場回数</strong>{{ (qrcodeToken | async).checkTokenActions.length }}</p>
+        <div *ngIf="(admission | async).qrcodeToken">
+            <div *ngIf="(admission | async).qrcodeToken.isAvailable" [class.bg-success]="(admission | async).qrcodeToken.checkTokenActions.length === 0" [class.bg-info]="(admission | async).qrcodeToken.checkTokenActions.length > 0" class="p-4 text-white text-center">
+                <div *ngIf="(admission | async).qrcodeToken.checkTokenActions.length === 0" class="flash-text large-xx-text font-weight-bold mb-2">入場OK</div>
+                <div *ngIf="(admission | async).qrcodeToken.checkTokenActions.length > 0" class="flash-text large-xx-text font-weight-bold mb-2">再入場</div>
+                <p><strong class="mr-2">座席</strong>{{ (admission | async).qrcodeToken.availableReservation.reservedTicket.ticketedSeat.seatNumber }}</p>
+                <p><strong class="mr-2">券種</strong>{{ (admission | async).qrcodeToken.availableReservation.reservedTicket.ticketType.name.ja }}</p>
+                <p><strong class="mr-2">入場回数</strong>{{ (admission | async).qrcodeToken.checkTokenActions.length }}</p>
             </div>
-            <div *ngIf="!(qrcodeToken | async).isAvailable" class="p-4 bg-warning text-white text-center">
+            <div *ngIf="!(admission | async).qrcodeToken.isAvailable" class="p-4 bg-warning text-white text-center">
                 <div class="flash-text large-xx-text font-weight-bold mb-2">入場NG</div>
-                <p *ngIf="(qrcodeToken | async).statusCode === 200">上映会をご確認ください</p>
-                <p *ngIf="(qrcodeToken | async).statusCode !== 200">QRコードをご確認ください<br><strong class="mr-2">ステータスコード</strong>{{ (qrcodeToken |
-                    async).statusCode }}</p>
+                <p *ngIf="(admission | async).qrcodeToken.statusCode === 200">上映会をご確認ください</p>
+                <p *ngIf="(admission | async).qrcodeToken.statusCode !== 200">QRコードをご確認ください<br><strong class="mr-2">ステータスコード</strong>{{ (admission | async).qrcodeToken.statusCode }}</p>
             </div>
         </div>
-        <div *ngIf="!(qrcodeToken | async)" class="p-4 bg-dark text-white text-center">
+        <div *ngIf="!(admission | async).qrcodeToken" class="p-4 bg-dark text-white text-center">
             <div class="large-xx-text font-weight-bold mb-2">Waiting</div>
             <p>QRコードを読み取ってください</p>
         </div>
     </div>
-    <div class="border p-3 mb-3">
+    <div *ngIf="(admission | async).screeningEvent" class="border p-3 mb-3">
         <div class="mb-2">
-            <p><strong>{{ (screeningEvent | async).name.ja }}</strong></p>
-            <p *ngIf="(screeningEvent | async).workPerformed.headline" class="small-text">{{ (screeningEvent |
-                async).workPerformed.headline }}</p>
+            <p><strong>{{ (admission | async).screeningEvent.name.ja }}</strong></p>
+            <p *ngIf="(admission | async).screeningEvent.workPerformed.headline" class="small-text">{{ (admission | async).screeningEvent.workPerformed.headline }}</p>
         </div>
         <div class="d-flex align-items-center mb-2">
-            <div *ngIf="(screeningEvent | async).workPerformed.contentRating" class="small-text text-white bg-dark py-1 px-3 mr-2">{{
-                (screeningEvent | async).workPerformed.contentRating }}</div>
-            <div *ngIf="(screeningEvent | async).superEvent.dubLanguage" class="small-text text-white bg-dark py-1 px-3 mr-2">吹替版</div>
-            <div *ngIf="(screeningEvent | async).superEvent.subtitleLanguage" class="small-text text-white bg-dark py-1 px-3 mr-2">字幕版</div>
-            <div *ngIf="(screeningEvent | async).workPerformed.duration !== null" class="small-text mr-2">{{
-                moment.duration((screeningEvent | async).workPerformed.duration).asMinutes() }}分</div>
+            <div *ngIf="(admission | async).screeningEvent.workPerformed.contentRating" class="small-text text-white bg-dark py-1 px-3 mr-2">{{
+                (admission | async).screeningEvent.workPerformed.contentRating }}</div>
+            <div *ngIf="(admission | async).screeningEvent.superEvent.dubLanguage" class="small-text text-white bg-dark py-1 px-3 mr-2">吹替版</div>
+            <div *ngIf="(admission | async).screeningEvent.superEvent.subtitleLanguage" class="small-text text-white bg-dark py-1 px-3 mr-2">字幕版</div>
+            <div *ngIf="(admission | async).screeningEvent.workPerformed.duration !== null" class="small-text mr-2">{{
+                moment.duration((admission | async).screeningEvent.workPerformed.duration).asMinutes() }}分</div>
         </div>
-        <p>{{ (screeningEvent | async).location.address.en }} {{ (screeningEvent | async).location.name.ja }}</p>
+        <p>{{ (admission | async).screeningEvent.location.address.en }} {{ (admission | async).screeningEvent.location.name.ja }}</p>
         <div class="d-md-flex mb-2">
-            <p class="mr-3"><strong class="mr-2">開場</strong>{{ moment((screeningEvent | async).doorTime).format('MM/DD
+            <p class="mr-3"><strong class="mr-2">開場</strong>{{ moment((admission | async).screeningEvent.doorTime).format('MM/DD
                 (ddd) HH:mm') }}</p>
-            <p><strong class="mr-2">上映</strong>{{ moment((screeningEvent | async).startDate).format('HH:mm') }} - {{
-                moment((screeningEvent | async).endDate).format('HH:mm') }}</p>
+            <p><strong class="mr-2">上映</strong>{{ moment((admission | async).screeningEvent.startDate).format('HH:mm') }} - {{
+                moment((admission | async).screeningEvent.endDate).format('HH:mm') }}</p>
         </div>
         <div class="d-md-flex">
-            <p class="mr-3"><strong class="mr-2">予約</strong>{{ (screeningEvent | async).maximumAttendeeCapacity - (screeningEvent | async).remainingAttendeeCapacity }}</p>
-            <p><strong class="mr-2">入場</strong>{{ (screeningEvent | async).attendeeCount }}</p>
+            <p class="mr-3"><strong class="mr-2">予約</strong>{{ (admission | async).screeningEvent.maximumAttendeeCapacity - (admission | async).screeningEvent.remainingAttendeeCapacity }}</p>
+            <p><strong class="mr-2">入場</strong>{{ (admission | async).screeningEvent.attendeeCount }}</p>
         </div>
     </div>
     <div class="border p-3 mb-4">
-        <p><strong class="mr-2">未送信件数</strong> {{ (usentList | async).length }}</p>
+        <p><strong class="mr-2">未送信件数</strong> {{ (admission | async).usentList.length }}</p>
         <p>※1分に1回送信されます</p>
     </div>
 
