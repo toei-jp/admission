@@ -55,7 +55,7 @@
     </div>
     <div class="border p-3 mb-4">
         <p><strong class="mr-2">未送信件数</strong> {{ (admission | async).usentList.length }}</p>
-        <p>※1分に1回送信されます</p>
+        <p>※{{ updateTime / 1000 }}秒に1回送信されます</p>
     </div>
 
     <div class="text-center">
