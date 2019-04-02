@@ -12,6 +12,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## 1.1.1 - 2019-04-02
+### Fixed
+- APIリクエストのページング処理修正
+
 ## 1.1.0 - 2019-03-29
 ### Changed
 - 選択情報を保持するように変更
