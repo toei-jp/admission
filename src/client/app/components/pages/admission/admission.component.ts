@@ -34,6 +34,7 @@ export class AdmissionComponent implements OnInit, OnDestroy {
     public updateLoop: any;
     public moment: typeof moment = moment;
     public inputCode: string;
+    public updateTime: number;
 
     constructor(
         private store: Store<reducers.IState>,
@@ -43,6 +44,7 @@ export class AdmissionComponent implements OnInit, OnDestroy {
     ) { }
 
     public ngOnInit() {
+        this.updateTime = 30000; // 更新は30000msごと
         this.admission = this.store.pipe(select(reducers.getAdmissionData));
         this.inputCode = '';
         this.stream = null;
@@ -201,13 +203,12 @@ export class AdmissionComponent implements OnInit, OnDestroy {
     }
 
     public update() {
-        const loopTime = 60000; // 1分に一回
         clearInterval(this.updateLoop);
         this.updateLoop = setInterval(() => {
             this.getScreeningEventReservations();
             this.admissionAll();
             this.getScreeningEvent();
-        }, loopTime);
+        }, this.updateTime);
     }
 
     public getScreeningEvent() {
