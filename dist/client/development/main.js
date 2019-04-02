@@ -3495,6 +3495,8 @@ var Effects = /** @class */ (function () {
                         _a.label = 2;
                     case 2:
                         if (!roop) return [3 /*break*/, 4];
+                        params.page = page;
+                        params.limit = limit;
                         return [4 /*yield*/, this.cinerino.event.searchScreeningEvents(params)];
                     case 3:
                         screeningEventsResult = _a.sent();
@@ -3531,6 +3533,8 @@ var Effects = /** @class */ (function () {
                         _a.label = 2;
                     case 2:
                         if (!roop) return [3 /*break*/, 4];
+                        params.page = page;
+                        params.limit = limit;
                         return [4 /*yield*/, this.cinerino.reservation.searchScreeningEventReservations(params)];
                     case 3:
                         screeningEventReservationsResult = _a.sent();

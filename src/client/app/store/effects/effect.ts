@@ -95,6 +95,8 @@ export class Effects {
                 let roop = true;
                 let screeningEvents: factory.chevre.event.screeningEvent.IEvent[] = [];
                 while (roop) {
+                    params.page = page;
+                    params.limit = limit;
                     const screeningEventsResult = await this.cinerino.event.searchScreeningEvents(params);
                     screeningEvents = screeningEvents.concat(screeningEventsResult.data);
                     const lastPage = Math.ceil(screeningEventsResult.totalCount / limit);
@@ -126,6 +128,8 @@ export class Effects {
                 let screeningEventReservations:
                     factory.chevre.reservation.event.IReservation<factory.chevre.event.screeningEvent.IEvent>[] = [];
                 while (roop) {
+                    params.page = page;
+                    params.limit = limit;
                     const screeningEventReservationsResult =
                         await this.cinerino.reservation.searchScreeningEventReservations(params);
                     screeningEventReservations =
