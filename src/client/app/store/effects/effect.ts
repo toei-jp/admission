@@ -139,7 +139,15 @@ export class Effects {
                     roop = !(page > lastPage);
                 }
 
-                return new GetScreeningEventReservationsSuccess({ screeningEventReservations });
+                const reservationsResult: any[] = screeningEventReservations.map((reservation) => {
+                    return {
+                        id: reservation.id,
+                        reservationStatus: reservation.reservationStatus,
+                        reservedTicket: reservation.reservedTicket
+                    };
+                });
+
+                return new GetScreeningEventReservationsSuccess({ screeningEventReservations: reservationsResult });
             } catch (error) {
                 return new GetScreeningEventReservationsFail({ error: error });
             }

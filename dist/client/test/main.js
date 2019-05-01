@@ -3517,7 +3517,7 @@ var Effects = /** @class */ (function () {
          * getScreeningEventReservations
          */
         this.getScreeningEventReservations = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions__WEBPACK_IMPORTED_MODULE_7__["ActionTypes"].GetScreeningEventReservations), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
-            var params, limit, page, roop, screeningEventReservations, screeningEventReservationsResult, lastPage, error_4;
+            var params, limit, page, roop, screeningEventReservations, screeningEventReservationsResult, lastPage, reservationsResult, error_4;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -3544,7 +3544,15 @@ var Effects = /** @class */ (function () {
                         page++;
                         roop = !(page > lastPage);
                         return [3 /*break*/, 2];
-                    case 4: return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_7__["GetScreeningEventReservationsSuccess"]({ screeningEventReservations: screeningEventReservations })];
+                    case 4:
+                        reservationsResult = screeningEventReservations.map(function (reservation) {
+                            return {
+                                id: reservation.id,
+                                reservationStatus: reservation.reservationStatus,
+                                reservedTicket: reservation.reservedTicket
+                            };
+                        });
+                        return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_7__["GetScreeningEventReservationsSuccess"]({ screeningEventReservations: reservationsResult })];
                     case 5:
                         error_4 = _a.sent();
                         return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_7__["GetScreeningEventReservationsFail"]({ error: error_4 })];
