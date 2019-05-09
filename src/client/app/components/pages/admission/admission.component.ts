@@ -141,7 +141,7 @@ export class AdmissionComponent implements OnInit, OnDestroy {
             }
             this.store.dispatch(new GetScreeningEventReservations({
                 params: {
-                    sort: { reservationNumber: factory.chevre.sortType.Ascending },
+                    typeOf: factory.chevre.reservationType.EventReservation,
                     reservationStatuses: [
                         factory.chevre.reservationStatusType.ReservationConfirmed
                     ],

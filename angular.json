@@ -61,13 +61,13 @@
               "outputPath": "./dist/client/production",
               "optimization": true,
               "outputHashing": "all",
-              "sourceMap": false,
+              "sourceMap": true,
               "extractCss": true,
               "namedChunks": true,
-              "aot": true,
+              "aot": false,
               "extractLicenses": true,
               "vendorChunk": true,
-              "buildOptimizer": true
+              "buildOptimizer": false
             }
           }
         },

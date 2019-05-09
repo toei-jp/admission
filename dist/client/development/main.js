@@ -267,13 +267,12 @@ var map = {
 
 function webpackContext(req) {
 	var id = webpackContextResolve(req);
-	var module = __webpack_require__(id);
-	return module;
+	return __webpack_require__(id);
 }
 function webpackContextResolve(req) {
 	var id = map[req];
 	if(!(id + 1)) { // check for number or string
-		var e = new Error('Cannot find module "' + req + '".');
+		var e = new Error("Cannot find module '" + req + "'");
 		e.code = 'MODULE_NOT_FOUND';
 		throw e;
 	}
@@ -299,7 +298,7 @@ function webpackEmptyAsyncContext(req) {
 	// Here Promise.resolve().then() is used instead of new Promise() to prevent
 	// uncaught exception popping up in devtools
 	return Promise.resolve().then(function() {
-		var e = new Error('Cannot find module "' + req + '".');
+		var e = new Error("Cannot find module '" + req + "'");
 		e.code = 'MODULE_NOT_FOUND';
 		throw e;
 	});
@@ -724,7 +723,7 @@ module.exports = "<div [class.d-block]=\"isShowVideo\" [class.d-none]=\"!isShowV
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".video-area {\n  height: 25vh;\n  overflow: hidden; }\n\n.flash-text {\n  -webkit-animation-duration: 3s;\n          animation-duration: 3s;\n  -webkit-animation-fill-mode: both;\n          animation-fill-mode: both;\n  -webkit-animation-name: flash-text;\n          animation-name: flash-text; }\n\n@-webkit-keyframes flash-text {\n  from, 20%, 40%, 60%, 80%, to {\n    color: #FFF; }\n  10%, 30%, 50%, 70%, 90% {\n    color: transparent; } }\n\n@keyframes flash-text {\n  from, 20%, 40%, 60%, 80%, to {\n    color: #FFF; }\n  10%, 30%, 50%, 70%, 90% {\n    color: transparent; } }\n"
+module.exports = ".video-area {\n  height: 25vh;\n  overflow: hidden; }\n\n.flash-text {\n  -webkit-animation-duration: 3s;\n          animation-duration: 3s;\n  -webkit-animation-fill-mode: both;\n          animation-fill-mode: both;\n  -webkit-animation-name: flash-text;\n          animation-name: flash-text; }\n\n@-webkit-keyframes flash-text {\n  from, 20%, 40%, 60%, 80%, to {\n    color: #FFF; }\n  10%, 30%, 50%, 70%, 90% {\n    color: transparent; } }\n\n@keyframes flash-text {\n  from, 20%, 40%, 60%, 80%, to {\n    color: #FFF; }\n  10%, 30%, 50%, 70%, 90% {\n    color: transparent; } }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9jbGllbnQvYXBwL2NvbXBvbmVudHMvcGFnZXMvYWRtaXNzaW9uL0M6XFxVc2Vyc1xcaGF0YWd1Y2hpXFxEZXNrdG9wXFx3b3Jrc3BhY2VcXFRPRUkgVGlja2V0IFN5c3RlbVxcYWRtaXNzaW9uL3NyY1xcY2xpZW50XFxhcHBcXGNvbXBvbmVudHNcXHBhZ2VzXFxhZG1pc3Npb25cXGFkbWlzc2lvbi5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFlBQVk7RUFDWixnQkFBZ0IsRUFBQTs7QUFHcEI7RUFDSSw4QkFBc0I7VUFBdEIsc0JBQXNCO0VBQ3RCLGlDQUF5QjtVQUF6Qix5QkFBeUI7RUFDekIsa0NBQTBCO1VBQTFCLDBCQUEwQixFQUFBOztBQUc5QjtFQUNJO0lBQStCLFdBQVcsRUFBQTtFQUMxQztJQUEwQixrQkFBa0IsRUFBQSxFQUFBOztBQUZoRDtFQUNJO0lBQStCLFdBQVcsRUFBQTtFQUMxQztJQUEwQixrQkFBa0IsRUFBQSxFQUFBIiwiZmlsZSI6InNyYy9jbGllbnQvYXBwL2NvbXBvbmVudHMvcGFnZXMvYWRtaXNzaW9uL2FkbWlzc2lvbi5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi52aWRlby1hcmVhIHtcbiAgICBoZWlnaHQ6IDI1dmg7XG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcbn1cblxuLmZsYXNoLXRleHQge1xuICAgIGFuaW1hdGlvbi1kdXJhdGlvbjogM3M7XG4gICAgYW5pbWF0aW9uLWZpbGwtbW9kZTogYm90aDtcbiAgICBhbmltYXRpb24tbmFtZTogZmxhc2gtdGV4dDtcbn1cblxuQGtleWZyYW1lcyBmbGFzaC10ZXh0IHtcbiAgICBmcm9tLCAyMCUsIDQwJSwgNjAlLCA4MCUsIHRvIHsgY29sb3I6ICNGRkY7IH1cbiAgICAxMCUsIDMwJSwgNTAlLCA3MCUsIDkwJSB7IGNvbG9yOiB0cmFuc3BhcmVudDsgfVxufSJdfQ== */"
 
 /***/ }),
 
@@ -926,7 +925,7 @@ var AdmissionComponent = /** @class */ (function () {
             }
             _this.store.dispatch(new _store_actions__WEBPACK_IMPORTED_MODULE_10__["GetScreeningEventReservations"]({
                 params: {
-                    sort: { reservationNumber: _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].chevre.sortType.Ascending },
+                    typeOf: _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].chevre.reservationType.EventReservation,
                     reservationStatuses: [
                         _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].chevre.reservationStatusType.ReservationConfirmed
                     ],
@@ -1071,7 +1070,7 @@ module.exports = "<app-loading [show]=\"true\"></app-loading>"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvY2xpZW50L2FwcC9jb21wb25lbnRzL3BhZ2VzL2F1dGgvYXV0aC1pbmRleC9hdXRoLWluZGV4LmNvbXBvbmVudC5zY3NzIn0= */"
 
 /***/ }),
 
@@ -1182,7 +1181,7 @@ module.exports = "<app-loading [show]=\"true\"></app-loading>"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvY2xpZW50L2FwcC9jb21wb25lbnRzL3BhZ2VzL2F1dGgvYXV0aC1zaWduaW4vYXV0aC1zaWduaW4uY29tcG9uZW50LnNjc3MifQ== */"
 
 /***/ }),
 
@@ -1249,7 +1248,7 @@ module.exports = "<app-loading [show]=\"true\"></app-loading>"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvY2xpZW50L2FwcC9jb21wb25lbnRzL3BhZ2VzL2F1dGgvYXV0aC1zaWdub3V0L2F1dGgtc2lnbm91dC5jb21wb25lbnQuc2NzcyJ9 */"
 
 /***/ }),
 
@@ -1316,7 +1315,7 @@ module.exports = "<app-header></app-header>\n<app-contents>\n    <router-outlet>
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvY2xpZW50L2FwcC9jb21wb25lbnRzL3BhZ2VzL2Jhc2UvYmFzZS5jb21wb25lbnQuc2NzcyJ9 */"
 
 /***/ }),
 
@@ -1393,7 +1392,7 @@ module.exports = "<div class=\"py-3 px-2\">\n    <div class=\"mb-4\">\n        <
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvY2xpZW50L2FwcC9jb21wb25lbnRzL3BhZ2VzL2Vycm9yL2Vycm9yLmNvbXBvbmVudC5zY3NzIn0= */"
 
 /***/ }),
 
@@ -1462,7 +1461,7 @@ module.exports = "<div class=\"p-3\">\n    <h1 class=\"mb-3\">QRCODE: <strong *n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvY2xpZW50L2FwcC9jb21wb25lbnRzL3BhZ2VzL2luZGV4L2luZGV4LmNvbXBvbmVudC5zY3NzIn0= */"
 
 /***/ }),
 
@@ -1630,7 +1629,7 @@ module.exports = "<div class=\"py-3 px-2\">\n    <div class=\"mb-4\">\n        <
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvY2xpZW50L2FwcC9jb21wb25lbnRzL3BhZ2VzL25vdGZvdW5kL25vdGZvdW5kLmNvbXBvbmVudC5zY3NzIn0= */"
 
 /***/ }),
 
@@ -1693,7 +1692,7 @@ module.exports = "<div class=\"p-3\">\n    <p class=\"mb-3\">スケジュール�
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".condition select {\n  width: 100%; }\n\n.swiper-cover {\n  padding: 0 50px; }\n"
+module.exports = ".condition select {\n  width: 100%; }\n\n.swiper-cover {\n  padding: 0 50px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9jbGllbnQvYXBwL2NvbXBvbmVudHMvcGFnZXMvc2NoZWR1bGUvQzpcXFVzZXJzXFxoYXRhZ3VjaGlcXERlc2t0b3BcXHdvcmtzcGFjZVxcVE9FSSBUaWNrZXQgU3lzdGVtXFxhZG1pc3Npb24vc3JjXFxjbGllbnRcXGFwcFxcY29tcG9uZW50c1xccGFnZXNcXHNjaGVkdWxlXFxzY2hlZHVsZS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUVRLFdBQVcsRUFBQTs7QUFJbkI7RUFDSSxlQUFlLEVBQUEiLCJmaWxlIjoic3JjL2NsaWVudC9hcHAvY29tcG9uZW50cy9wYWdlcy9zY2hlZHVsZS9zY2hlZHVsZS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jb25kaXRpb24ge1xuICAgIHNlbGVjdCB7XG4gICAgICAgIHdpZHRoOiAxMDAlO1xuICAgIH1cbn1cblxuLnN3aXBlci1jb3ZlciB7XG4gICAgcGFkZGluZzogMCA1MHB4O1xufSJdfQ== */"
 
 /***/ }),
 
@@ -1884,7 +1883,7 @@ module.exports = "<div class=\"p-3 scroll\">\n    <div *ngIf=\"title\" class=\"m
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".scroll {\n  -webkit-overflow-scrolling: touch;\n  overflow-y: auto;\n  max-height: 75vh; }\n"
+module.exports = ".scroll {\n  -webkit-overflow-scrolling: touch;\n  overflow-y: auto;\n  max-height: 75vh; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9jbGllbnQvYXBwL2NvbXBvbmVudHMvcGFydHMvYWxlcnQtbW9kYWwvQzpcXFVzZXJzXFxoYXRhZ3VjaGlcXERlc2t0b3BcXHdvcmtzcGFjZVxcVE9FSSBUaWNrZXQgU3lzdGVtXFxhZG1pc3Npb24vc3JjXFxjbGllbnRcXGFwcFxcY29tcG9uZW50c1xccGFydHNcXGFsZXJ0LW1vZGFsXFxhbGVydC1tb2RhbC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGlDQUFpQztFQUNqQyxnQkFBZ0I7RUFDaEIsZ0JBQWdCLEVBQUEiLCJmaWxlIjoic3JjL2NsaWVudC9hcHAvY29tcG9uZW50cy9wYXJ0cy9hbGVydC1tb2RhbC9hbGVydC1tb2RhbC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5zY3JvbGwge1xuICAgIC13ZWJraXQtb3ZlcmZsb3ctc2Nyb2xsaW5nOiB0b3VjaDtcbiAgICBvdmVyZmxvdy15OiBhdXRvO1xuICAgIG1heC1oZWlnaHQ6IDc1dmg7XG59Il19 */"
 
 /***/ }),
 
@@ -1958,7 +1957,7 @@ module.exports = "<div class=\"p-3 scroll\">\n    <div class=\"mb-3 large-text\"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".scroll {\n  -webkit-overflow-scrolling: touch;\n  overflow-y: auto;\n  max-height: 75vh; }\n"
+module.exports = ".scroll {\n  -webkit-overflow-scrolling: touch;\n  overflow-y: auto;\n  max-height: 75vh; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9jbGllbnQvYXBwL2NvbXBvbmVudHMvcGFydHMvY29uZmlybS1tb2RhbC9DOlxcVXNlcnNcXGhhdGFndWNoaVxcRGVza3RvcFxcd29ya3NwYWNlXFxUT0VJIFRpY2tldCBTeXN0ZW1cXGFkbWlzc2lvbi9zcmNcXGNsaWVudFxcYXBwXFxjb21wb25lbnRzXFxwYXJ0c1xcY29uZmlybS1tb2RhbFxcY29uZmlybS1tb2RhbC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGlDQUFpQztFQUNqQyxnQkFBZ0I7RUFDaEIsZ0JBQWdCLEVBQUEiLCJmaWxlIjoic3JjL2NsaWVudC9hcHAvY29tcG9uZW50cy9wYXJ0cy9jb25maXJtLW1vZGFsL2NvbmZpcm0tbW9kYWwuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuc2Nyb2xsIHtcbiAgICAtd2Via2l0LW92ZXJmbG93LXNjcm9sbGluZzogdG91Y2g7XG4gICAgb3ZlcmZsb3cteTogYXV0bztcbiAgICBtYXgtaGVpZ2h0OiA3NXZoO1xufSJdfQ== */"
 
 /***/ }),
 
@@ -2032,7 +2031,7 @@ module.exports = "<div id=\"contents\" class=\"scroll bg-light\" [class.touch]=\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\n  box-sizing: border-box;\n  position: absolute;\n  top: 54px;\n  bottom: 0;\n  left: 0;\n  right: 0; }\n\n.contents {\n  max-width: 960px; }\n\n.scroll {\n  overflow-x: hidden;\n  overflow-y: auto;\n  height: 100%; }\n\n.touch {\n  -webkit-overflow-scrolling: touch; }\n"
+module.exports = ":host {\n  box-sizing: border-box;\n  position: absolute;\n  top: 54px;\n  bottom: 0;\n  left: 0;\n  right: 0; }\n\n.contents {\n  max-width: 960px; }\n\n.scroll {\n  overflow-x: hidden;\n  overflow-y: auto;\n  height: 100%; }\n\n.touch {\n  -webkit-overflow-scrolling: touch; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9jbGllbnQvYXBwL2NvbXBvbmVudHMvcGFydHMvY29udGVudHMvQzpcXFVzZXJzXFxoYXRhZ3VjaGlcXERlc2t0b3BcXHdvcmtzcGFjZVxcVE9FSSBUaWNrZXQgU3lzdGVtXFxhZG1pc3Npb24vc3JjXFxjbGllbnRcXGFwcFxcY29tcG9uZW50c1xccGFydHNcXGNvbnRlbnRzXFxjb250ZW50cy5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLHNCQUFzQjtFQUN0QixrQkFBa0I7RUFDbEIsU0FBUztFQUNULFNBQVM7RUFDVCxPQUFPO0VBQ1AsUUFBUSxFQUFBOztBQUdaO0VBQ0ksZ0JBQWdCLEVBQUE7O0FBR3BCO0VBQ0ksa0JBQWtCO0VBQ2xCLGdCQUFnQjtFQUNoQixZQUFZLEVBQUE7O0FBR2hCO0VBQ0ksaUNBQWlDLEVBQUEiLCJmaWxlIjoic3JjL2NsaWVudC9hcHAvY29tcG9uZW50cy9wYXJ0cy9jb250ZW50cy9jb250ZW50cy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIjpob3N0IHtcbiAgICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICB0b3A6IDU0cHg7XG4gICAgYm90dG9tOiAwO1xuICAgIGxlZnQ6IDA7XG4gICAgcmlnaHQ6IDA7XG59XG5cbi5jb250ZW50cyB7XG4gICAgbWF4LXdpZHRoOiA5NjBweDtcbn1cblxuLnNjcm9sbCB7XG4gICAgb3ZlcmZsb3cteDogaGlkZGVuO1xuICAgIG92ZXJmbG93LXk6IGF1dG87XG4gICAgaGVpZ2h0OiAxMDAlO1xufVxuXG4udG91Y2gge1xuICAgIC13ZWJraXQtb3ZlcmZsb3ctc2Nyb2xsaW5nOiB0b3VjaDtcbn0iXX0= */"
 
 /***/ }),
 
@@ -2114,7 +2113,7 @@ module.exports = "<div class=\"p-3 small-x-text text-center\">\n    Copyright (c
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvY2xpZW50L2FwcC9jb21wb25lbnRzL3BhcnRzL2Zvb3Rlci9mb290ZXIuY29tcG9uZW50LnNjc3MifQ== */"
 
 /***/ }),
 
@@ -2177,7 +2176,7 @@ module.exports = "<div class=\"cover\" [class.active]=\"isOpen\" (click)=\"close
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".cover, .menu {\n  position: fixed;\n  top: 54px;\n  z-index: 1031; }\n\n.cover {\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.75);\n  display: none; }\n\n.cover.active {\n    display: block; }\n\n.menu {\n  right: -100%;\n  width: 100%;\n  overflow-y: auto;\n  transition: right 0.1s;\n  max-height: calc(100vh - 54px); }\n\n.menu.active {\n    right: 0; }\n"
+module.exports = ".cover, .menu {\n  position: fixed;\n  top: 54px;\n  z-index: 1031; }\n\n.cover {\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.75);\n  display: none; }\n\n.cover.active {\n    display: block; }\n\n.menu {\n  right: -100%;\n  width: 100%;\n  overflow-y: auto;\n  transition: right 0.1s;\n  max-height: calc(100vh - 54px); }\n\n.menu.active {\n    right: 0; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9jbGllbnQvYXBwL2NvbXBvbmVudHMvcGFydHMvaGVhZGVyLW1lbnUvQzpcXFVzZXJzXFxoYXRhZ3VjaGlcXERlc2t0b3BcXHdvcmtzcGFjZVxcVE9FSSBUaWNrZXQgU3lzdGVtXFxhZG1pc3Npb24vc3JjXFxjbGllbnRcXGFwcFxcY29tcG9uZW50c1xccGFydHNcXGhlYWRlci1tZW51XFxoZWFkZXItbWVudS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGVBQWU7RUFDZixTQUFTO0VBQ1QsYUFBYSxFQUFBOztBQUVqQjtFQUNJLE9BQU87RUFDUCxRQUFRO0VBQ1IsU0FBUztFQUNULHFDQUFxQztFQUNyQyxhQUFhLEVBQUE7O0FBTGpCO0lBT1EsY0FBYyxFQUFBOztBQUd0QjtFQUNJLFlBQVk7RUFDWixXQUFXO0VBQ1gsZ0JBQWdCO0VBQ2hCLHNCQUFzQjtFQUN0Qiw4QkFBOEIsRUFBQTs7QUFMbEM7SUFPUSxRQUFRLEVBQUEiLCJmaWxlIjoic3JjL2NsaWVudC9hcHAvY29tcG9uZW50cy9wYXJ0cy9oZWFkZXItbWVudS9oZWFkZXItbWVudS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jb3ZlciwgLm1lbnUge1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB0b3A6IDU0cHg7XG4gICAgei1pbmRleDogMTAzMTtcbn1cbi5jb3ZlciB7XG4gICAgbGVmdDogMDtcbiAgICByaWdodDogMDtcbiAgICBib3R0b206IDA7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgwLCAwLCAwLCAwLjc1KTtcbiAgICBkaXNwbGF5OiBub25lO1xuICAgICYuYWN0aXZlIHtcbiAgICAgICAgZGlzcGxheTogYmxvY2s7XG4gICAgfVxufVxuLm1lbnUge1xuICAgIHJpZ2h0OiAtMTAwJTtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBvdmVyZmxvdy15OiBhdXRvO1xuICAgIHRyYW5zaXRpb246IHJpZ2h0IDAuMXM7XG4gICAgbWF4LWhlaWdodDogY2FsYygxMDB2aCAtIDU0cHgpO1xuICAgICYuYWN0aXZlIHtcbiAgICAgICAgcmlnaHQ6IDA7XG4gICAgfVxufSJdfQ== */"
 
 /***/ }),
 
@@ -2344,7 +2343,7 @@ module.exports = "<div class=\"fixed-top bg-secondary text-white shadow-sm\">\n 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".header {\n  max-width: 960px; }\n\n.menu-button {\n  width: 20px;\n  height: 16px;\n  position: relative; }\n\n.menu-button div {\n    position: absolute;\n    top: 50%;\n    left: 0;\n    margin-top: -0.5px;\n    width: 100%;\n    height: 1px;\n    background-color: #FFF; }\n\n.menu-button div:first-child {\n      top: 0;\n      margin-top: 0; }\n\n.menu-button div:last-child {\n      top: initial;\n      bottom: 0;\n      margin-top: 0; }\n\n.menu-button.active div {\n    opacity: 0; }\n\n.menu-button.active div:first-child {\n      opacity: 1;\n      top: 50%;\n      margin-top: -1px;\n      -webkit-transform: rotate(45deg);\n              transform: rotate(45deg); }\n\n.menu-button.active div:last-child {\n      opacity: 1;\n      top: 50%;\n      bottom: initial;\n      margin-top: -1px;\n      -webkit-transform: rotate(-45deg);\n              transform: rotate(-45deg); }\n"
+module.exports = ".header {\n  max-width: 960px; }\n\n.menu-button {\n  width: 20px;\n  height: 16px;\n  position: relative; }\n\n.menu-button div {\n    position: absolute;\n    top: 50%;\n    left: 0;\n    margin-top: -0.5px;\n    width: 100%;\n    height: 1px;\n    background-color: #FFF; }\n\n.menu-button div:first-child {\n      top: 0;\n      margin-top: 0; }\n\n.menu-button div:last-child {\n      top: initial;\n      bottom: 0;\n      margin-top: 0; }\n\n.menu-button.active div {\n    opacity: 0; }\n\n.menu-button.active div:first-child {\n      opacity: 1;\n      top: 50%;\n      margin-top: -1px;\n      -webkit-transform: rotate(45deg);\n              transform: rotate(45deg); }\n\n.menu-button.active div:last-child {\n      opacity: 1;\n      top: 50%;\n      bottom: initial;\n      margin-top: -1px;\n      -webkit-transform: rotate(-45deg);\n              transform: rotate(-45deg); }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9jbGllbnQvYXBwL2NvbXBvbmVudHMvcGFydHMvaGVhZGVyL0M6XFxVc2Vyc1xcaGF0YWd1Y2hpXFxEZXNrdG9wXFx3b3Jrc3BhY2VcXFRPRUkgVGlja2V0IFN5c3RlbVxcYWRtaXNzaW9uL3NyY1xcY2xpZW50XFxhcHBcXGNvbXBvbmVudHNcXHBhcnRzXFxoZWFkZXJcXGhlYWRlci5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGdCQUFnQixFQUFBOztBQUdwQjtFQUNJLFdBQVc7RUFDWCxZQUFZO0VBQ1osa0JBQWtCLEVBQUE7O0FBSHRCO0lBS1Esa0JBQWtCO0lBQ2xCLFFBQVE7SUFDUixPQUFPO0lBQ1Asa0JBQWtCO0lBQ2xCLFdBQVc7SUFDWCxXQUFXO0lBQ1gsc0JBQXNCLEVBQUE7O0FBWDlCO01BYVksTUFBTTtNQUNOLGFBQWEsRUFBQTs7QUFkekI7TUFpQlksWUFBWTtNQUNaLFNBQVM7TUFDVCxhQUFhLEVBQUE7O0FBbkJ6QjtJQXdCWSxVQUFVLEVBQUE7O0FBeEJ0QjtNQTBCZ0IsVUFBVTtNQUNWLFFBQVE7TUFDUixnQkFBZ0I7TUFDaEIsZ0NBQXdCO2NBQXhCLHdCQUF3QixFQUFBOztBQTdCeEM7TUFnQ2dCLFVBQVU7TUFDVixRQUFRO01BQ1IsZUFBZTtNQUNmLGdCQUFnQjtNQUNoQixpQ0FBeUI7Y0FBekIseUJBQXlCLEVBQUEiLCJmaWxlIjoic3JjL2NsaWVudC9hcHAvY29tcG9uZW50cy9wYXJ0cy9oZWFkZXIvaGVhZGVyLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmhlYWRlciB7XG4gICAgbWF4LXdpZHRoOiA5NjBweDtcbn1cblxuLm1lbnUtYnV0dG9uIHtcbiAgICB3aWR0aDogMjBweDtcbiAgICBoZWlnaHQ6IDE2cHg7XG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgIGRpdiB7XG4gICAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgICAgdG9wOiA1MCU7XG4gICAgICAgIGxlZnQ6IDA7XG4gICAgICAgIG1hcmdpbi10b3A6IC0wLjVweDtcbiAgICAgICAgd2lkdGg6IDEwMCU7XG4gICAgICAgIGhlaWdodDogMXB4O1xuICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjRkZGO1xuICAgICAgICAmOmZpcnN0LWNoaWxkIHtcbiAgICAgICAgICAgIHRvcDogMDtcbiAgICAgICAgICAgIG1hcmdpbi10b3A6IDA7XG4gICAgICAgIH1cbiAgICAgICAgJjpsYXN0LWNoaWxkIHtcbiAgICAgICAgICAgIHRvcDogaW5pdGlhbDtcbiAgICAgICAgICAgIGJvdHRvbTogMDtcbiAgICAgICAgICAgIG1hcmdpbi10b3A6IDA7XG4gICAgICAgIH1cbiAgICB9XG4gICAgJi5hY3RpdmUge1xuICAgICAgICBkaXYge1xuICAgICAgICAgICAgb3BhY2l0eTogMDtcbiAgICAgICAgICAgICY6Zmlyc3QtY2hpbGQge1xuICAgICAgICAgICAgICAgIG9wYWNpdHk6IDE7XG4gICAgICAgICAgICAgICAgdG9wOiA1MCU7XG4gICAgICAgICAgICAgICAgbWFyZ2luLXRvcDogLTFweDtcbiAgICAgICAgICAgICAgICB0cmFuc2Zvcm06IHJvdGF0ZSg0NWRlZyk7XG4gICAgICAgICAgICB9XG4gICAgICAgICAgICAmOmxhc3QtY2hpbGQge1xuICAgICAgICAgICAgICAgIG9wYWNpdHk6IDE7XG4gICAgICAgICAgICAgICAgdG9wOiA1MCU7XG4gICAgICAgICAgICAgICAgYm90dG9tOiBpbml0aWFsO1xuICAgICAgICAgICAgICAgIG1hcmdpbi10b3A6IC0xcHg7XG4gICAgICAgICAgICAgICAgdHJhbnNmb3JtOiByb3RhdGUoLTQ1ZGVnKTtcbiAgICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgIH1cbn0iXX0= */"
 
 /***/ }),
 
@@ -2414,7 +2413,7 @@ module.exports = "<div *ngIf=\"show\" class=\"cover fixed-top fixed-bottom\"></d
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".cover {\n  background-color: rgba(0, 0, 0, 0.7);\n  -webkit-animation: fadein 0.2s both;\n          animation: fadein 0.2s both; }\n\n.loading {\n  display: flex;\n  opacity: 1;\n  align-items: center;\n  justify-content: center; }\n\n.loader,\n.loader:after {\n  border-radius: 50%;\n  width: 90px;\n  height: 90px; }\n\n.loader {\n  margin: 60px auto;\n  position: relative;\n  text-indent: -9999em;\n  border: 3px solid rgba(255, 255, 255, 0.2);\n  border-left-color: #FFF;\n  -webkit-transform: translateZ(0);\n          transform: translateZ(0);\n  -webkit-animation: load8 1.1s infinite linear;\n          animation: load8 1.1s infinite linear; }\n\n@-webkit-keyframes fadein {\n  0% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes fadein {\n  0% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@-webkit-keyframes loading {\n  30% {\n    -webkit-transform: scaleY(2);\n            transform: scaleY(2); } }\n\n@keyframes loading {\n  30% {\n    -webkit-transform: scaleY(2);\n            transform: scaleY(2); } }\n\n@-webkit-keyframes load8 {\n  0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg); } }\n\n@keyframes load8 {\n  0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg); } }\n"
+module.exports = ".cover {\n  background-color: rgba(0, 0, 0, 0.7);\n  -webkit-animation: fadein 0.2s both;\n          animation: fadein 0.2s both; }\n\n.loading {\n  display: flex;\n  opacity: 1;\n  align-items: center;\n  justify-content: center; }\n\n.loader,\n.loader:after {\n  border-radius: 50%;\n  width: 90px;\n  height: 90px; }\n\n.loader {\n  margin: 60px auto;\n  position: relative;\n  text-indent: -9999em;\n  border: 3px solid rgba(255, 255, 255, 0.2);\n  border-left-color: #FFF;\n  -webkit-transform: translateZ(0);\n          transform: translateZ(0);\n  -webkit-animation: load8 1.1s infinite linear;\n          animation: load8 1.1s infinite linear; }\n\n@-webkit-keyframes fadein {\n  0% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes fadein {\n  0% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@-webkit-keyframes loading {\n  30% {\n    -webkit-transform: scaleY(2);\n            transform: scaleY(2); } }\n\n@keyframes loading {\n  30% {\n    -webkit-transform: scaleY(2);\n            transform: scaleY(2); } }\n\n@-webkit-keyframes load8 {\n  0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg); } }\n\n@keyframes load8 {\n  0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg); } }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9jbGllbnQvYXBwL2NvbXBvbmVudHMvcGFydHMvbG9hZGluZy9DOlxcVXNlcnNcXGhhdGFndWNoaVxcRGVza3RvcFxcd29ya3NwYWNlXFxUT0VJIFRpY2tldCBTeXN0ZW1cXGFkbWlzc2lvbi9zcmNcXGNsaWVudFxcYXBwXFxjb21wb25lbnRzXFxwYXJ0c1xcbG9hZGluZ1xcbG9hZGluZy5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLG9DQUFvQztFQUNwQyxtQ0FBMkI7VUFBM0IsMkJBQTJCLEVBQUE7O0FBRy9CO0VBQ0ksYUFBYTtFQUNiLFVBQVU7RUFDVixtQkFBbUI7RUFDbkIsdUJBQXVCLEVBQUE7O0FBRzNCOztFQUVJLGtCQUFrQjtFQUNsQixXQUFXO0VBQ1gsWUFBWSxFQUFBOztBQUVoQjtFQUNJLGlCQUFpQjtFQUNqQixrQkFBa0I7RUFDbEIsb0JBQW9CO0VBQ3BCLDBDQUEwQztFQUMxQyx1QkFBdUI7RUFDdkIsZ0NBQXdCO1VBQXhCLHdCQUF3QjtFQUN4Qiw2Q0FBcUM7VUFBckMscUNBQXFDLEVBQUE7O0FBR3pDO0VBQ0k7SUFDSSxVQUFVLEVBQUE7RUFFZDtJQUNJLFVBQVUsRUFBQSxFQUFBOztBQUxsQjtFQUNJO0lBQ0ksVUFBVSxFQUFBO0VBRWQ7SUFDSSxVQUFVLEVBQUEsRUFBQTs7QUFJbEI7RUFDSTtJQUNJLDRCQUFvQjtZQUFwQixvQkFBb0IsRUFBQSxFQUFBOztBQUY1QjtFQUNJO0lBQ0ksNEJBQW9CO1lBQXBCLG9CQUFvQixFQUFBLEVBQUE7O0FBSTVCO0VBQ0k7SUFDSSwrQkFBdUI7WUFBdkIsdUJBQXVCLEVBQUE7RUFFM0I7SUFDSSxpQ0FBeUI7WUFBekIseUJBQXlCLEVBQUEsRUFBQTs7QUFMakM7RUFDSTtJQUNJLCtCQUF1QjtZQUF2Qix1QkFBdUIsRUFBQTtFQUUzQjtJQUNJLGlDQUF5QjtZQUF6Qix5QkFBeUIsRUFBQSxFQUFBIiwiZmlsZSI6InNyYy9jbGllbnQvYXBwL2NvbXBvbmVudHMvcGFydHMvbG9hZGluZy9sb2FkaW5nLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNvdmVyIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDAsIDAsIDAsIDAuNyk7XG4gICAgYW5pbWF0aW9uOiBmYWRlaW4gMC4ycyBib3RoO1xufVxuXG4ubG9hZGluZyB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBvcGFjaXR5OiAxO1xuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG59XG5cbi5sb2FkZXIsXG4ubG9hZGVyOmFmdGVyIHtcbiAgICBib3JkZXItcmFkaXVzOiA1MCU7XG4gICAgd2lkdGg6IDkwcHg7XG4gICAgaGVpZ2h0OiA5MHB4O1xufVxuLmxvYWRlciB7XG4gICAgbWFyZ2luOiA2MHB4IGF1dG87XG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgIHRleHQtaW5kZW50OiAtOTk5OWVtO1xuICAgIGJvcmRlcjogM3B4IHNvbGlkIHJnYmEoMjU1LCAyNTUsIDI1NSwgMC4yKTtcbiAgICBib3JkZXItbGVmdC1jb2xvcjogI0ZGRjtcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVooMCk7XG4gICAgYW5pbWF0aW9uOiBsb2FkOCAxLjFzIGluZmluaXRlIGxpbmVhcjtcbn1cblxuQGtleWZyYW1lcyBmYWRlaW4ge1xuICAgIDAlIHtcbiAgICAgICAgb3BhY2l0eTogMDtcbiAgICB9XG4gICAgMTAwJSB7XG4gICAgICAgIG9wYWNpdHk6IDE7XG4gICAgfVxufVxuXG5Aa2V5ZnJhbWVzIGxvYWRpbmcge1xuICAgIDMwJSB7XG4gICAgICAgIHRyYW5zZm9ybTogc2NhbGVZKDIpO1xuICAgIH1cbn1cblxuQGtleWZyYW1lcyBsb2FkOCB7XG4gICAgMCUge1xuICAgICAgICB0cmFuc2Zvcm06IHJvdGF0ZSgwZGVnKTtcbiAgICB9XG4gICAgMTAwJSB7XG4gICAgICAgIHRyYW5zZm9ybTogcm90YXRlKDM2MGRlZyk7XG4gICAgfVxufVxuIl19 */"
 
 /***/ }),
 
@@ -3309,6 +3308,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logger", function() { return logger; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "storageSync", function() { return storageSync; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "metaReducers", function() { return metaReducers; });
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../environments/environment */ "./environments/environment.ts");
+
 /**
  * Reducers
  */
@@ -3337,7 +3338,7 @@ function storageSync(state) {
         || Object.keys(state).length === 0) {
         return;
     }
-    localStorage.setItem('state', JSON.stringify(state));
+    window[_environments_environment__WEBPACK_IMPORTED_MODULE_0__["environment"].STORAGE_TYPE].setItem(_environments_environment__WEBPACK_IMPORTED_MODULE_0__["environment"].STORAGE_NAME, JSON.stringify(state));
 }
 /**
  * Meta reducer
@@ -3517,7 +3518,7 @@ var Effects = /** @class */ (function () {
          * getScreeningEventReservations
          */
         this.getScreeningEventReservations = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions__WEBPACK_IMPORTED_MODULE_7__["ActionTypes"].GetScreeningEventReservations), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
-            var params, limit, page, roop, screeningEventReservations, screeningEventReservationsResult, lastPage, error_4;
+            var params, limit, page, roop, screeningEventReservations, screeningEventReservationsResult, lastPage, reservationsResult, error_4;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -3535,7 +3536,7 @@ var Effects = /** @class */ (function () {
                         if (!roop) return [3 /*break*/, 4];
                         params.page = page;
                         params.limit = limit;
-                        return [4 /*yield*/, this.cinerino.reservation.searchScreeningEventReservations(params)];
+                        return [4 /*yield*/, this.cinerino.reservation.search(params)];
                     case 3:
                         screeningEventReservationsResult = _a.sent();
                         screeningEventReservations =
@@ -3544,7 +3545,15 @@ var Effects = /** @class */ (function () {
                         page++;
                         roop = !(page > lastPage);
                         return [3 /*break*/, 2];
-                    case 4: return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_7__["GetScreeningEventReservationsSuccess"]({ screeningEventReservations: screeningEventReservations })];
+                    case 4:
+                        reservationsResult = screeningEventReservations.map(function (reservation) {
+                            return {
+                                id: reservation.id,
+                                reservationStatus: reservation.reservationStatus,
+                                reservedTicket: reservation.reservedTicket
+                            };
+                        });
+                        return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_7__["GetScreeningEventReservationsSuccess"]({ screeningEventReservations: reservationsResult })];
                     case 5:
                         error_4 = _a.sent();
                         return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_7__["GetScreeningEventReservationsFail"]({ error: error_4 })];
@@ -3753,7 +3762,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getLoading", function() { return getLoading; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getError", function() { return getError; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAdmissionData", function() { return getAdmissionData; });
-/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions */ "./app/store/actions/index.ts");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../environments/environment */ "./environments/environment.ts");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions */ "./app/store/actions/index.ts");
 var __assign = (undefined && undefined.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -3765,6 +3775,7 @@ var __assign = (undefined && undefined.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+
 
 /**
  * Initial state
@@ -3780,7 +3791,11 @@ var initialState = {
     }
 };
 function getInitialState() {
-    var json = localStorage.getItem('state');
+    var json = window[_environments_environment__WEBPACK_IMPORTED_MODULE_0__["environment"].STORAGE_TYPE].getItem(_environments_environment__WEBPACK_IMPORTED_MODULE_0__["environment"].STORAGE_NAME);
+    if (localStorage.getItem('state') !== null) {
+        json = localStorage.getItem('state');
+        localStorage.removeItem('state');
+    }
     if (json === undefined || json === null) {
         return initialState;
     }
@@ -3798,103 +3813,103 @@ function getInitialState() {
 function reducer(state, action) {
     if (state === void 0) { state = getInitialState(); }
     switch (action.type) {
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].Delete: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].Delete: {
             return __assign({}, state);
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].GetSellers: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].GetSellers: {
             return __assign({}, state, { loading: true });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].GetSellersSuccess: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].GetSellersSuccess: {
             var sellers = action.payload.sellers;
             state.admissionData.sellers = sellers;
             return __assign({}, state, { loading: false, error: null });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].GetSellersFail: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].GetSellersFail: {
             var error = action.payload.error;
             return __assign({}, state, { loading: false, error: JSON.stringify(error) });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].SelectSeller: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].SelectSeller: {
             var seller = action.payload.seller;
             state.admissionData.seller = seller;
             return __assign({}, state, { loading: false, error: null });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].SelectDate: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].SelectDate: {
             var date = action.payload.date;
             state.admissionData.date = date;
             return __assign({}, state, { loading: false, error: null });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].GetScreeningEvent: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].GetScreeningEvent: {
             return __assign({}, state);
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].GetScreeningEventSuccess: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].GetScreeningEventSuccess: {
             var screeningEvent = action.payload.screeningEvent;
             state.admissionData.screeningEvent = screeningEvent;
             return __assign({}, state, { error: null });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].GetScreeningEventFail: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].GetScreeningEventFail: {
             var error = action.payload.error;
             return __assign({}, state, { error: JSON.stringify(error) });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].GetScreeningEvents: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].GetScreeningEvents: {
             return __assign({}, state, { loading: true });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].GetScreeningEventsSuccess: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].GetScreeningEventsSuccess: {
             var screeningEvents = action.payload.screeningEvents;
             state.admissionData.screeningEvents = screeningEvents;
             return __assign({}, state, { loading: false, error: null });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].GetScreeningEventsFail: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].GetScreeningEventsFail: {
             var error = action.payload.error;
             return __assign({}, state, { loading: false, error: JSON.stringify(error) });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].SelectScreeningEvent: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].SelectScreeningEvent: {
             var screeningEvent = action.payload.screeningEvent;
             state.admissionData.screeningEvent = screeningEvent;
             return __assign({}, state, { loading: false, error: null });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].GetScreeningEventReservations: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].GetScreeningEventReservations: {
             return __assign({}, state);
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].GetScreeningEventReservationsSuccess: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].GetScreeningEventReservationsSuccess: {
             var screeningEventReservations = action.payload.screeningEventReservations;
             state.admissionData.screeningEventReservations = screeningEventReservations;
             return __assign({}, state, { error: null });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].GetScreeningEventReservationsFail: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].GetScreeningEventReservationsFail: {
             var error = action.payload.error;
             return __assign({}, state, { error: JSON.stringify(error) });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].InitializeQrcodeToken: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].InitializeQrcodeToken: {
             var qrcodeToken = undefined;
             state.admissionData.qrcodeToken = qrcodeToken;
             return __assign({}, state);
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].InitializeUsentList: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].InitializeUsentList: {
             state.admissionData.usentList = [];
             return __assign({}, state);
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].ConvertQrcodeToToken: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].ConvertQrcodeToToken: {
             return __assign({}, state, { loading: true, error: null });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].ConvertQrcodeToTokenSuccess: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].ConvertQrcodeToTokenSuccess: {
             var qrcodeToken = action.payload;
             state.admissionData.qrcodeToken = qrcodeToken;
             return __assign({}, state, { loading: false, error: null });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].ConvertQrcodeToTokenFail: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].ConvertQrcodeToTokenFail: {
             var error = action.payload.error;
             return __assign({}, state, { loading: false, error: JSON.stringify(error) });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].Admission: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].Admission: {
             return __assign({}, state, { error: null });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].AdmissionSuccess: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].AdmissionSuccess: {
             var decodeResult_1 = action.payload.decodeResult;
             var usentList = state.admissionData.usentList.filter(function (usent) { return usent.decodeResult.id !== decodeResult_1.id; });
             state.admissionData.usentList = usentList;
             return __assign({}, state, { error: null });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].AdmissionFail: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].AdmissionFail: {
             var error = action.payload.error;
             var token = action.payload.token;
             var decodeResult_2 = action.payload.decodeResult;
@@ -3935,7 +3950,10 @@ __webpack_require__.r(__webpack_exports__);
  */
 var environment = {
     production: false,
+    PROJECT_ID: 'toei-development',
     ENV: 'development',
+    STORAGE_NAME: 'TOEI-ADMISSION-STATE',
+    STORAGE_TYPE: 'localStorage',
     ANALYTICS_ID: ''
 };
 
