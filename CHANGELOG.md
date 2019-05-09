@@ -12,6 +12,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## 1.1.3 - 2019-05-09
+### Fixed
+- 予約データを最適化
+
 ## 1.1.2 - 2019-04-03
 ### Changed
 - 予約情報更新間隔を30秒に変更
