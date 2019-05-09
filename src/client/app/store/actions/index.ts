@@ -1,7 +1,7 @@
 
 import { factory } from '@cinerino/api-javascript-client';
 import { Action } from '@ngrx/store';
-import { IDecodeResult } from '../../model';
+import { IDecodeResult, IReservation } from '../../model';
 
 /**
  * Action types
@@ -142,7 +142,9 @@ export class SelectScreeningEvent implements Action {
  */
 export class GetScreeningEventReservations implements Action {
     public readonly type = ActionTypes.GetScreeningEventReservations;
-    constructor(public payload: { params: factory.chevre.reservation.event.ISearchConditions }) { }
+    constructor(public payload: {
+        params: factory.chevre.reservation.ISearchConditions<factory.chevre.reservationType.EventReservation>
+    }) { }
 }
 
 /**
@@ -151,7 +153,7 @@ export class GetScreeningEventReservations implements Action {
 export class GetScreeningEventReservationsSuccess implements Action {
     public readonly type = ActionTypes.GetScreeningEventReservationsSuccess;
     constructor(public payload: {
-        screeningEventReservations: factory.chevre.reservation.event.IReservation<factory.chevre.event.screeningEvent.IEvent>[]
+        screeningEventReservations: IReservation[]
     }) { }
 }
 
@@ -187,7 +189,7 @@ export class ConvertQrcodeToToken implements Action {
     constructor(public payload: {
         params: {
             code: string;
-            screeningEventReservations: factory.chevre.reservation.event.IReservation<factory.chevre.event.screeningEvent.IEvent>[];
+            screeningEventReservations: IReservation[];
         }
     }) { }
 }
@@ -200,7 +202,7 @@ export class ConvertQrcodeToTokenSuccess implements Action {
     constructor(public payload: {
         token?: string;
         decodeResult?: IDecodeResult;
-        availableReservation?: factory.chevre.reservation.event.ISearchConditions;
+        availableReservation?: IReservation;
         checkTokenActions: factory.action.check.token.IAction[];
         isAvailable: boolean;
         statusCode: number;

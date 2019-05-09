@@ -1,5 +1,6 @@
 import { factory } from '@cinerino/api-javascript-client';
-import { IDecodeResult } from '../../model';
+import { environment } from '../../../environments/environment';
+import { IDecodeResult, IReservation } from '../../model';
 import { Actions, ActionTypes } from '../actions';
 
 
@@ -18,11 +19,11 @@ export interface IAdmissionState {
     date?: string;
     screeningEvents: factory.chevre.event.screeningEvent.IEvent[];
     screeningEvent?: factory.chevre.event.screeningEvent.IEvent;
-    screeningEventReservations: factory.chevre.reservation.event.IReservation<factory.chevre.event.screeningEvent.IEvent>[];
+    screeningEventReservations: IReservation[];
     qrcodeToken?: {
         token?: string;
         decodeResult?: IDecodeResult;
-        availableReservation?: factory.chevre.reservation.event.ISearchConditions;
+        availableReservation?: IReservation;
         checkTokenActions: factory.action.check.token.IAction[];
         isAvailable: boolean;
         statusCode: number;
@@ -48,7 +49,11 @@ export const initialState: IState = {
 };
 
 function getInitialState(): IState {
-    const json = localStorage.getItem('state');
+    let json = (<Storage>(<any>window)[environment.STORAGE_TYPE]).getItem(environment.STORAGE_NAME);
+    if (localStorage.getItem('state') !== null) {
+        json = localStorage.getItem('state');
+        localStorage.removeItem('state');
+    }
     if (json === undefined || json === null) {
         return initialState;
     }

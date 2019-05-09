@@ -926,7 +926,7 @@ var AdmissionComponent = /** @class */ (function () {
             }
             _this.store.dispatch(new _store_actions__WEBPACK_IMPORTED_MODULE_10__["GetScreeningEventReservations"]({
                 params: {
-                    sort: { reservationNumber: _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].chevre.sortType.Ascending },
+                    typeOf: _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].chevre.reservationType.EventReservation,
                     reservationStatuses: [
                         _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].chevre.reservationStatusType.ReservationConfirmed
                     ],
@@ -3309,6 +3309,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logger", function() { return logger; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "storageSync", function() { return storageSync; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "metaReducers", function() { return metaReducers; });
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../environments/environment */ "./environments/environment.ts");
+
 /**
  * Reducers
  */
@@ -3337,7 +3339,7 @@ function storageSync(state) {
         || Object.keys(state).length === 0) {
         return;
     }
-    localStorage.setItem('state', JSON.stringify(state));
+    window[_environments_environment__WEBPACK_IMPORTED_MODULE_0__["environment"].STORAGE_TYPE].setItem(_environments_environment__WEBPACK_IMPORTED_MODULE_0__["environment"].STORAGE_NAME, JSON.stringify(state));
 }
 /**
  * Meta reducer
@@ -3517,7 +3519,7 @@ var Effects = /** @class */ (function () {
          * getScreeningEventReservations
          */
         this.getScreeningEventReservations = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions__WEBPACK_IMPORTED_MODULE_7__["ActionTypes"].GetScreeningEventReservations), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
-            var params, limit, page, roop, screeningEventReservations, screeningEventReservationsResult, lastPage, error_4;
+            var params, limit, page, roop, screeningEventReservations, screeningEventReservationsResult, lastPage, reservationsResult, error_4;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -3535,7 +3537,7 @@ var Effects = /** @class */ (function () {
                         if (!roop) return [3 /*break*/, 4];
                         params.page = page;
                         params.limit = limit;
-                        return [4 /*yield*/, this.cinerino.reservation.searchScreeningEventReservations(params)];
+                        return [4 /*yield*/, this.cinerino.reservation.search(params)];
                     case 3:
                         screeningEventReservationsResult = _a.sent();
                         screeningEventReservations =
@@ -3544,7 +3546,15 @@ var Effects = /** @class */ (function () {
                         page++;
                         roop = !(page > lastPage);
                         return [3 /*break*/, 2];
-                    case 4: return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_7__["GetScreeningEventReservationsSuccess"]({ screeningEventReservations: screeningEventReservations })];
+                    case 4:
+                        reservationsResult = screeningEventReservations.map(function (reservation) {
+                            return {
+                                id: reservation.id,
+                                reservationStatus: reservation.reservationStatus,
+                                reservedTicket: reservation.reservedTicket
+                            };
+                        });
+                        return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_7__["GetScreeningEventReservationsSuccess"]({ screeningEventReservations: reservationsResult })];
                     case 5:
                         error_4 = _a.sent();
                         return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_7__["GetScreeningEventReservationsFail"]({ error: error_4 })];
@@ -3753,7 +3763,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getLoading", function() { return getLoading; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getError", function() { return getError; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAdmissionData", function() { return getAdmissionData; });
-/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions */ "./app/store/actions/index.ts");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../environments/environment */ "./environments/environment.ts");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions */ "./app/store/actions/index.ts");
 var __assign = (undefined && undefined.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -3765,6 +3776,7 @@ var __assign = (undefined && undefined.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+
 
 /**
  * Initial state
@@ -3780,7 +3792,11 @@ var initialState = {
     }
 };
 function getInitialState() {
-    var json = localStorage.getItem('state');
+    var json = window[_environments_environment__WEBPACK_IMPORTED_MODULE_0__["environment"].STORAGE_TYPE].getItem(_environments_environment__WEBPACK_IMPORTED_MODULE_0__["environment"].STORAGE_NAME);
+    if (localStorage.getItem('state') !== null) {
+        json = localStorage.getItem('state');
+        localStorage.removeItem('state');
+    }
     if (json === undefined || json === null) {
         return initialState;
     }
@@ -3798,103 +3814,103 @@ function getInitialState() {
 function reducer(state, action) {
     if (state === void 0) { state = getInitialState(); }
     switch (action.type) {
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].Delete: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].Delete: {
             return __assign({}, state);
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].GetSellers: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].GetSellers: {
             return __assign({}, state, { loading: true });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].GetSellersSuccess: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].GetSellersSuccess: {
             var sellers = action.payload.sellers;
             state.admissionData.sellers = sellers;
             return __assign({}, state, { loading: false, error: null });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].GetSellersFail: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].GetSellersFail: {
             var error = action.payload.error;
             return __assign({}, state, { loading: false, error: JSON.stringify(error) });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].SelectSeller: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].SelectSeller: {
             var seller = action.payload.seller;
             state.admissionData.seller = seller;
             return __assign({}, state, { loading: false, error: null });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].SelectDate: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].SelectDate: {
             var date = action.payload.date;
             state.admissionData.date = date;
             return __assign({}, state, { loading: false, error: null });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].GetScreeningEvent: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].GetScreeningEvent: {
             return __assign({}, state);
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].GetScreeningEventSuccess: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].GetScreeningEventSuccess: {
             var screeningEvent = action.payload.screeningEvent;
             state.admissionData.screeningEvent = screeningEvent;
             return __assign({}, state, { error: null });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].GetScreeningEventFail: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].GetScreeningEventFail: {
             var error = action.payload.error;
             return __assign({}, state, { error: JSON.stringify(error) });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].GetScreeningEvents: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].GetScreeningEvents: {
             return __assign({}, state, { loading: true });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].GetScreeningEventsSuccess: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].GetScreeningEventsSuccess: {
             var screeningEvents = action.payload.screeningEvents;
             state.admissionData.screeningEvents = screeningEvents;
             return __assign({}, state, { loading: false, error: null });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].GetScreeningEventsFail: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].GetScreeningEventsFail: {
             var error = action.payload.error;
             return __assign({}, state, { loading: false, error: JSON.stringify(error) });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].SelectScreeningEvent: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].SelectScreeningEvent: {
             var screeningEvent = action.payload.screeningEvent;
             state.admissionData.screeningEvent = screeningEvent;
             return __assign({}, state, { loading: false, error: null });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].GetScreeningEventReservations: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].GetScreeningEventReservations: {
             return __assign({}, state);
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].GetScreeningEventReservationsSuccess: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].GetScreeningEventReservationsSuccess: {
             var screeningEventReservations = action.payload.screeningEventReservations;
             state.admissionData.screeningEventReservations = screeningEventReservations;
             return __assign({}, state, { error: null });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].GetScreeningEventReservationsFail: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].GetScreeningEventReservationsFail: {
             var error = action.payload.error;
             return __assign({}, state, { error: JSON.stringify(error) });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].InitializeQrcodeToken: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].InitializeQrcodeToken: {
             var qrcodeToken = undefined;
             state.admissionData.qrcodeToken = qrcodeToken;
             return __assign({}, state);
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].InitializeUsentList: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].InitializeUsentList: {
             state.admissionData.usentList = [];
             return __assign({}, state);
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].ConvertQrcodeToToken: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].ConvertQrcodeToToken: {
             return __assign({}, state, { loading: true, error: null });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].ConvertQrcodeToTokenSuccess: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].ConvertQrcodeToTokenSuccess: {
             var qrcodeToken = action.payload;
             state.admissionData.qrcodeToken = qrcodeToken;
             return __assign({}, state, { loading: false, error: null });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].ConvertQrcodeToTokenFail: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].ConvertQrcodeToTokenFail: {
             var error = action.payload.error;
             return __assign({}, state, { loading: false, error: JSON.stringify(error) });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].Admission: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].Admission: {
             return __assign({}, state, { error: null });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].AdmissionSuccess: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].AdmissionSuccess: {
             var decodeResult_1 = action.payload.decodeResult;
             var usentList = state.admissionData.usentList.filter(function (usent) { return usent.decodeResult.id !== decodeResult_1.id; });
             state.admissionData.usentList = usentList;
             return __assign({}, state, { error: null });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].AdmissionFail: {
+        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].AdmissionFail: {
             var error = action.payload.error;
             var token = action.payload.token;
             var decodeResult_2 = action.payload.decodeResult;
@@ -3935,7 +3951,10 @@ __webpack_require__.r(__webpack_exports__);
  */
 var environment = {
     production: false,
+    PROJECT_ID: 'toei-development',
     ENV: 'development',
+    STORAGE_NAME: 'TOEI-ADMISSION-STATE',
+    STORAGE_TYPE: 'localStorage',
     ANALYTICS_ID: ''
 };
 

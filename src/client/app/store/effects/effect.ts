@@ -126,12 +126,12 @@ export class Effects {
                 let page = 1;
                 let roop = true;
                 let screeningEventReservations:
-                    factory.chevre.reservation.event.IReservation<factory.chevre.event.screeningEvent.IEvent>[] = [];
+                    factory.chevre.reservation.IReservation<factory.chevre.reservationType.EventReservation>[] = [];
                 while (roop) {
                     params.page = page;
                     params.limit = limit;
                     const screeningEventReservationsResult =
-                        await this.cinerino.reservation.searchScreeningEventReservations(params);
+                        await this.cinerino.reservation.search(params);
                     screeningEventReservations =
                         screeningEventReservations.concat(screeningEventReservationsResult.data);
                     const lastPage = Math.ceil(screeningEventReservationsResult.totalCount / limit);
@@ -139,7 +139,15 @@ export class Effects {
                     roop = !(page > lastPage);
                 }
 
-                return new GetScreeningEventReservationsSuccess({ screeningEventReservations });
+                const reservationsResult = screeningEventReservations.map((reservation) => {
+                    return {
+                        id: reservation.id,
+                        reservationStatus: <factory.chevre.reservationStatusType>reservation.reservationStatus,
+                        reservedTicket: reservation.reservedTicket
+                    };
+                });
+
+                return new GetScreeningEventReservationsSuccess({ screeningEventReservations: reservationsResult });
             } catch (error) {
                 return new GetScreeningEventReservationsFail({ error: error });
             }
