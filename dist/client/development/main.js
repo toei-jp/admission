@@ -3762,8 +3762,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getLoading", function() { return getLoading; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getError", function() { return getError; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAdmissionData", function() { return getAdmissionData; });
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../environments/environment */ "./environments/environment.ts");
-/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions */ "./app/store/actions/index.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "../../node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../environments/environment */ "./environments/environment.ts");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions */ "./app/store/actions/index.ts");
 var __assign = (undefined && undefined.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -3775,6 +3777,7 @@ var __assign = (undefined && undefined.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+
 
 
 /**
@@ -3791,7 +3794,7 @@ var initialState = {
     }
 };
 function getInitialState() {
-    var json = window[_environments_environment__WEBPACK_IMPORTED_MODULE_0__["environment"].STORAGE_TYPE].getItem(_environments_environment__WEBPACK_IMPORTED_MODULE_0__["environment"].STORAGE_NAME);
+    var json = window[_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].STORAGE_TYPE].getItem(_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].STORAGE_NAME);
     if (localStorage.getItem('state') !== null) {
         json = localStorage.getItem('state');
         localStorage.removeItem('state');
@@ -3813,103 +3816,106 @@ function getInitialState() {
 function reducer(state, action) {
     if (state === void 0) { state = getInitialState(); }
     switch (action.type) {
-        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].Delete: {
+        case _actions__WEBPACK_IMPORTED_MODULE_2__["ActionTypes"].Delete: {
             return __assign({}, state);
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].GetSellers: {
+        case _actions__WEBPACK_IMPORTED_MODULE_2__["ActionTypes"].GetSellers: {
             return __assign({}, state, { loading: true });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].GetSellersSuccess: {
+        case _actions__WEBPACK_IMPORTED_MODULE_2__["ActionTypes"].GetSellersSuccess: {
             var sellers = action.payload.sellers;
             state.admissionData.sellers = sellers;
             return __assign({}, state, { loading: false, error: null });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].GetSellersFail: {
+        case _actions__WEBPACK_IMPORTED_MODULE_2__["ActionTypes"].GetSellersFail: {
             var error = action.payload.error;
             return __assign({}, state, { loading: false, error: JSON.stringify(error) });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].SelectSeller: {
+        case _actions__WEBPACK_IMPORTED_MODULE_2__["ActionTypes"].SelectSeller: {
             var seller = action.payload.seller;
             state.admissionData.seller = seller;
             return __assign({}, state, { loading: false, error: null });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].SelectDate: {
+        case _actions__WEBPACK_IMPORTED_MODULE_2__["ActionTypes"].SelectDate: {
             var date = action.payload.date;
             state.admissionData.date = date;
             return __assign({}, state, { loading: false, error: null });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].GetScreeningEvent: {
+        case _actions__WEBPACK_IMPORTED_MODULE_2__["ActionTypes"].GetScreeningEvent: {
             return __assign({}, state);
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].GetScreeningEventSuccess: {
+        case _actions__WEBPACK_IMPORTED_MODULE_2__["ActionTypes"].GetScreeningEventSuccess: {
             var screeningEvent = action.payload.screeningEvent;
             state.admissionData.screeningEvent = screeningEvent;
             return __assign({}, state, { error: null });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].GetScreeningEventFail: {
+        case _actions__WEBPACK_IMPORTED_MODULE_2__["ActionTypes"].GetScreeningEventFail: {
             var error = action.payload.error;
             return __assign({}, state, { error: JSON.stringify(error) });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].GetScreeningEvents: {
+        case _actions__WEBPACK_IMPORTED_MODULE_2__["ActionTypes"].GetScreeningEvents: {
             return __assign({}, state, { loading: true });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].GetScreeningEventsSuccess: {
+        case _actions__WEBPACK_IMPORTED_MODULE_2__["ActionTypes"].GetScreeningEventsSuccess: {
             var screeningEvents = action.payload.screeningEvents;
             state.admissionData.screeningEvents = screeningEvents;
             return __assign({}, state, { loading: false, error: null });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].GetScreeningEventsFail: {
+        case _actions__WEBPACK_IMPORTED_MODULE_2__["ActionTypes"].GetScreeningEventsFail: {
             var error = action.payload.error;
             return __assign({}, state, { loading: false, error: JSON.stringify(error) });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].SelectScreeningEvent: {
+        case _actions__WEBPACK_IMPORTED_MODULE_2__["ActionTypes"].SelectScreeningEvent: {
             var screeningEvent = action.payload.screeningEvent;
             state.admissionData.screeningEvent = screeningEvent;
             return __assign({}, state, { loading: false, error: null });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].GetScreeningEventReservations: {
+        case _actions__WEBPACK_IMPORTED_MODULE_2__["ActionTypes"].GetScreeningEventReservations: {
             return __assign({}, state);
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].GetScreeningEventReservationsSuccess: {
+        case _actions__WEBPACK_IMPORTED_MODULE_2__["ActionTypes"].GetScreeningEventReservationsSuccess: {
             var screeningEventReservations = action.payload.screeningEventReservations;
             state.admissionData.screeningEventReservations = screeningEventReservations;
             return __assign({}, state, { error: null });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].GetScreeningEventReservationsFail: {
+        case _actions__WEBPACK_IMPORTED_MODULE_2__["ActionTypes"].GetScreeningEventReservationsFail: {
             var error = action.payload.error;
             return __assign({}, state, { error: JSON.stringify(error) });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].InitializeQrcodeToken: {
-            var qrcodeToken = undefined;
-            state.admissionData.qrcodeToken = qrcodeToken;
-            return __assign({}, state);
-        }
-        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].InitializeUsentList: {
+        case _actions__WEBPACK_IMPORTED_MODULE_2__["ActionTypes"].InitializeQrcodeToken: {
+            state.admissionData.qrcodeToken = undefined;
             state.admissionData.usentList = [];
             return __assign({}, state);
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].ConvertQrcodeToToken: {
+        case _actions__WEBPACK_IMPORTED_MODULE_2__["ActionTypes"].InitializeUsentList: {
+            state.admissionData.usentList = [];
+            return __assign({}, state);
+        }
+        case _actions__WEBPACK_IMPORTED_MODULE_2__["ActionTypes"].ConvertQrcodeToToken: {
             return __assign({}, state, { loading: true, error: null });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].ConvertQrcodeToTokenSuccess: {
+        case _actions__WEBPACK_IMPORTED_MODULE_2__["ActionTypes"].ConvertQrcodeToTokenSuccess: {
             var qrcodeToken = action.payload;
             state.admissionData.qrcodeToken = qrcodeToken;
             return __assign({}, state, { loading: false, error: null });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].ConvertQrcodeToTokenFail: {
+        case _actions__WEBPACK_IMPORTED_MODULE_2__["ActionTypes"].ConvertQrcodeToTokenFail: {
             var error = action.payload.error;
             return __assign({}, state, { loading: false, error: JSON.stringify(error) });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].Admission: {
+        case _actions__WEBPACK_IMPORTED_MODULE_2__["ActionTypes"].Admission: {
             return __assign({}, state, { error: null });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].AdmissionSuccess: {
+        case _actions__WEBPACK_IMPORTED_MODULE_2__["ActionTypes"].AdmissionSuccess: {
             var decodeResult_1 = action.payload.decodeResult;
-            var usentList = state.admissionData.usentList.filter(function (usent) { return usent.decodeResult.id !== decodeResult_1.id; });
+            var usentList = state.admissionData.usentList.filter(function (usent) {
+                return (moment__WEBPACK_IMPORTED_MODULE_0__(usent.decodeResult.exp).unix() < moment__WEBPACK_IMPORTED_MODULE_0__().unix()
+                    && usent.decodeResult.id !== decodeResult_1.id);
+            });
             state.admissionData.usentList = usentList;
             return __assign({}, state, { error: null });
         }
-        case _actions__WEBPACK_IMPORTED_MODULE_1__["ActionTypes"].AdmissionFail: {
+        case _actions__WEBPACK_IMPORTED_MODULE_2__["ActionTypes"].AdmissionFail: {
             var error = action.payload.error;
             var token = action.payload.token;
             var decodeResult_2 = action.payload.decodeResult;
@@ -3917,6 +3923,10 @@ function reducer(state, action) {
             if (findResult === undefined) {
                 state.admissionData.usentList.push({ token: token, decodeResult: decodeResult_2 });
             }
+            var usentList = state.admissionData.usentList.filter(function (usent) {
+                return (moment__WEBPACK_IMPORTED_MODULE_0__(usent.decodeResult.exp).unix() > moment__WEBPACK_IMPORTED_MODULE_0__().unix());
+            });
+            state.admissionData.usentList = usentList;
             return __assign({}, state, { error: JSON.stringify(error) });
         }
         default: {
