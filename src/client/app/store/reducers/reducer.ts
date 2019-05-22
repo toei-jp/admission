@@ -1,8 +1,8 @@
 import { factory } from '@cinerino/api-javascript-client';
+import * as moment from 'moment';
 import { environment } from '../../../environments/environment';
 import { IDecodeResult, IReservation } from '../../model';
 import { Actions, ActionTypes } from '../actions';
-
 
 /**
  * State
@@ -142,8 +142,8 @@ export function reducer(
             return { ...state, error: JSON.stringify(error) };
         }
         case ActionTypes.InitializeQrcodeToken: {
-            const qrcodeToken = undefined;
-            state.admissionData.qrcodeToken = qrcodeToken;
+            state.admissionData.qrcodeToken = undefined;
+            state.admissionData.usentList = [];
             return { ...state };
         }
         case ActionTypes.InitializeUsentList: {
@@ -167,7 +167,10 @@ export function reducer(
         }
         case ActionTypes.AdmissionSuccess: {
             const decodeResult = action.payload.decodeResult;
-            const usentList = state.admissionData.usentList.filter(usent => usent.decodeResult.id !== decodeResult.id);
+            const usentList = state.admissionData.usentList.filter((usent) => {
+                return (moment(usent.decodeResult.exp).unix() < moment().unix()
+                    && usent.decodeResult.id !== decodeResult.id);
+            });
             state.admissionData.usentList = usentList;
             return { ...state, error: null };
         }
@@ -175,10 +178,14 @@ export function reducer(
             const error = action.payload.error;
             const token = action.payload.token;
             const decodeResult = action.payload.decodeResult;
-            const findResult = state.admissionData.usentList.find(usent => usent.decodeResult.id === decodeResult.id);
+            const findResult = state.admissionData.usentList.find((usent) => usent.decodeResult.id === decodeResult.id);
             if (findResult === undefined) {
                 state.admissionData.usentList.push({ token, decodeResult });
             }
+            const usentList = state.admissionData.usentList.filter((usent) => {
+                return (moment(usent.decodeResult.exp).unix() > moment().unix());
+            });
+            state.admissionData.usentList = usentList;
 
             return { ...state, error: JSON.stringify(error) };
         }
