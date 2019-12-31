@@ -12,6 +12,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## 1.1.5 - 2019-12-31
+### Fixed
+- 予約検索へ期間を指定へ修正
+
 ## 1.1.4 - 2019-05-22
 ### Fixed
 - 期限切れトークンを削除するよう修正
