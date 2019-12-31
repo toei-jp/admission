@@ -3,6 +3,7 @@ import { factory } from '@cinerino/api-javascript-client';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { OK } from 'http-status';
 import * as decode from 'jwt-decode';
+import * as moment from 'moment';
 import { map, mergeMap } from 'rxjs/operators';
 import { IDecodeResult } from '../../model';
 import { CinerinoService } from '../../services';
@@ -51,7 +52,7 @@ export class Effects {
             try {
                 await this.cinerino.getServices();
                 const searchResult = await this.cinerino.seller.search(payload.params);
-                const sellers = searchResult.data;
+                const sellers = searchResult.data.filter(s => s.location !== undefined && s.location.branchCode !== undefined);
                 return new GetSellersSuccess({ sellers });
             } catch (error) {
                 return new GetSellersFail({ error: error });
@@ -119,24 +120,38 @@ export class Effects {
         map(action => action.payload),
         mergeMap(async (payload) => {
             // console.log(payload);
+            const params = payload.params;
             try {
                 await this.cinerino.getServices();
-                const params = payload.params;
-                const limit = 100;
-                let page = 1;
-                let roop = true;
                 let screeningEventReservations:
                     factory.chevre.reservation.IReservation<factory.chevre.reservationType.EventReservation>[] = [];
-                while (roop) {
-                    params.page = page;
-                    params.limit = limit;
-                    const screeningEventReservationsResult =
-                        await this.cinerino.reservation.search(params);
-                    screeningEventReservations =
-                        screeningEventReservations.concat(screeningEventReservationsResult.data);
-                    const lastPage = Math.ceil(screeningEventReservationsResult.totalCount / limit);
-                    page++;
-                    roop = !(page > lastPage);
+                const splitDay = 14;
+                const splitCount =
+                    Math.ceil(moment(params.bookingThrough).diff(moment(params.bookingFrom), 'days') / splitDay);
+                for (let i = 0; i < splitCount; i++) {
+                    const limit = 100;
+                    let page = 1;
+                    let roop = true;
+                    const bookingThrough = moment(params.bookingThrough).add(-1 * splitDay * i, 'days').toDate();
+                    const bookingFrom =
+                        (moment(params.bookingThrough).add(-1 * splitDay * (i + 1), 'days').toDate() > moment(params.bookingFrom).toDate())
+                            ? moment(params.bookingThrough).add(-1 * splitDay * (i + 1), 'days').toDate()
+                            : moment(params.bookingFrom).toDate();
+                    console.log(
+                        moment(bookingFrom).format('YYYY/MM/DD HH:mm'),
+                        moment(bookingThrough).format('YYYY/MM/DD HH:mm')
+                    );
+                    while (roop) {
+                        params.page = page;
+                        params.limit = limit;
+                        const screeningEventReservationsResult =
+                            await this.cinerino.reservation.search({ ...params, bookingThrough, bookingFrom });
+                        screeningEventReservations =
+                            screeningEventReservations.concat(screeningEventReservationsResult.data);
+                        const lastPage = Math.ceil(screeningEventReservationsResult.totalCount / limit);
+                        page++;
+                        roop = !(page > lastPage);
+                    }
                 }
 
                 const reservationsResult = screeningEventReservations.map((reservation) => {
