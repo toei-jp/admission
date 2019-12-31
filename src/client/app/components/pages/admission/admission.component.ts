@@ -139,6 +139,7 @@ export class AdmissionComponent implements OnInit, OnDestroy {
                 this.router.navigate(['/error']);
                 return;
             }
+            const today = moment().format('YYYYMMDD');
             this.store.dispatch(new GetScreeningEventReservations({
                 params: {
                     typeOf: factory.chevre.reservationType.EventReservation,
@@ -148,7 +149,9 @@ export class AdmissionComponent implements OnInit, OnDestroy {
                     reservationFor: {
                         typeOf: factory.chevre.eventType.ScreeningEvent,
                         id: admission.screeningEvent.id
-                    }
+                    },
+                    bookingFrom: moment(today).add(-35, 'day').toDate(),
+                    bookingThrough:  moment(today).add(1, 'day').toDate(),
                 }
             }));
         }).unsubscribe();

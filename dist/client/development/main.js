@@ -923,6 +923,7 @@ var AdmissionComponent = /** @class */ (function () {
                 _this.router.navigate(['/error']);
                 return;
             }
+            var today = moment__WEBPACK_IMPORTED_MODULE_7__().format('YYYYMMDD');
             _this.store.dispatch(new _store_actions__WEBPACK_IMPORTED_MODULE_10__["GetScreeningEventReservations"]({
                 params: {
                     typeOf: _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].chevre.reservationType.EventReservation,
@@ -932,7 +933,9 @@ var AdmissionComponent = /** @class */ (function () {
                     reservationFor: {
                         typeOf: _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].chevre.eventType.ScreeningEvent,
                         id: admission.screeningEvent.id
-                    }
+                    },
+                    bookingFrom: moment__WEBPACK_IMPORTED_MODULE_7__(today).add(-35, 'day').toDate(),
+                    bookingThrough: moment__WEBPACK_IMPORTED_MODULE_7__(today).add(1, 'day').toDate(),
                 }
             }));
         }).unsubscribe();
@@ -3366,9 +3369,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var http_status__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(http_status__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var jwt_decode__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! jwt-decode */ "../../node_modules/jwt-decode/lib/index.js");
 /* harmony import */ var jwt_decode__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(jwt_decode__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "../../node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services */ "./app/services/index.ts");
-/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../actions */ "./app/store/actions/index.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment */ "../../node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/operators */ "../../node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services */ "./app/services/index.ts");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../actions */ "./app/store/actions/index.ts");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3421,6 +3437,7 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 
 
 
+
 /**
  * Effects
  */
@@ -3432,7 +3449,7 @@ var Effects = /** @class */ (function () {
         /**
          * getSellers
          */
-        this.getSellers = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions__WEBPACK_IMPORTED_MODULE_7__["ActionTypes"].GetSellers), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.getSellers = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].GetSellers), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var searchResult, sellers, error_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -3444,11 +3461,11 @@ var Effects = /** @class */ (function () {
                         return [4 /*yield*/, this.cinerino.seller.search(payload.params)];
                     case 2:
                         searchResult = _a.sent();
-                        sellers = searchResult.data;
-                        return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_7__["GetSellersSuccess"]({ sellers: sellers })];
+                        sellers = searchResult.data.filter(function (s) { return s.location !== undefined && s.location.branchCode !== undefined; });
+                        return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_8__["GetSellersSuccess"]({ sellers: sellers })];
                     case 3:
                         error_1 = _a.sent();
-                        return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_7__["GetSellersFail"]({ error: error_1 })];
+                        return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_8__["GetSellersFail"]({ error: error_1 })];
                     case 4: return [2 /*return*/];
                 }
             });
@@ -3456,7 +3473,7 @@ var Effects = /** @class */ (function () {
         /**
          * getScreeningEvent
          */
-        this.getScreeningEvent = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions__WEBPACK_IMPORTED_MODULE_7__["ActionTypes"].GetScreeningEvent), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.getScreeningEvent = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].GetScreeningEvent), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var screeningEvent, error_2;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -3468,10 +3485,10 @@ var Effects = /** @class */ (function () {
                         return [4 /*yield*/, this.cinerino.event.findScreeningEventById(payload.params)];
                     case 2:
                         screeningEvent = _a.sent();
-                        return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_7__["GetScreeningEventSuccess"]({ screeningEvent: screeningEvent })];
+                        return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_8__["GetScreeningEventSuccess"]({ screeningEvent: screeningEvent })];
                     case 3:
                         error_2 = _a.sent();
-                        return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_7__["GetScreeningEventFail"]({ error: error_2 })];
+                        return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_8__["GetScreeningEventFail"]({ error: error_2 })];
                     case 4: return [2 /*return*/];
                 }
             });
@@ -3479,7 +3496,7 @@ var Effects = /** @class */ (function () {
         /**
          * getScreeningEvents
          */
-        this.getScreeningEvents = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions__WEBPACK_IMPORTED_MODULE_7__["ActionTypes"].GetScreeningEvents), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.getScreeningEvents = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].GetScreeningEvents), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var params, limit, page, roop, screeningEvents, screeningEventsResult, lastPage, error_3;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -3506,10 +3523,10 @@ var Effects = /** @class */ (function () {
                         page++;
                         roop = !(page > lastPage);
                         return [3 /*break*/, 2];
-                    case 4: return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_7__["GetScreeningEventsSuccess"]({ screeningEvents: screeningEvents })];
+                    case 4: return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_8__["GetScreeningEventsSuccess"]({ screeningEvents: screeningEvents })];
                     case 5:
                         error_3 = _a.sent();
-                        return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_7__["GetScreeningEventsFail"]({ error: error_3 })];
+                        return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_8__["GetScreeningEventsFail"]({ error: error_3 })];
                     case 6: return [2 /*return*/];
                 }
             });
@@ -3517,35 +3534,51 @@ var Effects = /** @class */ (function () {
         /**
          * getScreeningEventReservations
          */
-        this.getScreeningEventReservations = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions__WEBPACK_IMPORTED_MODULE_7__["ActionTypes"].GetScreeningEventReservations), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
-            var params, limit, page, roop, screeningEventReservations, screeningEventReservationsResult, lastPage, reservationsResult, error_4;
+        this.getScreeningEventReservations = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].GetScreeningEventReservations), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+            var params, screeningEventReservations, splitDay, splitCount, i, limit, page, roop, bookingThrough, bookingFrom, screeningEventReservationsResult, lastPage, reservationsResult, error_4;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 5, , 6]);
-                        return [4 /*yield*/, this.cinerino.getServices()];
-                    case 1:
-                        _a.sent();
                         params = payload.params;
+                        _a.label = 1;
+                    case 1:
+                        _a.trys.push([1, 8, , 9]);
+                        return [4 /*yield*/, this.cinerino.getServices()];
+                    case 2:
+                        _a.sent();
+                        screeningEventReservations = [];
+                        splitDay = 14;
+                        splitCount = Math.ceil(moment__WEBPACK_IMPORTED_MODULE_5__(params.bookingThrough).diff(moment__WEBPACK_IMPORTED_MODULE_5__(params.bookingFrom), 'days') / splitDay);
+                        i = 0;
+                        _a.label = 3;
+                    case 3:
+                        if (!(i < splitCount)) return [3 /*break*/, 7];
                         limit = 100;
                         page = 1;
                         roop = true;
-                        screeningEventReservations = [];
-                        _a.label = 2;
-                    case 2:
-                        if (!roop) return [3 /*break*/, 4];
+                        bookingThrough = moment__WEBPACK_IMPORTED_MODULE_5__(params.bookingThrough).add(-1 * splitDay * i, 'days').toDate();
+                        bookingFrom = (moment__WEBPACK_IMPORTED_MODULE_5__(params.bookingThrough).add(-1 * splitDay * (i + 1), 'days').toDate() > moment__WEBPACK_IMPORTED_MODULE_5__(params.bookingFrom).toDate())
+                            ? moment__WEBPACK_IMPORTED_MODULE_5__(params.bookingThrough).add(-1 * splitDay * (i + 1), 'days').toDate()
+                            : moment__WEBPACK_IMPORTED_MODULE_5__(params.bookingFrom).toDate();
+                        console.log(moment__WEBPACK_IMPORTED_MODULE_5__(bookingFrom).format('YYYY/MM/DD HH:mm'), moment__WEBPACK_IMPORTED_MODULE_5__(bookingThrough).format('YYYY/MM/DD HH:mm'));
+                        _a.label = 4;
+                    case 4:
+                        if (!roop) return [3 /*break*/, 6];
                         params.page = page;
                         params.limit = limit;
-                        return [4 /*yield*/, this.cinerino.reservation.search(params)];
-                    case 3:
+                        return [4 /*yield*/, this.cinerino.reservation.search(__assign({}, params, { bookingThrough: bookingThrough, bookingFrom: bookingFrom }))];
+                    case 5:
                         screeningEventReservationsResult = _a.sent();
                         screeningEventReservations =
                             screeningEventReservations.concat(screeningEventReservationsResult.data);
                         lastPage = Math.ceil(screeningEventReservationsResult.totalCount / limit);
                         page++;
                         roop = !(page > lastPage);
-                        return [3 /*break*/, 2];
-                    case 4:
+                        return [3 /*break*/, 4];
+                    case 6:
+                        i++;
+                        return [3 /*break*/, 3];
+                    case 7:
                         reservationsResult = screeningEventReservations.map(function (reservation) {
                             return {
                                 id: reservation.id,
@@ -3553,18 +3586,18 @@ var Effects = /** @class */ (function () {
                                 reservedTicket: reservation.reservedTicket
                             };
                         });
-                        return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_7__["GetScreeningEventReservationsSuccess"]({ screeningEventReservations: reservationsResult })];
-                    case 5:
+                        return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_8__["GetScreeningEventReservationsSuccess"]({ screeningEventReservations: reservationsResult })];
+                    case 8:
                         error_4 = _a.sent();
-                        return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_7__["GetScreeningEventReservationsFail"]({ error: error_4 })];
-                    case 6: return [2 /*return*/];
+                        return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_8__["GetScreeningEventReservationsFail"]({ error: error_4 })];
+                    case 9: return [2 /*return*/];
                 }
             });
         }); }));
         /**
          * convertQrcodeToToken
          */
-        this.convertQrcodeToToken = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions__WEBPACK_IMPORTED_MODULE_7__["ActionTypes"].ConvertQrcodeToToken), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.convertQrcodeToToken = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].ConvertQrcodeToToken), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var error_5, code, screeningEventReservations, token, getTokenResult, error_6, checkTokenActions, isAvailable, statusCode, decodeResult_1, checkTokenActionsResult, checkTokenActions, availableReservation, isAvailable, statusCode, error_7;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -3576,7 +3609,7 @@ var Effects = /** @class */ (function () {
                         return [3 /*break*/, 3];
                     case 2:
                         error_5 = _a.sent();
-                        return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_7__["ConvertQrcodeToTokenFail"]({ error: error_5 })];
+                        return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_8__["ConvertQrcodeToTokenFail"]({ error: error_5 })];
                     case 3:
                         code = payload.params.code;
                         screeningEventReservations = payload.params.screeningEventReservations;
@@ -3593,7 +3626,7 @@ var Effects = /** @class */ (function () {
                         checkTokenActions = [];
                         isAvailable = false;
                         statusCode = error_6.code;
-                        return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_7__["ConvertQrcodeToTokenSuccess"]({ checkTokenActions: checkTokenActions, isAvailable: isAvailable, statusCode: statusCode })];
+                        return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_8__["ConvertQrcodeToTokenSuccess"]({ checkTokenActions: checkTokenActions, isAvailable: isAvailable, statusCode: statusCode })];
                     case 7:
                         _a.trys.push([7, 9, , 10]);
                         decodeResult_1 = jwt_decode__WEBPACK_IMPORTED_MODULE_4__(token);
@@ -3606,12 +3639,12 @@ var Effects = /** @class */ (function () {
                             .find(function (r) { return r.id === decodeResult_1.typeOfGood.id; });
                         isAvailable = availableReservation !== undefined;
                         statusCode = http_status__WEBPACK_IMPORTED_MODULE_3__["OK"];
-                        return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_7__["ConvertQrcodeToTokenSuccess"]({
+                        return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_8__["ConvertQrcodeToTokenSuccess"]({
                                 token: token, decodeResult: decodeResult_1, availableReservation: availableReservation, checkTokenActions: checkTokenActions, isAvailable: isAvailable, statusCode: statusCode
                             })];
                     case 9:
                         error_7 = _a.sent();
-                        return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_7__["ConvertQrcodeToTokenFail"]({ error: error_7 })];
+                        return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_8__["ConvertQrcodeToTokenFail"]({ error: error_7 })];
                     case 10: return [2 /*return*/];
                 }
             });
@@ -3619,7 +3652,7 @@ var Effects = /** @class */ (function () {
         /**
          * Admission
          */
-        this.Admission = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions__WEBPACK_IMPORTED_MODULE_7__["ActionTypes"].Admission), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.Admission = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].Admission), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var token, decodeResult, error_8;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -3635,10 +3668,10 @@ var Effects = /** @class */ (function () {
                         return [4 /*yield*/, this.cinerino.reservation.findScreeningEventReservationByToken({ token: token })];
                     case 3:
                         _a.sent();
-                        return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_7__["AdmissionSuccess"]({ token: token, decodeResult: decodeResult })];
+                        return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_8__["AdmissionSuccess"]({ token: token, decodeResult: decodeResult })];
                     case 4:
                         error_8 = _a.sent();
-                        return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_7__["AdmissionFail"]({ error: error_8, token: token, decodeResult: decodeResult })];
+                        return [2 /*return*/, new _actions__WEBPACK_IMPORTED_MODULE_8__["AdmissionFail"]({ error: error_8, token: token, decodeResult: decodeResult })];
                     case 5: return [2 /*return*/];
                 }
             });
@@ -3671,7 +3704,7 @@ var Effects = /** @class */ (function () {
     Effects = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
         __metadata("design:paramtypes", [_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["Actions"],
-            _services__WEBPACK_IMPORTED_MODULE_6__["CinerinoService"]])
+            _services__WEBPACK_IMPORTED_MODULE_7__["CinerinoService"]])
     ], Effects);
     return Effects;
 }());
