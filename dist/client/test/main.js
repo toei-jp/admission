@@ -3535,7 +3535,7 @@ var Effects = /** @class */ (function () {
          * getScreeningEventReservations
          */
         this.getScreeningEventReservations = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].GetScreeningEventReservations), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
-            var params, screeningEventReservations, splitDay, splitCount, i, limit, page, roop, bookingThrough, bookingFrom, screeningEventReservationsResult, lastPage, reservationsResult, error_4;
+            var params, screeningEventReservations, splitDay, splitCount, i, limit, page, roop, bookingThrough, bookingFrom, searchResult, reservationsResult, error_4;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -3560,7 +3560,6 @@ var Effects = /** @class */ (function () {
                         bookingFrom = (moment__WEBPACK_IMPORTED_MODULE_5__(params.bookingThrough).add(-1 * splitDay * (i + 1), 'days').toDate() > moment__WEBPACK_IMPORTED_MODULE_5__(params.bookingFrom).toDate())
                             ? moment__WEBPACK_IMPORTED_MODULE_5__(params.bookingThrough).add(-1 * splitDay * (i + 1), 'days').toDate()
                             : moment__WEBPACK_IMPORTED_MODULE_5__(params.bookingFrom).toDate();
-                        console.log(moment__WEBPACK_IMPORTED_MODULE_5__(bookingFrom).format('YYYY/MM/DD HH:mm'), moment__WEBPACK_IMPORTED_MODULE_5__(bookingThrough).format('YYYY/MM/DD HH:mm'));
                         _a.label = 4;
                     case 4:
                         if (!roop) return [3 /*break*/, 6];
@@ -3568,12 +3567,11 @@ var Effects = /** @class */ (function () {
                         params.limit = limit;
                         return [4 /*yield*/, this.cinerino.reservation.search(__assign({}, params, { bookingThrough: bookingThrough, bookingFrom: bookingFrom }))];
                     case 5:
-                        screeningEventReservationsResult = _a.sent();
+                        searchResult = _a.sent();
                         screeningEventReservations =
-                            screeningEventReservations.concat(screeningEventReservationsResult.data);
-                        lastPage = Math.ceil(screeningEventReservationsResult.totalCount / limit);
+                            screeningEventReservations.concat(searchResult.data);
                         page++;
-                        roop = !(page > lastPage);
+                        roop = searchResult.data.length > 0;
                         return [3 /*break*/, 4];
                     case 6:
                         i++;
