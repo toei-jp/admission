@@ -12,6 +12,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## 1.1.6 - 2020-01-24
+### Fixed
+ - 予約検索結果のtotalCountを使用しないカタチに改修
+
 ## 1.1.5 - 2019-12-31
 ### Fixed
 - 予約検索へ期間を指定へ修正
