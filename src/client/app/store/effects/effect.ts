@@ -137,20 +137,15 @@ export class Effects {
                         (moment(params.bookingThrough).add(-1 * splitDay * (i + 1), 'days').toDate() > moment(params.bookingFrom).toDate())
                             ? moment(params.bookingThrough).add(-1 * splitDay * (i + 1), 'days').toDate()
                             : moment(params.bookingFrom).toDate();
-                    console.log(
-                        moment(bookingFrom).format('YYYY/MM/DD HH:mm'),
-                        moment(bookingThrough).format('YYYY/MM/DD HH:mm')
-                    );
                     while (roop) {
                         params.page = page;
                         params.limit = limit;
-                        const screeningEventReservationsResult =
+                        const searchResult =
                             await this.cinerino.reservation.search({ ...params, bookingThrough, bookingFrom });
                         screeningEventReservations =
-                            screeningEventReservations.concat(screeningEventReservationsResult.data);
-                        const lastPage = Math.ceil(screeningEventReservationsResult.totalCount / limit);
+                            screeningEventReservations.concat(searchResult.data);
                         page++;
-                        roop = !(page > lastPage);
+                        roop = searchResult.data.length > 0;
                     }
                 }
 
